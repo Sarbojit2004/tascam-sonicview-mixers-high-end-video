@@ -25,6 +25,7 @@ export const CONTACT = {
   youtube: 'shivanshelectronics.in/youtube-channel',
   address:
     'Raja Electric — Shivansh Electronics, 3, Ramanath Das Road, Dhakuria, Tanu Pukur, Garfa, Kolkata, West Bengal, India 700031',
+  directions: 'shivanshelectronics.in/google-profile-location',
 } as const;
 
 /** Social handles woven through the body of each reel, not just the outro. */

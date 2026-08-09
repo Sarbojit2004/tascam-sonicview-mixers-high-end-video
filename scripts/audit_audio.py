@@ -23,9 +23,19 @@ import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SFX_DIR = os.path.join(ROOT, "public", "audio", "sfx")
+LF_DIR = os.path.join(ROOT, "public", "audio", "lf")
 VO_DIR = os.path.join(ROOT, "public", "vo")
-TARGET_BED = 88.0
 TOL = 0.12
+
+
+def target_seconds(fname: str):
+    """Long files carry their intended length in their name; short SFX are free."""
+    stem = fname[:-4]
+    if "longform" in stem:
+        return 298.0
+    if stem.startswith("music-bed-part") or stem.startswith("voiceover-reel"):
+        return 88.0
+    return None
 
 
 def bin_for(name):
@@ -88,7 +98,7 @@ def contour(x, buckets=22):
 def main():
     fails, warns, checked = [], [], 0
 
-    groups = [("SFX", SFX_DIR, False), ("VO", VO_DIR, True)]
+    groups = [("REEL SFX", SFX_DIR, False), ("LONG-FORM SFX + BEDS", LF_DIR, False), ("VO", VO_DIR, True)]
     for label, d, allow_silent in groups:
         files = sorted(f for f in os.listdir(d) if f.endswith(".mp3"))
         print(f"\n=== {label}  ({len(files)} files in {os.path.relpath(d, ROOT)}) ===")
@@ -106,7 +116,8 @@ def main():
             peak = float(np.abs(x).max()) if len(x) else 0.0
             rms = float(np.sqrt(np.mean(x ** 2))) if len(x) else 0.0
             silent = peak < 1e-4
-            bed = f.startswith("music-bed")
+            want = target_seconds(f)
+            bed = f.startswith("music-bed") or f.startswith("ambient-")
 
             status = "✓"
             if m["ch"] != 2 or m["rate"] != 48000:
@@ -118,8 +129,8 @@ def main():
             if peak > 0.999:
                 warns.append(f"{f}: peak {peak:.3f} may clip")
                 status = "!"
-            if bed and abs(m["dur"] - TARGET_BED) > TOL:
-                fails.append(f"{f}: {m['dur']:.3f}s != {TARGET_BED}s target")
+            if want is not None and abs(m["dur"] - want) > TOL:
+                fails.append(f"{f}: {m['dur']:.3f}s != {want}s target")
                 status = "✗"
             if allow_silent and not silent:
                 warns.append(f"{f}: VO placeholder is NOT silent")
@@ -132,11 +143,14 @@ def main():
 
     # ---- cross-reference cue names used in code -----------------------------
     sfx_ts = os.path.join(ROOT, "src", "lib", "sfx.ts")
+    lf_ts = os.path.join(ROOT, "src", "lib", "lf-sfx.ts")
     if os.path.exists(sfx_ts):
         src = open(sfx_ts).read()
-        declared = set(re.findall(r"'([a-z0-9\-]+)'\s*:\s*'audio/sfx/", src))
-        declared |= set(re.findall(r"audio/sfx/([a-z0-9\-]+)\.mp3", src))
+        if os.path.exists(lf_ts):
+            src += open(lf_ts).read()
+        declared = set(re.findall(r"audio/(?:sfx|lf)/([a-z0-9\-]+)\.mp3", src))
         on_disk = {f[:-4] for f in os.listdir(SFX_DIR) if f.endswith(".mp3")}
+        on_disk |= {f[:-4] for f in os.listdir(LF_DIR) if f.endswith(".mp3")}
         missing = declared - on_disk
         unused = on_disk - declared
         print(f"\n=== CUE CROSS-REFERENCE (src/lib/sfx.ts) ===")

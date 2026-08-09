@@ -37,12 +37,13 @@ export type BrandAppearance = {
   brand: Brand;
   form: BrandForm;
   contact?: number; // index into the contact rotation, for lower-thirds
+  y?: number; // vertical offset override for inline marks, in safe-rect px
   note: string;
 };
 
 const P1: BrandAppearance[] = [
-  {at: 60, dur: 240, brand: 'tascam', form: 'beat', note: 'cold open'},
-  {at: 150, dur: 220, brand: 'shivansh', form: 'beat', note: 'cold open partner card'},
+  {at: 30, dur: 130, brand: 'tascam', form: 'beat', note: 'cold open'},
+  {at: 168, dur: 122, brand: 'shivansh', form: 'beat', note: 'cold open partner card'},
   {at: 520, dur: 200, brand: 'dante', form: 'inline', note: 'pillars — Dante named as the connective thread'},
   // lower-third rather than a corner mark, so it sits bottom-left and cannot
   // collide with the Dante inline mark occupying the right side of this chapter

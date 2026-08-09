@@ -126,6 +126,16 @@ const BrandBeatCard: React.FC<{
         : 'AUDIO NETWORKING OVER STANDARD IP';
   return (
     <AbsoluteFill style={{opacity: p}}>
+      {/* A branding BEAT is a full-frame interstitial, not an overlay: the
+          chapter beneath is washed out to the page colour so the mark sits on
+          the background with nothing behind it. This is deliberately not a box
+          or plate around the logo — it is the page itself coming forward. */}
+      <AbsoluteFill style={{backgroundColor: C.paper, opacity: 0.94}} />
+      <AbsoluteFill
+        style={{
+          background: `radial-gradient(ellipse 60% 70% at 50% 46%, ${a}12 0%, ${a}00 72%)`,
+        }}
+      />
       <div
         style={{
           position: 'absolute',

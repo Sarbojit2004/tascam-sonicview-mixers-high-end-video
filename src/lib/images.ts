@@ -39,5 +39,21 @@ export const A = (id: number): string => {
 
 export const isVideo = (id: number): boolean => BY_ID.get(id)?.kind === 'video';
 
+/**
+ * Long-form variant of a clip.
+ *
+ * The two source clips are shared by both series, but the formats want
+ * different trim lengths: the reels ask for roughly 1-3 s per appearance, the
+ * long-form videos for roughly 3-6 s. Rather than compromise on one length,
+ * each series gets its own trim of the same source window — `v133.mp4` /
+ * `v134.mp4` for the reels, `v133-lf.mp4` / `v134-lf.mp4` for the long-form.
+ * Both are natural speed; neither is sped up or slowed.
+ */
+export const ALF = (id: number): string => {
+  const e = BY_ID.get(id);
+  if (!e || e.kind !== 'video') throw new Error(`asset ${id} is not a video clip`);
+  return staticFile(`img/${e.slug!.replace('.mp4', '-lf.mp4')}`);
+};
+
 export const idsForPart = (part: number): number[] =>
   LEDGER.filter((e) => e.part === part).map((e) => e.id);

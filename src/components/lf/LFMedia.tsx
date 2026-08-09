@@ -1,7 +1,7 @@
 import React from 'react';
 import {Img, OffthreadVideo, useCurrentFrame} from 'remotion';
 import {C, LF_SAFE} from '../../lib/lf-theme';
-import {A} from '../../lib/images';
+import {A, ALF} from '../../lib/images';
 import {beat, kenBurns, ramp} from '../../lib/anim';
 
 /**
@@ -169,7 +169,7 @@ export const LFClip: React.FC<{
     }}
   >
     <OffthreadVideo
-      src={A(id)}
+      src={ALF(id)}
       muted
       style={{width: '100%', height: '100%', objectFit: fit, display: 'block'}}
     />

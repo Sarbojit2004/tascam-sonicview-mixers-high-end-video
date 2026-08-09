@@ -5,6 +5,8 @@ import {Part1Hub} from './Part1';
 import {Part2Network} from './Part2';
 import {Part3Protocol} from './Part3';
 import {Thumb1, Thumb2, Thumb3} from './Thumbnails';
+import {LongformPart1Hub} from './LFPart1';
+import {LF_CANVAS, LF_FPS, LF_TOTAL_FRAMES, lfPartDuration} from './lib/lf-theme';
 
 /**
  * Each part is an independently renderable 1080x1920 / 30 fps / 2640-frame
@@ -18,8 +20,24 @@ const guard = (part: 1 | 2 | 3): number => {
   return d;
 };
 
+const lfGuard = (part: 1 | 2 | 3): number => {
+  const d = lfPartDuration(part);
+  if (d !== LF_TOTAL_FRAMES) {
+    throw new Error(`long-form part ${part} chapter table sums to ${d}, expected ${LF_TOTAL_FRAMES}`);
+  }
+  return d;
+};
+
 export const RemotionRoot: React.FC = () => (
   <>
+    <Composition
+      id="LongformPart1Hub"
+      component={LongformPart1Hub}
+      durationInFrames={lfGuard(1)}
+      fps={LF_FPS}
+      width={LF_CANVAS.w}
+      height={LF_CANVAS.h}
+    />
     <Composition
       id="Part1Hub"
       component={Part1Hub}

@@ -141,3 +141,14 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# ---------------------------------------------------------------------------
+# Project-specific
+# ---------------------------------------------------------------------------
+# The Next.js block above ignores `out`, but out/ holds the rendered reels,
+# which ARE the deliverable and must be committed.
+!out/
+!out/*.mp4
+
+# Scratch renders and verification stills live outside the repo.
+scratch/

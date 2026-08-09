@@ -3,10 +3,18 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {ramp} from '../lib/anim';
 
 /**
- * One timed beat inside a scene. Beats overlap by `fade` frames so a scene can
- * step through several distinct compositions without the frame ever emptying —
- * the mechanism behind the wide-transition editing this format needs to carry
- * 74 assets through 88 seconds.
+ * One timed beat inside a scene. Beats step a scene through several distinct
+ * compositions — the mechanism behind the wide-transition editing this format
+ * needs to carry 74 assets through 88 seconds.
+ *
+ * `to` marks where the beat STARTS fading out, not where it has finished, so
+ * the beat is fully opaque across the whole [from + fade, to] window and its
+ * fade-out overlaps the next beat's fade-in. Treating `to` as the end instead
+ * left a few frames at every boundary where the outgoing beat had reached zero
+ * and the incoming one was still under half — a visible white gap where the
+ * hero image should be. The last beat in a scene passes `to = dur`, so it
+ * holds to the end and then dissolves through the scene overlap into the next
+ * scene, which is exactly the wanted behaviour.
  */
 export const B: React.FC<{
   from: number;
@@ -16,7 +24,7 @@ export const B: React.FC<{
   style?: React.CSSProperties;
 }> = ({from, to, fade = 12, children, style}) => {
   const f = useCurrentFrame();
-  const o = Math.min(ramp(f, [from, from + fade], [0, 1]), ramp(f, [to - fade, to], [1, 0]));
+  const o = Math.min(ramp(f, [from, from + fade], [0, 1]), ramp(f, [to, to + fade], [1, 0]));
   if (o <= 0.002) return null;
   return <AbsoluteFill style={{opacity: o, ...style}}>{children}</AbsoluteFill>;
 };

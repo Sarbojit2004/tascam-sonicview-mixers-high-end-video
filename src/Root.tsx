@@ -6,6 +6,7 @@ import {Part2Network} from './Part2';
 import {Part3Protocol} from './Part3';
 import {Thumb1, Thumb2, Thumb3} from './Thumbnails';
 import {LongformPart1Hub} from './LFPart1';
+import {LongformThumb1, LongformThumb2, LongformThumb3} from './LFThumbnails';
 import {LF_CANVAS, LF_FPS, LF_TOTAL_FRAMES, lfPartDuration} from './lib/lf-theme';
 
 /**
@@ -62,6 +63,19 @@ export const RemotionRoot: React.FC = () => (
       width={CANVAS.w}
       height={CANVAS.h}
     />
+    {([['LongformThumb1', LongformThumb1], ['LongformThumb2', LongformThumb2], ['LongformThumb3', LongformThumb3]] as const).map(
+      ([id, Comp]) => (
+        <Composition
+          key={id}
+          id={id}
+          component={Comp}
+          durationInFrames={1}
+          fps={LF_FPS}
+          width={LF_CANVAS.w}
+          height={LF_CANVAS.h}
+        />
+      ),
+    )}
     <Composition
       id="Thumb1"
       component={Thumb1}

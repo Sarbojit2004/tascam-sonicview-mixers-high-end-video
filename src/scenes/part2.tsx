@@ -234,7 +234,7 @@ export const P2S04: React.FC = () => (
     </At>
     <At y={Y.head} w={SAFE.w}>
       <KineticLine
-        text={'NOT A MIXER. THE CONSOLE&rsquo;S I/O, MOVED.'}
+        text={'NOT A MIXER. THE CONSOLE\u2019S I/O, MOVED.'}
         size={84}
         per={2.6}
         delay={8}

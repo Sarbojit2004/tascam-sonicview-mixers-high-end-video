@@ -76,17 +76,17 @@ const CardScene: React.FC<{
     </At>
 
     <B from={0} to={Math.round(dur * 0.52)} fade={12}>
-      <Shot id={frontId} box={{x: 0, y: 348, w: SAFE.w, h: 300}} dur={dur} fit="contain" pad={16} kb={{z: [1, 1]}} />
-      <At y={676}>
-        <Sub size={28} color={C.inkSoft} style={{maxWidth: 884}}>
+      <Shot id={frontId} box={{x: 0, y: 340, w: SAFE.w, h: 290}} dur={dur} fit="contain" pad={16} kb={{z: [1, 1]}} />
+      <At y={652}>
+        <Sub size={27} color={C.inkSoft} style={{maxWidth: 884}}>
           {body}
         </Sub>
       </At>
     </B>
 
     <B from={Math.round(dur * 0.46)} to={dur} fade={12}>
-      <Shot id={cardId} box={{x: 0, y: 348, w: SAFE.w, h: 300}} dur={dur} fit="contain" pad={16} kb={{z: [1, 1]}} />
-      <At y={676}>
+      <Shot id={cardId} box={{x: 0, y: 340, w: SAFE.w, h: 290}} dur={dur} fit="contain" pad={16} kb={{z: [1, 1]}} />
+      <At y={652}>
         <div style={{display: 'flex', gap: 10, flexWrap: 'wrap'}}>
           {chips.map((c) => (
             <Chip key={c.label} bg={c.accent ? A : C.ink}>
@@ -97,8 +97,9 @@ const CardScene: React.FC<{
       </At>
     </B>
 
-    {/* connector identity — the thing that makes this card distinct */}
-    <At x={0} y={766} w={SAFE.w} h={232}>
+    {/* connector identity — the thing that makes this card distinct.
+        Sits clear of the body copy's worst case (three lines at 27/1.34). */}
+    <At x={0} y={790} w={SAFE.w} h={212}>
       <div
         style={{
           height: '100%',
@@ -111,7 +112,7 @@ const CardScene: React.FC<{
           gap: 30,
         }}
       >
-        <Connector kind={connector} w={228} h={132} color={C.ink} strokeWidth={3.4} />
+        <Connector kind={connector} w={216} h={124} color={C.ink} strokeWidth={3.4} />
         <div style={{flex: 1}}>
           <Micro color={A} size={15}>
             PHYSICAL INTERFACE
@@ -124,7 +125,7 @@ const CardScene: React.FC<{
     </At>
 
     <At y={1030}>
-      <Spec size={22} color={C.inkDim}>
+      <Spec size={21} color={C.inkDim}>
         {spec}
       </Spec>
     </At>

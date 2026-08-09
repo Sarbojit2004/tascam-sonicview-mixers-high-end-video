@@ -1,0 +1,38 @@
+{
+  "name": "tascam-sonicview-reels",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Three 88-second vertical reels for the TASCAM Sonicview digital mixing console ecosystem.",
+  "scripts": {
+    "studio": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "audio": "python3 scripts/gen_audio.py && python3 scripts/audit_audio.py",
+    "coverage": "node scripts/coverage.mjs",
+    "stills": "node scripts/stills.mjs",
+    "verify": "node scripts/verify_render.mjs",
+    "thumb:p1": "remotion still Thumb1 thumbnails/thumbnail-sonicview-reel-part1-hub.png --image-format=png",
+    "thumb:p2": "remotion still Thumb2 thumbnails/thumbnail-sonicview-reel-part2-network.png --image-format=png",
+    "thumb:p3": "remotion still Thumb3 thumbnails/thumbnail-sonicview-reel-part3-protocol.png --image-format=png",
+    "render:p1": "remotion render Part1Hub out/sonicview-reel-part1-hub.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p",
+    "render:p2": "remotion render Part2Network out/sonicview-reel-part2-network.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p",
+    "render:p3": "remotion render Part3Protocol out/sonicview-reel-part3-protocol.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.507",
+    "@remotion/cli": "4.0.507",
+    "@remotion/media-utils": "4.0.507",
+    "@remotion/noise": "4.0.507",
+    "@remotion/paths": "4.0.507",
+    "@remotion/renderer": "4.0.507",
+    "@remotion/shapes": "4.0.507",
+    "@remotion/transitions": "4.0.507",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "remotion": "4.0.507"
+  },
+  "devDependencies": {
+    "@types/react": "19.0.0",
+    "@types/react-dom": "19.0.0",
+    "typescript": "5.6.3"
+  }
+}

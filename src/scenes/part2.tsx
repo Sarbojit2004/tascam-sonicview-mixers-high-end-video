@@ -189,7 +189,7 @@ export const P2S03: React.FC = () => (
       <Shot id={43} box={{x: 0, y: 356, w: SAFE.w, h: 476}} dur={144} kb={{z: [1.04, 1.12]}} />
       <At y={862}>
         <Sub size={28} color={C.inkSoft} style={{maxWidth: 884}}>
-          {'Heavy, inflexible once installed, and a single point of failure across\nits whole length — the snake is the deployment problem.'}
+          {'Heavy, inflexible once installed, and a single point of\nfailure across its whole length — the snake is\nthe deployment problem.'}
         </Sub>
       </At>
     </B>

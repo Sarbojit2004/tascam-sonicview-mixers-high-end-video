@@ -15,15 +15,20 @@ const ledger = JSON.parse(fs.readFileSync(path.join(root, 'src/lib/ledger.json')
 const byId = new Map(ledger.map((e) => [e.id, e]));
 
 const scenesDir = path.join(root, 'src/scenes');
-const files = fs.existsSync(scenesDir)
-  ? fs.readdirSync(scenesDir).filter((f) => /^part[123]\.tsx$/.test(f)).sort()
+// The reel series lives in src/scenes/part*.tsx; the long-form series lives in
+// src/scenes/lf/part*.tsx. They are audited as SEPARATE series because each
+// must independently cover every asset — they do not share a coverage pool.
+const SERIES = process.env.COVERAGE_SERIES === 'longform' ? 'longform' : 'reel';
+const dir = SERIES === 'longform' ? path.join(scenesDir, 'lf') : scenesDir;
+const files = fs.existsSync(dir)
+  ? fs.readdirSync(dir).filter((f) => /^part[123]\.tsx$/.test(f)).sort()
   : [];
 
 const used = new Map(); // id -> [{part, file, tier}]
 const partOfFile = (f) => Number(f.match(/part(\d)/)[1]);
 
 for (const f of files) {
-  const src = fs.readFileSync(path.join(scenesDir, f), 'utf8');
+  const src = fs.readFileSync(path.join(dir, f), 'utf8');
   const part = partOfFile(f);
 
   // hero / featured: a single asset id on Shot, Clip, CrossShot, AmbientPhoto —
@@ -55,7 +60,7 @@ let fails = 0;
 const warn = [];
 
 console.log('='.repeat(66));
-console.log('ASSET COVERAGE AUDIT');
+console.log(`ASSET COVERAGE AUDIT — ${SERIES.toUpperCase()} SERIES`);
 console.log('='.repeat(66));
 console.log(`ledger        : ${ledger.length} distinct assets`);
 console.log(
@@ -65,7 +70,7 @@ console.log(
 );
 const raw = ledger.reduce((a, e) => a + e.nRaw, 0);
 console.log(`raw filenames : ${raw}`);
-console.log(`scene files   : ${files.join(', ') || '(none yet)'}`);
+console.log(`scene files   : ${files.map((f) => path.relative(root, path.join(dir, f))).join(', ') || '(none yet)'}`);
 console.log('');
 
 for (const part of [1, 2, 3]) {

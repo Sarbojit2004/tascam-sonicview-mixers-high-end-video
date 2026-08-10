@@ -144,3 +144,133 @@ shell instead; override with `REMOTION_BROWSER` if the path differs.
 - Parts 1 and 2 end with a continuation line into the next part; Part 3 ends with a close-of-series
   line. **Every part still carries the full Shivansh Electronics outro** — the continuity beat is
   additional to it, never a replacement.
+
+---
+
+# Long-Form Series — Three 298-Second Landscape Videos
+
+The extended treatment of the same three-part story, part-for-part with the reels.
+
+| Part | Title | Covers | Output |
+|---|---|---|---|
+| 1 | **The Hub** | Sonicview 16XP, 24XP, the dp power-redundancy axis | `out/sonicview-longform-part1-hub.mp4` |
+| 2 | **The Network** | Dante, the SB-16D stagebox, three installation proof points | `out/sonicview-longform-part2-network.mp4` |
+| 3 | **The Protocol Layer** | The IF-Series expansion cards, card by card | `out/sonicview-longform-part3-protocol.mp4` |
+
+Each is exactly **298.000 s — 8,940 frames at 30 fps, 1920×1080**.
+
+## What differs from the reels
+
+- **Landscape, full-frame.** No social safe-zone contract and no top/bottom exclusion band. The one placement rule is a 52 px side inset for anything critical; background imagery and video may run to the true edge.
+- **Logos are used, not excluded.** The reels deliberately carry no logo at all. The long-form videos carry all three — TASCAM, Shivansh Electronics and Dante — and every one is shown **directly on the background with no box, card or plate**. All three source assets ship with a white plate baked in, so `scripts/prep_logos.py` keys it out of the asset itself (see below).
+- **Longer clip trims.** The reels take 2.5 s / 2.8 s of the two source clips; the long-form videos take 4.6 s / 5.6 s of the same windows (`v133-lf.mp4`, `v134-lf.mp4`). Both natural speed.
+- **A constant ambient layer** runs under the music bed for the whole runtime.
+- **Independent coverage.** Each series covers all 131 coverage-relevant assets on its own; they do not share a pool.
+
+## Branding cadence — enforced from data, not asserted
+
+`src/lib/lf-brand-plan.ts` declares every logo appearance once. `BrandingLayer` renders from it and `scripts/branding_audit.mjs` measures it, so picture and compliance report cannot disagree.
+
+```bash
+npm run branding            # timestamped appearance list + rule checks, all three parts
+```
+
+Rules enforced: no gap longer than 25 s without Shivansh Electronics; a Shivansh appearance inside every chapter; TASCAM a handful of times including mid-part; Dante only where Dante networking is the actual subject.
+
+A branding **beat** is a full-frame interstitial — the chapter beneath washes to the page colour so the mark sits on the background with nothing behind it. That is deliberately not a box around the logo; it is the page coming forward.
+
+## Build
+
+```bash
+npm install
+npm run bootstrap           # rebuild public/img from source media, regenerate all audio, audit it
+npx tsc --noEmit
+npm run coverage:longform   # asset coverage for the long-form series
+npm run branding            # branding cadence
+
+npm run render:lf1          # 298 s, ~40 min
+npm run thumb:lf1
+node scripts/verify_render.mjs out/sonicview-longform-part1-hub.mp4
+```
+
+`npm run bootstrap` is the reproducibility step. `public/img` and `public/audio` are ~110 MB of *derived* files, so the project zip in `dist-zip/` ships the recipes rather than the output:
+
+- `scripts/rebuild_media.py` re-copies every deduplicated image from the source media and re-cuts both clip trims. Point `SONICVIEW_MEDIA_DIR` at the directory holding the 169 raw files (defaults to the repository root).
+- `scripts/gen_audio.py` and `scripts/gen_audio_longform.py` re-synthesise every SFX, bed and placeholder. Both use seeded RNG, so the output is byte-identical run to run.
+
+Rebuild the deliverable zips with `python3 scripts/pack_project.py` (deterministic — sorted
+entries and fixed timestamps, so an unchanged source tree produces an identical archive). It
+refuses to pack if any file the archive cannot build without is missing.
+
+### Rendering the zip standalone
+
+```bash
+unzip sonicview-longform-part1-project.zip -d sonicview
+cd sonicview
+export SONICVIEW_MEDIA_DIR=/path/to/the/169/source/files
+npm install && npm run bootstrap && npm run render:lf1
+```
+
+## Chapter structure — Part 1
+
+| # | Chapter | Frames |
+|---|---|---|
+| 01 | Cold open — the ecosystem premise | 420 |
+| 02 | Four architectural pillars | 390 |
+| 03 | Sonicview 16XP introduced | 540 |
+| 04 | 16XP form factor & deployment | 450 |
+| 05 | The VIEW touchscreen system *(clip)* | 660 |
+| 06 | Motorized faders & tactile recall | 480 |
+| 07 | The FPGA mixing engine | 690 |
+| 08 | Latency — the 0.51 ms path | 420 |
+| 09 | Class 1 HDIA preamps | 540 |
+| 10 | Rear I/O & built-in networking | 480 |
+| 11 | Onboard recording & USB | 390 |
+| 12 | Sonicview 24XP — scale *(clip)* | 600 |
+| 13 | 24XP control surface & workflow | 480 |
+| 14 | The dp power-redundancy axis | 780 |
+| 15 | dp across the lineup | 450 |
+| 16 | Replacing a fixed-architecture desk | 390 |
+| 17 | Continuation → Part 2 | 270 |
+| 18 | CTA & Shivansh Electronics outro | 510 |
+
+## Chapter structure — Part 2
+
+| # | Chapter | Frames |
+|---|---|---|
+| 01 | Cold open — from hub to stage | 420 |
+| 02 | The deployment problem | 540 |
+| 03 | Dante as transport | 780 |
+| 04 | 64 × 64, built in | 540 |
+| 05 | Redundant network paths | 480 |
+| 06 | SB-16D introduced | 660 |
+| 07 | SB-16D I/O & preamps | 600 |
+| 08 | Chassis & mounting | 540 |
+| 09 | Deployment & scaling | 480 |
+| 10 | Remote control from the network | 540 |
+| 11 | Proof — festival remote production | 420 |
+| 12 | Case study — radio broadcast | 780 |
+| 13 | Case study — campus & conference | 930 |
+| 14 | What the workflow becomes | 450 |
+| 15 | Continuation → Part 3 | 270 |
+| 16 | CTA & Shivansh outro | 510 |
+
+## Chapter structure — Part 3
+
+| # | Chapter | Frames |
+|---|---|---|
+| 01 | Cold open — the console adapts | 420 |
+| 02 | Two expansion slots | 480 |
+| 03 | IF-ST2110 — the card | 600 |
+| 04 | ST 2110 — what it carries | 660 |
+| 05 | ST 2110 — control & sync | 540 |
+| 06 | ST 2110 — facility topologies | 840 |
+| 07 | IF-AE16 — AES/EBU | 690 |
+| 08 | IF-AN16/OUT — analog output | 630 |
+| 09 | IF-MA64/EX — MADI | 690 |
+| 10 | IF-DA64 — expanded Dante | 690 |
+| 11 | Choosing between them | 690 |
+| 12 | Facility control integration | 600 |
+| 13 | The complete architecture | 600 |
+| 14 | Close of series | 300 |
+| 15 | CTA & Shivansh outro | 510 |

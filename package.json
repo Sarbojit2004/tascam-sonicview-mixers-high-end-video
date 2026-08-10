@@ -15,7 +15,16 @@
     "thumb:p3": "remotion still Thumb3 thumbnails/thumbnail-sonicview-reel-part3-protocol.png --image-format=png",
     "render:p1": "remotion render Part1Hub out/sonicview-reel-part1-hub.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p",
     "render:p2": "remotion render Part2Network out/sonicview-reel-part2-network.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p",
-    "render:p3": "remotion render Part3Protocol out/sonicview-reel-part3-protocol.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p"
+    "render:p3": "remotion render Part3Protocol out/sonicview-reel-part3-protocol.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p",
+    "bootstrap": "python3 scripts/rebuild_media.py && python3 scripts/gen_audio.py && python3 scripts/gen_audio_longform.py && python3 scripts/audit_audio.py",
+    "branding": "node scripts/branding_audit.mjs",
+    "coverage:longform": "COVERAGE_SERIES=longform node scripts/coverage.mjs",
+    "render:lf1": "remotion render LongformPart1Hub out/sonicview-longform-part1-hub.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p",
+    "render:lf2": "remotion render LongformPart2Network out/sonicview-longform-part2-network.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p",
+    "render:lf3": "remotion render LongformPart3Protocol out/sonicview-longform-part3-protocol.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p",
+    "thumb:lf1": "remotion still LongformThumb1 thumbnails/thumbnail-sonicview-longform-part1-hub.png --image-format=png",
+    "thumb:lf2": "remotion still LongformThumb2 thumbnails/thumbnail-sonicview-longform-part2-network.png --image-format=png",
+    "thumb:lf3": "remotion still LongformThumb3 thumbnails/thumbnail-sonicview-longform-part3-protocol.png --image-format=png"
   },
   "dependencies": {
     "@remotion/bundler": "4.0.507",

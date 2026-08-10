@@ -154,7 +154,7 @@ The extended treatment of the same three-part story, part-for-part with the reel
 | Part | Title | Covers | Output |
 |---|---|---|---|
 | 1 | **The Hub** | Sonicview 16XP, 24XP, the dp power-redundancy axis | `out/sonicview-longform-part1-hub.mp4` |
-| 2 | **The Network** | Dante, the SB-16D stagebox, two installation case studies | `out/sonicview-longform-part2-network.mp4` |
+| 2 | **The Network** | Dante, the SB-16D stagebox, three installation proof points | `out/sonicview-longform-part2-network.mp4` |
 | 3 | **The Protocol Layer** | The IF-Series expansion cards, card by card | `out/sonicview-longform-part3-protocol.mp4` |
 
 Each is exactly **298.000 s — 8,940 frames at 30 fps, 1920×1080**.
@@ -198,6 +198,10 @@ node scripts/verify_render.mjs out/sonicview-longform-part1-hub.mp4
 - `scripts/rebuild_media.py` re-copies every deduplicated image from the source media and re-cuts both clip trims. Point `SONICVIEW_MEDIA_DIR` at the directory holding the 169 raw files (defaults to the repository root).
 - `scripts/gen_audio.py` and `scripts/gen_audio_longform.py` re-synthesise every SFX, bed and placeholder. Both use seeded RNG, so the output is byte-identical run to run.
 
+Rebuild the deliverable zips with `python3 scripts/pack_project.py` (deterministic — sorted
+entries and fixed timestamps, so an unchanged source tree produces an identical archive). It
+refuses to pack if any file the archive cannot build without is missing.
+
 ### Rendering the zip standalone
 
 ```bash
@@ -229,3 +233,44 @@ npm install && npm run bootstrap && npm run render:lf1
 | 16 | Replacing a fixed-architecture desk | 390 |
 | 17 | Continuation → Part 2 | 270 |
 | 18 | CTA & Shivansh Electronics outro | 510 |
+
+## Chapter structure — Part 2
+
+| # | Chapter | Frames |
+|---|---|---|
+| 01 | Cold open — from hub to stage | 420 |
+| 02 | The deployment problem | 540 |
+| 03 | Dante as transport | 780 |
+| 04 | 64 × 64, built in | 540 |
+| 05 | Redundant network paths | 480 |
+| 06 | SB-16D introduced | 660 |
+| 07 | SB-16D I/O & preamps | 600 |
+| 08 | Chassis & mounting | 540 |
+| 09 | Deployment & scaling | 480 |
+| 10 | Remote control from the network | 540 |
+| 11 | Proof — festival remote production | 420 |
+| 12 | Case study — radio broadcast | 780 |
+| 13 | Case study — campus & conference | 930 |
+| 14 | What the workflow becomes | 450 |
+| 15 | Continuation → Part 3 | 270 |
+| 16 | CTA & Shivansh outro | 510 |
+
+## Chapter structure — Part 3
+
+| # | Chapter | Frames |
+|---|---|---|
+| 01 | Cold open — the console adapts | 420 |
+| 02 | Two expansion slots | 480 |
+| 03 | IF-ST2110 — the card | 600 |
+| 04 | ST 2110 — what it carries | 660 |
+| 05 | ST 2110 — control & sync | 540 |
+| 06 | ST 2110 — facility topologies | 840 |
+| 07 | IF-AE16 — AES/EBU | 690 |
+| 08 | IF-AN16/OUT — analog output | 630 |
+| 09 | IF-MA64/EX — MADI | 690 |
+| 10 | IF-DA64 — expanded Dante | 690 |
+| 11 | Choosing between them | 690 |
+| 12 | Facility control integration | 600 |
+| 13 | The complete architecture | 600 |
+| 14 | Close of series | 300 |
+| 15 | CTA & Shivansh outro | 510 |

@@ -434,7 +434,7 @@ export const L3C05: React.FC = () => (
       <Panel
         part={P}
         label="PTP CLOCK"
-        body={'Sync comes from the same grandmaster\nthe cameras and the switcher follow,\nnot from a separate audio clock\ndistribution.'}
+        body={'Sync comes from the same\ngrandmaster the cameras and\nthe switcher follow — not from\na separate audio clock.'}
         x={1216}
         y={340}
         w={W - 1216}

@@ -6,6 +6,8 @@ import {Part2Network} from './Part2';
 import {Part3Protocol} from './Part3';
 import {Thumb1, Thumb2, Thumb3} from './Thumbnails';
 import {LongformPart1Hub} from './LFPart1';
+import {LongformPart2Network} from './LFPart2';
+import {LongformPart3Protocol} from './LFPart3';
 import {LongformThumb1, LongformThumb2, LongformThumb3} from './LFThumbnails';
 import {LF_CANVAS, LF_FPS, LF_TOTAL_FRAMES, lfPartDuration} from './lib/lf-theme';
 
@@ -35,6 +37,22 @@ export const RemotionRoot: React.FC = () => (
       id="LongformPart1Hub"
       component={LongformPart1Hub}
       durationInFrames={lfGuard(1)}
+      fps={LF_FPS}
+      width={LF_CANVAS.w}
+      height={LF_CANVAS.h}
+    />
+    <Composition
+      id="LongformPart2Network"
+      component={LongformPart2Network}
+      durationInFrames={lfGuard(2)}
+      fps={LF_FPS}
+      width={LF_CANVAS.w}
+      height={LF_CANVAS.h}
+    />
+    <Composition
+      id="LongformPart3Protocol"
+      component={LongformPart3Protocol}
+      durationInFrames={lfGuard(3)}
       fps={LF_FPS}
       width={LF_CANVAS.w}
       height={LF_CANVAS.h}

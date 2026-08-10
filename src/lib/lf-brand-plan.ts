@@ -78,7 +78,10 @@ const P2: BrandAppearance[] = [
   {at: 1250, dur: 200, brand: 'shivansh', form: 'corner', note: 'Dante transport segment'},
   {at: 1760, dur: 240, brand: 'dante', form: 'inline', note: '64x64 built-in capacity'},
   {at: 1800, dur: 200, brand: 'shivansh', form: 'lower-third', contact: 1, note: '64x64 segment'},
-  {at: 2300, dur: 220, brand: 'dante', form: 'inline', note: 'redundant primary/secondary paths'},
+  // y-lifted clear of the chapter's hero photograph: the mark is dark ink and
+  // that shot is a dark rear panel, so the default inline slot would put the
+  // logo on top of it with no contrast.
+  {at: 2300, dur: 220, brand: 'dante', form: 'inline', y: 46, note: 'redundant primary/secondary paths'},
   {at: 2350, dur: 200, brand: 'shivansh', form: 'corner', note: 'redundancy segment'},
   {at: 2760, dur: 200, brand: 'tascam', form: 'corner', note: 'SB-16D introduced'},
   {at: 2850, dur: 200, brand: 'shivansh', form: 'lower-third', contact: 2, note: 'SB-16D segment'},
@@ -87,7 +90,7 @@ const P2: BrandAppearance[] = [
   {at: 4100, dur: 200, brand: 'shivansh', form: 'corner', note: 'chassis segment'},
   {at: 4600, dur: 200, brand: 'shivansh', form: 'lower-third', contact: 3, note: 'deployment segment'},
   {at: 5100, dur: 200, brand: 'shivansh', form: 'corner', note: 'remote control segment'},
-  {at: 5600, dur: 200, brand: 'shivansh', form: 'lower-third', contact: 4, note: 'stage power segment'},
+  {at: 5600, dur: 200, brand: 'shivansh', form: 'lower-third', contact: 4, note: 'festival remote segment'},
   {at: 6050, dur: 200, brand: 'tascam', form: 'corner', note: 'radio case study'},
   {at: 6150, dur: 200, brand: 'shivansh', form: 'corner', note: 'radio case study'},
   {at: 6500, dur: 220, brand: 'dante', form: 'inline', note: 'radio facility Dante primary/secondary'},

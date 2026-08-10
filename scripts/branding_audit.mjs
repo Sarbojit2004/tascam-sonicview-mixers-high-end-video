@@ -29,12 +29,34 @@ const themeSrc = fs.readFileSync(path.join(root, 'src/lib/lf-theme.ts'), 'utf8')
 const parsePlan = (label) => {
   const body = src.split(`const ${label}: BrandAppearance[] = [`)[1]?.split('\n];')[0];
   if (!body) return [];
-  return [...body.matchAll(
-    /\{at:\s*(\d+),\s*dur:\s*(\d+),\s*brand:\s*'(\w+)',\s*form:\s*'([\w-]+)'(?:,\s*contact:\s*(\d+))?,\s*note:\s*'([^']*)'\}/g,
-  )].map((m) => ({
-    at: +m[1], dur: +m[2], brand: m[3], form: m[4],
-    contact: m[5] === undefined ? null : +m[5], note: m[6],
-  }));
+  // Optional numeric fields (contact, y, ...) may appear between `form` and
+  // `note` in any combination, so they are matched as a group rather than
+  // enumerated — an unmatched declaration would silently under-report the
+  // cadence, which is the one thing this script exists to prevent.
+  const rows = [...body.matchAll(
+    /\{at:\s*(\d+),\s*dur:\s*(\d+),\s*brand:\s*'(\w+)',\s*form:\s*'([\w-]+)'((?:,\s*\w+:\s*-?\d+)*),\s*note:\s*'([^']*)'\}/g,
+  )].map((m) => {
+    const extra = Object.fromEntries(
+      [...m[5].matchAll(/(\w+):\s*(-?\d+)/g)].map((e) => [e[1], +e[2]]),
+    );
+    return {
+      at: +m[1], dur: +m[2], brand: m[3], form: m[4],
+      contact: extra.contact === undefined ? null : extra.contact,
+      y: extra.y === undefined ? null : extra.y,
+      note: m[6],
+    };
+  });
+  // Every `{at:` in the array body must have produced a row; anything else
+  // means the parser drifted from the source and the report is not trustworthy.
+  const declared = (body.match(/\{at:/g) ?? []).length;
+  if (declared !== rows.length) {
+    console.error(
+      `\nPARSE ERROR in ${label}: ${declared} appearances declared, ${rows.length} parsed.\n` +
+        'A BrandAppearance entry is written in a form branding_audit.mjs cannot read.',
+    );
+    process.exit(2);
+  }
+  return rows;
 };
 
 const parseChapters = (label) => {

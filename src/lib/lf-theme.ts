@@ -82,7 +82,7 @@ export const LF_PART2: Chapter[] = [
   {id: 'L2C08', dur: 540, label: 'Chassis & mounting'},
   {id: 'L2C09', dur: 480, label: 'Deployment & scaling'},
   {id: 'L2C10', dur: 540, label: 'Remote control from the network'},
-  {id: 'L2C11', dur: 420, label: 'Redundant power at the stage end'},
+  {id: 'L2C11', dur: 420, label: 'Proof — festival remote production'},
   {id: 'L2C12', dur: 780, label: 'Case study — radio broadcast'},
   {id: 'L2C13', dur: 930, label: 'Case study — campus & conference'},
   {id: 'L2C14', dur: 450, label: 'What the workflow becomes'},

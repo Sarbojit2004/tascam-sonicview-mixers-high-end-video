@@ -171,11 +171,12 @@ const BrandBeatCard: React.FC<{
 
 // ---------------------------------------------------------------------------
 /** Mark sitting beside the technical content it belongs to. Right of centre. */
-const InlineMark: React.FC<{part: LFPart; dur: number; brand: 'dante' | 'tascam' | 'shivansh'}> = ({
-  part,
-  dur,
-  brand,
-}) => {
+const InlineMark: React.FC<{
+  part: LFPart;
+  dur: number;
+  brand: 'dante' | 'tascam' | 'shivansh';
+  y?: number;
+}> = ({part, dur, brand, y = 118}) => {
   const f = useCurrentFrame();
   const a = lfAccent(part);
   const p = Math.min(ramp(f, [0, 18], [0, 1]), ramp(f, [dur - 18, dur], [1, 0]));
@@ -186,7 +187,7 @@ const InlineMark: React.FC<{part: LFPart; dur: number; brand: 'dante' | 'tascam'
       style={{
         position: 'absolute',
         left: LF_SAFE.x + LF_SAFE.w - w - 8,
-        top: LF_SAFE.y + 118,
+        top: LF_SAFE.y + y,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'flex-end',
@@ -226,7 +227,7 @@ export const BrandingLayer: React.FC<{part: LFPart}> = ({part}) => {
           ) : b.form === 'beat' ? (
             <BrandBeatCard part={part} dur={b.dur} brand={b.brand} note={b.note} />
           ) : (
-            <InlineMark part={part} dur={b.dur} brand={b.brand} />
+            <InlineMark part={part} dur={b.dur} brand={b.brand} y={b.y} />
           )}
         </Sequence>
       ))}

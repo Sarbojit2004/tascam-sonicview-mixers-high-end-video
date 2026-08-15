@@ -157,9 +157,25 @@ This is deliberate: hand-authored vector art avoids stock-licensing exposure,
 avoids the errors an image model makes when asked to draw a real monument, and
 gives frame-accurate control over every reveal.
 
-The India outline is projected from real longitude/latitude (67–98°E,
-7–37°N) through 47 points, then smoothed — a sparser list smooths away exactly
-the features that make it readable as India.
+### The map of India — full territorial extent
+
+The outline in beat 13 shows **India's official territorial extent**. It
+includes the whole of **Jammu & Kashmir — Gilgit-Baltistan and
+Pakistan-occupied Kashmir** — together with the **Shaksgam / Trans-Karakoram
+Tract** and **Aksai Chin**, up to the northernmost claimed point at roughly
+**37.05°N** near the Wakhan trijunction.
+
+An outline drawn to the Line of Control or the Line of Actual Control is **not
+the map of India** and must never be used. This is not a stylistic preference:
+depicting India's boundaries incorrectly is an offence under Indian law.
+
+The outline is projected from real longitude/latitude (67–98°E, 7–37.5°N)
+through 60 points, then smoothed — a sparser list smooths away exactly the
+features that make it readable, including the northern lobe of J&K.
+
+`scripts/copy_audit.mjs` reads the projected point list directly out of
+`Art.tsx` and fails the build if the northern tip, Aksai Chin, or western J&K
+are missing, so the boundary cannot silently regress.
 
 ---
 

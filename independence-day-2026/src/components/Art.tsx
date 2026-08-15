@@ -228,41 +228,58 @@ export const TricolourRibbon: React.FC<{
 // Simplified deliberately: this is a symbol of the whole country in a 4-second
 // beat, not a survey document.
 // ---------------------------------------------------------------------------
-// Projected from real longitude/latitude onto the 400x470 viewBox
-// (x: 67°E..98°E, y: 37°N..7°N), then smoothed. Forty-seven points, because a
-// sparser list smooths away exactly the features that make the outline
-// readable as India — the Kutch and Saurashtra coast in the west, the
-// Bangladesh re-entrant in the east, and the taper to Kanyakumari.
+// India's OFFICIAL territorial extent, projected from real longitude/latitude
+// onto the 400x470 viewBox (x: 67°E..98°E, y: 37.5°N..7°N), then smoothed.
+//
+// This outline INCLUDES the whole of Jammu & Kashmir — Gilgit-Baltistan and
+// Pakistan-occupied Kashmir — together with the Shaksgam / Trans-Karakoram
+// Tract and Aksai Chin, up to the northernmost claimed point at roughly
+// 37.05°N near the Wakhan trijunction. Any depiction of India that stops at
+// the Line of Actual Control or the Line of Control is not the map of India
+// and must not be used.
+//
+// Sixty points: a sparser list smooths away exactly the features that make the
+// outline readable — the northern lobe of J&K, the Kutch and Saurashtra coast
+// in the west, the Bangladesh re-entrant in the east, and the taper to
+// Kanyakumari.
 const INDIA: [number, number][] = [
-  [129, 24], [154, 38], [161, 60], [155, 86],
-  [170, 110], [206, 141], [239, 150], [271, 160],
-  [277, 143], [297, 158], [316, 160], [329, 149],
-  [355, 138], [385, 136], [378, 157], [361, 172],
-  [355, 197], [341, 219], [334, 237], [325, 208],
-  [312, 218], [295, 185], [276, 199], [272, 241],
-  [257, 251], [232, 274], [213, 298], [187, 329],
-  [172, 352], [170, 392], [165, 418], [135, 453],
-  [123, 431], [110, 400], [101, 368], [88, 337],
-  [76, 290], [74, 251], [50, 252], [25, 230],
-  [19, 208], [45, 199], [39, 164], [71, 141],
-  [89, 102], [94, 70], [90, 39],
+  [98, 7], [108, 8], [120, 15], [132, 22],
+  [145, 27], [157, 31], [169, 34], [172, 45],
+  [165, 54], [159, 66], [156, 77], [159, 91],
+  [168, 104], [173, 116], [206, 146], [239, 156],
+  [271, 165], [277, 148], [297, 163], [316, 165],
+  [329, 154], [385, 142], [378, 162], [361, 177],
+  [355, 202], [341, 223], [334, 240], [325, 213],
+  [312, 222], [295, 190], [276, 203], [272, 245],
+  [257, 254], [232, 277], [213, 300], [187, 331],
+  [172, 354], [170, 393], [165, 419], [135, 453],
+  [123, 431], [110, 401], [101, 370], [88, 339],
+  [76, 293], [74, 254], [50, 256], [25, 234],
+  [19, 213], [45, 203], [39, 170], [71, 146],
+  [89, 108], [97, 77], [92, 66], [89, 54],
+  [88, 45], [81, 34], [77, 23], [88, 12],
 ];
 
 export const INDIA_PATH = smoothPath(INDIA, true, 0.55);
 
-/** Anchor points, spread deliberately across every region of the country. */
+/**
+ * Anchor points, spread deliberately across every region of the country —
+ * including Jammu & Kashmir in the north, so the reveal lights the whole
+ * territory rather than treating the northern lobe as empty.
+ */
 export const REGION_POINTS: {x: number; y: number; label: string}[] = [
-  {x: 128, y: 62, label: 'North'},
-  {x: 90, y: 150, label: 'North-West'},
-  {x: 150, y: 196, label: 'West'},
-  {x: 214, y: 168, label: 'Gangetic plain'},
-  {x: 340, y: 168, label: 'North-East'},
-  {x: 262, y: 216, label: 'East'},
-  {x: 176, y: 258, label: 'Central'},
-  {x: 108, y: 306, label: 'Konkan'},
-  {x: 210, y: 300, label: 'Deccan'},
-  {x: 156, y: 372, label: 'South-West'},
-  {x: 168, y: 414, label: 'South-East'},
+  {x: 106, y: 49, label: 'Jammu & Kashmir'},
+  {x: 132, y: 137, label: 'North'},
+  {x: 72, y: 173, label: 'North-West'},
+  {x: 194, y: 177, label: 'Gangetic plain'},
+  {x: 342, y: 183, label: 'North-East'},
+  {x: 258, y: 220, label: 'East'},
+  {x: 89, y: 251, label: 'West'},
+  {x: 161, y: 231, label: 'Central'},
+  {x: 95, y: 316, label: 'Konkan'},
+  {x: 150, y: 324, label: 'Deccan'},
+  {x: 142, y: 401, label: 'South-East'},
+  {x: 119, y: 418, label: 'South-West'},
 ];
 
 export const IndiaMap: React.FC<{
@@ -286,7 +303,7 @@ export const IndiaMap: React.FC<{
   pointColor = C.saffron,
   opacity = 1,
 }) => {
-  // The smoothed outline measures ~1600 units; the dash reveal only needs a
+  // The smoothed outline measures ~1490 units; the dash reveal only needs a
   // value at or above the true length, and a close one keeps the draw linear
   // across the whole progress range instead of finishing early.
   const LEN = 1640;

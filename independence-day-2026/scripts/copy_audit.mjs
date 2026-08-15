@@ -109,7 +109,39 @@ if (proper.length) {
 }
 ok(true, 'proper-noun scan complete', `${new Set(proper).size} to review`);
 
-// -- 3. no other-nation comparison ------------------------------------------
+// -- 3. the map shows India's full territorial extent ------------------------
+//
+// The outline MUST include the whole of Jammu & Kashmir (Gilgit-Baltistan and
+// Pakistan-occupied Kashmir) together with the Shaksgam / Trans-Karakoram
+// Tract and Aksai Chin. An outline drawn to the Line of Control or the Line of
+// Actual Control is not the map of India. These checks read the projected
+// point list straight out of Art.tsx so the boundary cannot silently regress.
+//
+// viewBox is 400x470 spanning 67..98 E and 37.5..7 N, so:
+//   y <=  14  ~ north of 36.6 N   (Gilgit-Baltistan, the northern tip)
+//   x >= 160 && y <= 40  ~ east of 79.4 E above 34.9 N   (Aksai Chin)
+//   x <=  95 && y <=  80 ~ west of 74.4 E above 32.3 N   (PoK, western J&K)
+console.log('\n  map of India — territorial extent');
+const art = fs.readFileSync(path.join(root, 'src', 'components', 'Art.tsx'), 'utf8');
+const block = art.match(/const INDIA:\s*\[number,\s*number\]\[\]\s*=\s*\[([\s\S]*?)\];/);
+ok(Boolean(block), 'the India outline point list is present');
+if (block) {
+  const pts = [...block[1].matchAll(/\[\s*(-?\d+(?:\.\d+)?)\s*,\s*(-?\d+(?:\.\d+)?)\s*\]/g)]
+    .map((m) => [Number(m[1]), Number(m[2])]);
+  ok(pts.length >= 40, 'outline has enough points to stay faithful', `${pts.length} points`);
+
+  const north = pts.filter(([, y]) => y <= 14);
+  ok(north.length > 0, 'includes Gilgit-Baltistan / the northern tip (~37.05 N)',
+    `${north.length} point(s), min y ${Math.min(...pts.map((q) => q[1]))}`);
+
+  const aksai = pts.filter(([x, y]) => x >= 160 && y <= 40);
+  ok(aksai.length > 0, 'includes Aksai Chin', `${aksai.length} point(s)`);
+
+  const pok = pts.filter(([x, y]) => x <= 95 && y <= 80);
+  ok(pok.length > 0, 'includes Pakistan-occupied Kashmir / western J&K', `${pok.length} point(s)`);
+}
+
+// -- 4. no other-nation comparison ------------------------------------------
 console.log('\n  scope');
 const OTHER = ['america', 'american', 'britain', 'british', 'china', 'chinese', 'pakistan', 'usa', 'uk ', 'europe', 'russia', 'france'];
 const foundOther = OTHER.filter((w) => copyText.toLowerCase().includes(w));

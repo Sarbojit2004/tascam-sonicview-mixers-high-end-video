@@ -56,3 +56,10 @@ export const bed = (): string => staticFile('audio/sfx/music-bed.mp3');
  * bed, so the constant-presence requirement is independently auditable.
  */
 export const ambient = (): string => staticFile('audio/sfx/ambient-bed.mp3');
+
+/**
+ * The 60.000 s voiceover slot. Ships as a silent placeholder — the reel was
+ * built and delivered with no VO — ready for a real recording to be dropped
+ * in later per VO_SCRIPT.md without any code changes.
+ */
+export const vo = (): string => staticFile('vo/voiceover.mp3');

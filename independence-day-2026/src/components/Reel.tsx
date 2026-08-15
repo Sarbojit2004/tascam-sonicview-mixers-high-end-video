@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence} from 'remotion';
 import {Beat, BEATS} from '../lib/theme';
-import {ambient, bed} from '../lib/sfx';
+import {ambient, bed, vo} from '../lib/sfx';
 import {loadFonts} from '../lib/fonts';
 
 /**
@@ -13,9 +13,11 @@ import {loadFonts} from '../lib/fonts';
  * overlap is what lets 14 beats land in 60 seconds without reading as a
  * slideshow.
  *
- * Two continuous audio layers run the whole runtime:
+ * Three continuous audio layers run the whole runtime:
  *   - the ambient texture bed, at a low constant level, never interrupted
  *   - the music bed, whose own energy contour is cut to the beat table
+ *   - the voiceover slot — a silent 60 s placeholder as delivered; see
+ *     VO_SCRIPT.md for the timed script and how to drop a recording in
  * Per-beat transition cues are scheduled inside each beat's own scene.
  */
 
@@ -48,6 +50,8 @@ export const Reel: React.FC<{beats: BeatNode[]}> = ({beats}) => {
       <Audio src={ambient()} volume={0.30} />
       {/* the score */}
       <Audio src={bed()} volume={0.62} />
+      {/* the voiceover slot — silent placeholder as shipped */}
+      <Audio src={vo()} volume={1} />
       {placed.map((b, i) => (
         <Sequence
           key={b.id}

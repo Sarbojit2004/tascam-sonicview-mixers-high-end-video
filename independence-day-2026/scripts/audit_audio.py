@@ -22,6 +22,7 @@ import numpy as np
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SFX_DIR = os.path.join(ROOT, "public", "audio", "sfx")
+VO_DIR = os.path.join(ROOT, "public", "vo")
 SFX_TS = os.path.join(ROOT, "src", "lib", "sfx.ts")
 TOL = 0.10
 BEDS = {"music-bed": 60.0, "ambient-bed": 60.0}
@@ -134,6 +135,29 @@ def main():
                 check(floor > 0.10, "ambient is genuinely CONSTANT (no dead segment)",
                       f"quietest/loudest = {floor:.3f}")
             print(f"    contour  {contour(x)}")
+
+    # -- the VO slot: checked separately, since it is DELIBERATELY silent ---
+    print("\n" + "=" * 72)
+    print("  voiceover slot (public/vo)")
+    vo_path = os.path.join(VO_DIR, "voiceover.mp3")
+    if not os.path.exists(vo_path):
+        check(False, "public/vo/voiceover.mp3 exists")
+    else:
+        try:
+            meta = probe(vo_path)
+            x = pcm(vo_path)
+            dur = len(x) / 48000.0
+            check(meta.get("channels") == "2", "stereo", f"ch={meta.get('channels')}")
+            check(meta.get("sample_rate") == "48000", "48 kHz", f"sr={meta.get('sample_rate')}")
+            check(abs(dur - 60.0) <= TOL, "is 60.000s", f"actual {dur:.3f}s")
+            peak = float(np.abs(x).max())
+            # the shipped placeholder must be silent; once a real recording is
+            # dropped in, re-run this script and expect this line to flip to a
+            # real peak — that's the intended signal a recording landed.
+            print(f"    NOTE  placeholder peak={peak:.4f} "
+                  f"({'silent, as shipped' if peak < 0.001 else 'a recording appears to be in place'})")
+        except Exception as exc:  # noqa: BLE001
+            check(False, "decodes", str(exc))
 
     # -- cross-reference against the cue table ------------------------------
     print("\n" + "=" * 72)

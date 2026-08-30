@@ -179,6 +179,28 @@ Rules enforced: no gap longer than 25 s without Shivansh Electronics; a Shivansh
 
 A branding **beat** is a full-frame interstitial — the chapter beneath washes to the page colour so the mark sits on the background with nothing behind it. That is deliberately not a box around the logo; it is the page coming forward.
 
+
+## Editorial rules — also enforced from data
+
+The brief states four rules as absolute, so they are checked rather than asserted:
+
+```bash
+npm run compliance          # all six videos' on-screen copy, thumbnails and VO scripts
+```
+
+1. **No pricing, MRP or cost framing** of any kind. The check is deliberately broader than literal
+   figures — a cost *comparison* ("a fraction of what it replaces") is a cost claim without a
+   number in it, and is caught.
+2. **No competing console brand**, named or alluded to.
+3. **Shivansh Electronics is TASCAM's Authorized Partner** — never distributor, dealer or reseller.
+   The role string is also checked positively, not merely for absence of the wrong words.
+4. **The CTA is a technical consultation**, never a purchase close.
+
+Only viewer-facing text is scanned: string literals and JSX children in the scene files, and
+everything above the "Compliance" heading in each VO script. Source comments are stripped first —
+a comment explaining a rule is not a breach of it. The small allow-list requires each entry to name
+both the file and the exact phrase, so it cannot quietly become a way to mute real findings.
+
 ## Build
 
 ```bash
@@ -187,6 +209,7 @@ npm run bootstrap           # rebuild public/img from source media, regenerate a
 npx tsc --noEmit
 npm run coverage:longform   # asset coverage for the long-form series
 npm run branding            # branding cadence
+npm run compliance          # editorial rules — pricing, competitors, partner role, CTA
 
 npm run render:lf1          # 298 s, ~40 min
 npm run thumb:lf1

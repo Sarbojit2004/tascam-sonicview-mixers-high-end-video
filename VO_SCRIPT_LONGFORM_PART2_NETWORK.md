@@ -73,8 +73,8 @@ it carries."**
 *[pause 0.8 s]*
 
 **"Standard switches, standard cable, standard practice — which means the network team already
-knows how to look after it. Distance stops being a line item: hundreds of feet of lightweight
-Cat5e, re-pulled by one person."**
+knows how to look after it. And distance stops being the constraint it was: hundreds of feet of
+lightweight Cat5e, re-pulled by one person."**
 
 *(69 words · ~28.5 s including the pause.)*
 

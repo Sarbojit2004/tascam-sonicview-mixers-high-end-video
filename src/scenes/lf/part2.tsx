@@ -233,7 +233,7 @@ export const L2C03: React.FC = () => (
         </Micro>
       </At>
       <Para y={772} w={1500} size={26} delay={360}>
-        {'And because it is a network, distance stops being a budget line. Hundreds of feet of lightweight Cat5e costs a fraction of the copper it replaces, and it can be re-pulled by one person.'}
+        {'And because it is a network, distance stops being the constraint it was. Hundreds of feet of lightweight Cat5e replaces a copper run many times its weight — and one person can re-pull it.'}
       </Para>
     </B>
 

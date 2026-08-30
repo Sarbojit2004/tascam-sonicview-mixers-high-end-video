@@ -171,15 +171,17 @@ export const LongformThumb2: React.FC = () => {
       />
 
       <Plate id={35} box={{x: 0, y: 300, w: 1080, h: 470}} dur={1} pad={20} kb={{z: [1, 1]}} />
-      <Mosaic
-        ids={[41, 49]}
-        dur={1}
-        cols={1}
+      {/* one filled plate rather than two stacked tiles: the SB-16D product
+          shots are square on white, so at thumbnail scale a stacked pair left
+          the box too small to identify */}
+      <Plate
+        id={43}
         box={{x: 1116, y: 300, w: LF_SAFE.w - 1116, h: 470}}
-        gap={16}
-        delay={-100}
-        stagger={0}
-        pad={12}
+        dur={1}
+        fit="cover"
+        pad={0}
+        card={false}
+        kb={{z: [1, 1]}}
       />
 
       <At x={1116} y={0} w={LF_SAFE.w - 1116}>

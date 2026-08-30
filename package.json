@@ -18,6 +18,7 @@
     "render:p3": "remotion render Part3Protocol out/sonicview-reel-part3-protocol.mp4 --codec=h264 --crf=17 --pixel-format=yuv420p",
     "bootstrap": "python3 scripts/rebuild_media.py && python3 scripts/gen_audio.py && python3 scripts/gen_audio_longform.py && python3 scripts/audit_audio.py",
     "branding": "node scripts/branding_audit.mjs",
+    "compliance": "node scripts/compliance.mjs",
     "coverage:longform": "COVERAGE_SERIES=longform node scripts/coverage.mjs",
     "render:lf1": "remotion render LongformPart1Hub out/sonicview-longform-part1-hub.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p",
     "render:lf2": "remotion render LongformPart2Network out/sonicview-longform-part2-network.mp4 --codec=h264 --crf=18 --pixel-format=yuv420p",

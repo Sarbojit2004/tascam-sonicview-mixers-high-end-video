@@ -57,7 +57,7 @@ over infrastructure the venue already owns."**
 ### [00:15.0 – 00:23.3] — One cable to the stage
 > *(scene P2S03 · 250f)*
 
-**"A multicore snake is heavy, expensive, and a single point of failure along its whole length.
+**"A multicore snake is heavy, inflexible, and a single point of failure along its whole length.
 One Cat5e run replaces it."**
 
 *(21 words · ~8.4 s. Even and factual. The pictures are doing the arguing.)*

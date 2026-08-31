@@ -18,6 +18,8 @@ second copy of the timing to drift out of sync.
 """
 import json
 import os
+import shutil
+import subprocess
 import sys
 import wave
 
@@ -29,6 +31,31 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 AUDIO = os.path.join(ROOT, "public", "audio")
 OUT = os.path.join(ROOT, "out", "audio")
 CUES = os.path.join(ROOT, "cues.json")
+
+# The WAVs are the working masters, but 12 of them is ~550 MB, which does not
+# belong in a repository. Each is also written as a 320 kbps MP3 — universally
+# droppable onto a timeline, small enough to ship, and the WAV is one script run
+# away for anyone who wants it.
+FFMPEG = next(
+    (c for c in (
+        os.path.join(ROOT, "node_modules", "@remotion",
+                     "compositor-linux-x64-gnu", "ffmpeg"),
+        shutil.which("ffmpeg") or "",
+    ) if c and os.path.exists(c)),
+    None,
+)
+
+
+def to_mp3(wav_path):
+    if FFMPEG is None:
+        return None
+    mp3 = wav_path[:-4] + ".mp3"
+    subprocess.run(
+        [FFMPEG, "-y", "-loglevel", "error", "-i", wav_path,
+         "-c:a", "libmp3lame", "-b:a", "320k", mp3],
+        check=True,
+    )
+    return mp3
 
 # Same levels the videos deploy (shared/deliverable.tsx).
 BED_GAIN = 0.34
@@ -66,7 +93,9 @@ def main():
         if len(bed) < total:
             bed = np.pad(bed, ((0, total - len(bed)), (0, 0)))
         bed = bed[:total]
-        write_wav(os.path.join(OUT, f"sonicview-{key}-music-bed.wav"), bed)
+        bed_path = os.path.join(OUT, f"sonicview-{key}-music-bed.wav")
+        write_wav(bed_path, bed)
+        to_mp3(bed_path)
 
         # 2 · the SFX layer alone, at the exact frames used
         fx = np.zeros((total, 2), dtype=np.float32)
@@ -76,7 +105,9 @@ def main():
             end = min(total, at + len(s))
             if at < total:
                 fx[at:end] += s[: end - at]
-        write_wav(os.path.join(OUT, f"sonicview-{key}-sfx-layer.wav"), fx)
+        fx_path = os.path.join(OUT, f"sonicview-{key}-sfx-layer.wav")
+        write_wav(fx_path, fx)
+        to_mp3(fx_path)
 
         peak_bed = float(np.max(np.abs(bed)))
         peak_fx = float(np.max(np.abs(fx)))
@@ -85,7 +116,8 @@ def main():
             f"bed peak {peak_bed:.3f}  sfx {len(info['sfx']):2d} cues, peak {peak_fx:.3f}"
         )
 
-    print(f"\n12 files written to out/audio/ — a music bed and an SFX layer per deliverable.")
+    print("\n12 WAV masters and 12 MP3s in out/audio/ — a music bed and an "
+          "SFX layer per deliverable, each spanning its exact runtime.")
     return 0
 
 

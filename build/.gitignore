@@ -6,7 +6,6 @@ public/audio/
 public/icon/
 public/logo/
 node_modules
-out/*.mp4
-out/audio/
+# WAV masters are ~550 MB; the 320k MP3s beside them are the deliverables.
+out/audio/*.wav
 cues.json
-thumbnails/

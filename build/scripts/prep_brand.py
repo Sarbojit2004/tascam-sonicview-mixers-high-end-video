@@ -72,17 +72,40 @@ def opaque_pct(im: Image.Image) -> float:
     return 100.0 * float((a > 250).sum()) / a.size
 
 
+# COLORS.ink from shared/theme.ts. The website mark is line art, not a coloured
+# logo, so it should read as part of the typography rather than as a foreign
+# pure black sitting next to #0E1116 text. Baked here, where it is exact and
+# deterministic, rather than approximated at render time with a CSS filter
+# chain.
+INK = (0x0E, 0x11, 0x16)
+
+
 def key_luma(im: Image.Image) -> Image.Image:
     """Alpha from luminance. For black linework flattened onto a light ground."""
     rgb = np.asarray(im.convert("RGB")).astype(np.float32)
     luma = 0.2126 * rgb[..., 0] + 0.7152 * rgb[..., 1] + 0.0722 * rgb[..., 2]
     alpha = np.clip((HI - luma) / (HI - LO), 0.0, 1.0)
-    # The linework is neutral black; recolour to a true ink rather than keeping
-    # whatever the JPEG-ish edge pixels drifted to.
     out = np.zeros((*luma.shape, 4), dtype=np.uint8)
-    out[..., 0:3] = 0
+    out[..., 0], out[..., 1], out[..., 2] = INK
     out[..., 3] = (alpha * 255.0 + 0.5).astype(np.uint8)
     return Image.fromarray(out, "RGBA")
+
+
+def crop_to_artwork(im: Image.Image, thresh: int = 8) -> Image.Image:
+    """
+    Trim transparent margin so the file's aspect IS the artwork's aspect.
+
+    This matters more than it sounds. Both logo files are 2372x714, but the
+    artwork inside them fills very different fractions: Shivansh is 3.50:1 and
+    TASCAM is 6.12:1. Laying either out from the FILE aspect (3.32:1) would
+    stretch the TASCAM wordmark vertically by 1.84x. Cropping here means a
+    component can size a mark by height and get the width right for free.
+    """
+    a = np.asarray(im.convert("RGBA"))[..., 3]
+    ys, xs = np.nonzero(a > thresh)
+    if len(xs) == 0:
+        return im
+    return im.crop((int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1))
 
 
 def unpremultiply(im: Image.Image) -> Image.Image:
@@ -117,6 +140,7 @@ def run() -> int:
                 out = unpremultiply(im)
             else:
                 out = im.convert("RGBA")
+            out = crop_to_artwork(out)
             dst = os.path.join(outdir, dst_name)
             out.save(dst)
             rows.append((group, src_name, dst_name, im.size, im.mode, before, opaque_pct(out)))

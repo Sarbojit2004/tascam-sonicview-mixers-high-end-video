@@ -1,0 +1,12 @@
+{
+  "name": "tascam-sonicview-six-deliverables",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Three 178s portrait reels and three 298s landscape parts for the TASCAM Sonicview series.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "contrast": "node --experimental-strip-types scripts/audit_contrast.mjs",
+    "prep": "python3 scripts/prep_brand.py && python3 scripts/prep_media.py"
+  }
+}

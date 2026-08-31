@@ -47,7 +47,7 @@ export const BEATS: Beat[] = [
     hero: "Every fader arrives on the same frame",
   },
   {
-    id: "p3-faders", kind: "specs", sec: 16, phase: 4, unit: "sv24", images: [130],
+    id: "p3-faders", kind: "specs", sec: 16, phase: 4, unit: "sv24", images: [98],
     label: "THE TACTILE LAYER",
     hero: specValue("sv24", "Motorized Faders"),
     sub: "MAPPED TO PROGRAMMABLE LAYERS",
@@ -62,7 +62,7 @@ export const BEATS: Beat[] = [
   },
   {
     id: "p3-workflow", kind: "montage", sec: 16, phase: 4,
-    images: [107, 108, 125, 127, 128, 98], clip: 22,
+    images: [107, 108, 125, 127, 128, 31], clip: 22,
     label: "WHAT CHANGES ON THE DAY",
     hero: "The same room, rebuilt around one desk",
   },
@@ -77,7 +77,7 @@ export const BEATS: Beat[] = [
     ],
   },
   {
-    id: "p3-usb", kind: "specs", sec: 14, phase: 4, unit: "sv24", images: [31],
+    id: "p3-usb", kind: "specs", sec: 14, phase: 4, unit: "sv24", images: [130],
     label: "TO THE DAW",
     hero: specValue("sv24", "USB Audio Interface"),
     sub: "ASYNCHRONOUS USB AUDIO INTERFACE",

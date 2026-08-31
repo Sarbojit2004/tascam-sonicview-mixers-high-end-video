@@ -48,7 +48,7 @@ export const BEATS: Beat[] = [
     hero: "A severed path is not an interruption",
   },
   {
-    id: "p2-sb16d", kind: "hero", sec: 18, phase: 3, unit: "sb16d", images: [48],
+    id: "p2-sb16d", kind: "hero", sec: 18, phase: 3, unit: "sb16d", images: [50],
     label: "TASCAM SB-16D",
     hero: "The input stage, moved",
     sub: "Not a mixer. The console's own preamps, relocated to where the microphones are.",
@@ -75,7 +75,7 @@ export const BEATS: Beat[] = [
   },
   {
     id: "p2-remote", kind: "montage", sec: 16, phase: 3,
-    images: [50, 51, 54, 46], clip: 9,
+    images: [48, 51, 54, 46], clip: 9,
     label: "FROM THE DESK, OR ANYWHERE",
     hero: "Gain, phantom power and pad, live",
   },
@@ -92,7 +92,7 @@ export const BEATS: Beat[] = [
     hero: "A tally closes, and the fader moves itself",
   },
   {
-    id: "p2-automix", kind: "screen", sec: 14, phase: 3, unit: "sv24", images: [87],
+    id: "p2-automix", kind: "screen", sec: 14, phase: 3, unit: "sv24", images: [84],
     label: "UNSCRIPTED ROOMS",
     hero: "Gain-sharing, calculated live",
     sub: platformValue("Auto Mixer"),

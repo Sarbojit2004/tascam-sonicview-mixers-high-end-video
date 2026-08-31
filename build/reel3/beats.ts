@@ -26,7 +26,7 @@ export const BEATS: Beat[] = [
     hero: "Every fader arrives together",
   },
   {
-    id: "r3-faders", kind: "specs", sec: 14, phase: 4, unit: "sv16", images: [78],
+    id: "r3-faders", kind: "specs", sec: 14, phase: 4, unit: "sv16", images: [124],
     label: "THE TACTILE LAYER",
     hero: specValue("sv16", "Motorized Faders"),
     sub: "MAPPED TO PROGRAMMABLE LAYERS",
@@ -49,7 +49,7 @@ export const BEATS: Beat[] = [
     sub: "Parametric EQ and dynamics, redrawn as the operator edits them.",
   },
   {
-    id: "r3-geq", kind: "montage", sec: 12, phase: 4, images: [97, 124, 131],
+    id: "r3-geq", kind: "montage", sec: 12, phase: 4, images: [97, 131, 100],
     label: "EVERY BUS",
     hero: "31-band GEQ and RTA",
     sub: platformValue("Per-Bus DSP"),
@@ -62,7 +62,7 @@ export const BEATS: Beat[] = [
     body: [platformValue("IF-MTR32 Recording")],
   },
   {
-    id: "r3-usb", kind: "macro", sec: 10, phase: 4, unit: "sv24", images: [100],
+    id: "r3-usb", kind: "macro", sec: 10, phase: 4, unit: "sv24", images: [78],
     label: "AND TO THE DAW",
     hero: specValue("sv24", "USB Audio Interface"),
   },

@@ -36,21 +36,21 @@ export const BEATS: Beat[] = [
     hero: "A cut path is not an interruption",
   },
   {
-    id: "r2-sb16d", kind: "hero", sec: 16, phase: 3, unit: "sb16d", images: [41],
+    id: "r2-sb16d", kind: "hero", sec: 16, phase: 3, unit: "sb16d", images: [43],
     label: "TASCAM SB-16D",
     hero: "The input stage, moved",
     sub: "Not a mixer. The console's own preamps, where the microphones are.",
     body: [specValue("sb16d", "Analog I/O")],
   },
   {
-    id: "r2-parity", kind: "macro", sec: 12, phase: 3, unit: "sb16d", images: [43],
+    id: "r2-parity", kind: "macro", sec: 12, phase: 3, unit: "sb16d", images: [52],
     label: "SAME PREAMP",
     hero: "Gain at the source",
     sub: specValue("sb16d", "Preamp Architecture"),
   },
   {
     id: "r2-scale", kind: "montage", sec: 10, phase: 3,
-    images: [45, 47, 52], clip: 13,
+    images: [45, 47, 41], clip: 13,
     label: "SCALING",
     hero: "Add a box, not a desk",
   },
@@ -67,7 +67,7 @@ export const BEATS: Beat[] = [
   },
   {
     id: "r2-automation", kind: "montage", sec: 12, phase: 3,
-    images: [85, 84, 104, 38], clip: 10,
+    images: [85, 87, 104, 38], clip: 10,
     label: "THE PROTOCOL LAYER",
     hero: "Ember+ · NMOS · SNMP",
   },

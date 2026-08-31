@@ -87,7 +87,7 @@ export const ALLOCATION: Record<Deliverable, readonly number[]> = {
     86, //  IF-ST2110 card, angled with its PCB
     22, //  IF-DA64 Dante interface card
     85, //  MODULE (Audio Follow Video) — GPIO-IN 1, rise / hold / fall
-    84, //  AUTOMATIC MIXER — gain + weight, priority groups
+    87, //  SNMP / control-management diagram
     104, //  control system -> console -> audio router / camera / switcher
     112, //  Sonicview 24dp — the dual-power variant
     44, //  SB-16D remote control UI
@@ -98,7 +98,7 @@ export const ALLOCATION: Record<Deliverable, readonly number[]> = {
   /** 28 assets. */
   part2: [
     42, 46, 48, 49, 50, 51, 54, //  SB-16D: rear, corner detail, further angles
-    87, //  SNMP / control-management diagram
+    84, //  AUTOMATIC MIXER — gain + weight, priority groups
     62, //  control system -> console -> router / camera / switcher, second form
     7, 8, 9, 10, 11, //  IF-ST2110 card and faceplates
     12, //  ST 2110 patch / routing matrix

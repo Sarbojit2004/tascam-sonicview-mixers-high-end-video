@@ -59,6 +59,29 @@ substantive error:
 Merge threshold: RMS < 0.05, every candidate inspected by eye and by a full-resolution crop of its
 baked-in caption.
 
+### Copy checked against picture
+
+An audit can confirm that an asset is placed and that a figure is verified. It cannot tell you the
+caption and the photograph are about the same thing. So every single-image beat — 32 of them — was
+laid out next to its own label and headline and inspected.
+
+**Seven were wrong.** All name something the photograph does not show:
+
+| Beat | Caption | Was | Now |
+|---|---|---|---|
+| `r2-sb16d` | "16 XLR mic/line in, 16 XLR line out" | SB-16D **rear** panel | 43 — front, XLR array |
+| `r2-parity` | "Gain at the source" | rear panel | 52 — console + stagebox |
+| `p2-sb16d` | "The input stage, moved" | ecosystem shot | 50 — front |
+| `p2-automix` | "Gain-sharing, calculated live" | SNMP monitoring diagram | 84 — the AUTOMATIC MIXER screen |
+| `r3-faders` | "16 channel + 1 master (100 mm)" | **rear panel, no faders in frame** | 124 |
+| `p3-faders` | "24 channel + 1 master" | **rear panel** | 98 — hands on the surface |
+| `r3-usb` | "32-in / 32-out USB" | iPad remote-control app | 78 — rear, USB to PC |
+| `p3-usb` | "32-in / 32-out" | flight-case rack | 130 — rear panel |
+
+This is the same class of error as the snapshot-recall demonstrative drawing sixteen faders under a
+caption reading "24 channel + 1 master": it only surfaces when the words and the picture are
+checked *against each other* rather than each being checked as correct on its own.
+
 ### Branding — end screen only
 
 | | Reel 1 | Part 1 | Reel 2 | Part 2 | Reel 3 | Part 3 |

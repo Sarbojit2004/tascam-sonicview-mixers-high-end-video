@@ -53,55 +53,52 @@ const h32 = (w: number) => Math.round(w / 3.2);
  * reserved for the contact layer, so nothing here may enter them — which is
  * what makes a portrait collision impossible rather than merely avoided.
  */
+/**
+ * Stack blocks vertically and CENTRE the result in the content band.
+ *
+ * The first pass positioned every portrait block by a hand-picked offset from
+ * the top of the band, which left 500-600 px of dead page under most beats —
+ * the composition used about 60% of the 1520 px available and read as though it
+ * had slipped upward. Deriving each y from the stack's own height instead means
+ * a beat is balanced in its band whatever it happens to contain.
+ *
+ * `order` is top-to-bottom. Heights are what each block actually needs.
+ */
+function stackP(order: { key: "media" | "copy"; h: number }[], gap: number): SceneBoxes {
+  const total = order.reduce((n, b) => n + b.h, 0) + gap * (order.length - 1);
+  let y = P.y + Math.max(0, (P.h - total) / 2);
+  const out: SceneBoxes = { occupies: [] };
+  for (const b of order) {
+    const r = { x: P.x, y, w: P.w, h: b.h };
+    out[b.key] = r;
+    out.occupies.push(r);
+    y += b.h + gap;
+  }
+  return out;
+}
+
 function portraitBoxes(beat: Beat): SceneBoxes {
   switch (beat.kind) {
     case "cold":
-    case "broll": {
-      const w = P.w;
-      const h = h169(w);
-      const media = { x: P.x, y: P.y + 300, w, h };
-      const copy = { x: P.x, y: media.y + h + 56, w, h: 360 };
-      return { media, copy, occupies: [media, copy] };
-    }
-    case "realvideo": {
-      const w = P.w;
-      const h = h32(w);
-      const media = { x: P.x, y: P.y + 430, w, h };
-      const copy = { x: P.x, y: media.y + h + 60, w, h: 320 };
-      return { media, copy, occupies: [media, copy] };
-    }
+    case "broll":
+      return stackP([{ key: "media", h: h169(P.w) }, { key: "copy", h: 430 }], 64);
+    case "realvideo":
+      return stackP([{ key: "media", h: h32(P.w) }, { key: "copy", h: 380 }], 70);
     case "hero":
-    case "macro": {
-      const media = { x: P.x, y: P.y + 190, w: P.w, h: 720 };
-      const copy = { x: P.x, y: media.y + media.h + 64, w: P.w, h: 380 };
-      return { media, copy, occupies: [media, copy] };
-    }
-    case "screen": {
-      const media = { x: P.x, y: P.y + 260, w: P.w, h: 600 };
-      const copy = { x: P.x, y: media.y + media.h + 60, w: P.w, h: 340 };
-      return { media, copy, occupies: [media, copy] };
-    }
-    case "montage": {
-      const media = { x: P.x, y: P.y + 240, w: P.w, h: 860 };
-      const copy = { x: P.x, y: P.y + 40, w: P.w, h: 170 };
-      return { media, copy, occupies: [media, copy] };
-    }
-    case "specs": {
-      const copy = { x: P.x, y: P.y + 180, w: P.w, h: 520 };
-      const media = { x: P.x, y: copy.y + copy.h + 60, w: P.w, h: 620 };
-      return { media, copy, occupies: [media, copy] };
-    }
-    case "demo": {
-      const media = { x: P.x, y: P.y + 330, w: P.w, h: 780 };
-      const copy = { x: P.x, y: P.y + 60, w: P.w, h: 240 };
-      return { media, copy, occupies: [media, copy] };
-    }
+    case "macro":
+      return stackP([{ key: "media", h: 760 }, { key: "copy", h: 470 }], 62);
+    case "screen":
+      return stackP([{ key: "media", h: 700 }, { key: "copy", h: 460 }], 62);
+    case "montage":
+      return stackP([{ key: "copy", h: 190 }, { key: "media", h: 1080 }], 54);
+    case "specs":
+      return stackP([{ key: "copy", h: 560 }, { key: "media", h: 700 }], 66);
+    case "demo":
+      return stackP([{ key: "copy", h: 220 }, { key: "media", h: 1000 }], 56);
     case "problem":
     case "statement":
-    case "bridge": {
-      const copy = { x: P.x, y: P.y + 420, w: P.w, h: 680 };
-      return { copy, occupies: [copy] };
-    }
+    case "bridge":
+      return stackP([{ key: "copy", h: 760 }], 0);
     case "outro":
     default:
       return { occupies: [{ x: 0, y: 0, w: PORTRAIT.width, h: PORTRAIT.height }] };

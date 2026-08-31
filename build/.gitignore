@@ -6,3 +6,6 @@ public/audio/
 public/icon/
 public/logo/
 node_modules
+out/*.mp4
+out/audio/
+cues.json

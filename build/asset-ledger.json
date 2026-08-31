@@ -1,0 +1,1129 @@
+[
+ {
+  "primary": "FPGA mixing engine, 54-bit float-point and 96kHz processing (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "FPGA / engine graphic",
+  "kind": "image",
+  "id": 1
+ },
+ {
+  "primary": "FPGA mixing engine, 54-bit float-point and 96kHz processing (2).jpg",
+  "exact": [],
+  "near": [],
+  "model": "FPGA / engine graphic",
+  "kind": "image",
+  "id": 2
+ },
+ {
+  "primary": "FPGA mixing engine, 54-bit float-point and 96kHz processing (3).png",
+  "exact": [],
+  "near": [],
+  "model": "FPGA / engine graphic",
+  "kind": "image",
+  "id": 3
+ },
+ {
+  "primary": "FPGA mixing engine, 54-bit float-point and 96kHz processing (4).jpg",
+  "exact": [],
+  "near": [],
+  "model": "FPGA / engine graphic",
+  "kind": "image",
+  "id": 4
+ },
+ {
+  "primary": "FPGA mixing engine, 54-bit float-point and 96kHz processing (5).jpg",
+  "exact": [],
+  "near": [],
+  "model": "FPGA / engine graphic",
+  "kind": "image",
+  "id": 5
+ },
+ {
+  "primary": "FPGA mixing engine, 54-bit float-point and 96kHz processing.jpg",
+  "exact": [],
+  "near": [],
+  "model": "FPGA / engine graphic",
+  "kind": "image",
+  "id": 6
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 7
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (10).jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 8
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (11).jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 9
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (2).jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 10
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (3).jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 11
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (4).jpg",
+  "exact": [
+   "TASCAM Sonicview 16XP-24XP with IF-ST2110 (2).jpg"
+  ],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 12
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (5).jpg",
+  "exact": [
+   "TASCAM Sonicview 16XP-24XP with IF-ST2110 (3).jpg"
+  ],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 13
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (6).jpg",
+  "exact": [
+   "TASCAM Sonicview 16XP-24XP with IF-ST2110 (4).jpg"
+  ],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 14
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (7).jpg",
+  "exact": [
+   "TASCAM Sonicview 16XP-24XP with IF-ST2110 (5).jpg"
+  ],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 15
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (8).jpg",
+  "exact": [
+   "TASCAM Sonicview 16XP-24XP with IF-ST2110 (6).jpg"
+  ],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 16
+ },
+ {
+  "primary": "TASCAM IF-ST2110 (9).jpg",
+  "exact": [
+   "TASCAM Sonicview 16XP-24XP with IF-ST2110 (7).jpg"
+  ],
+  "near": [],
+  "model": "IF-ST2110 card",
+  "kind": "image",
+  "id": 17
+ },
+ {
+  "primary": "TASCAM IF-AE16 (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-Series card (AE16/AN16/DA64/MA64)",
+  "kind": "image",
+  "id": 18
+ },
+ {
+  "primary": "TASCAM IF-AE16.jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-Series card (AE16/AN16/DA64/MA64)",
+  "kind": "image",
+  "id": 19
+ },
+ {
+  "primary": "TASCAM IF-AN16 OUT (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-Series card (AE16/AN16/DA64/MA64)",
+  "kind": "image",
+  "id": 20
+ },
+ {
+  "primary": "TASCAM IF-AN16 OUT.jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-Series card (AE16/AN16/DA64/MA64)",
+  "kind": "image",
+  "id": 21
+ },
+ {
+  "primary": "TASCAM IF-DA64 (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-Series card (AE16/AN16/DA64/MA64)",
+  "kind": "image",
+  "id": 22
+ },
+ {
+  "primary": "TASCAM IF-DA64.jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-Series card (AE16/AN16/DA64/MA64)",
+  "kind": "image",
+  "id": 23
+ },
+ {
+  "primary": "TASCAM IF-MA64 EX (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-Series card (AE16/AN16/DA64/MA64)",
+  "kind": "image",
+  "id": 24
+ },
+ {
+  "primary": "TASCAM IF-MA64 EX.jpg",
+  "exact": [],
+  "near": [],
+  "model": "IF-Series card (AE16/AN16/DA64/MA64)",
+  "kind": "image",
+  "id": 25
+ },
+ {
+  "primary": "Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology\u2019s Conference Room with TASCAM Sonicview 16 (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 HCMC University / conference",
+  "kind": "image",
+  "id": 26
+ },
+ {
+  "primary": "Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology\u2019s Conference Room with TASCAM Sonicview 16 (2).jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 HCMC University / conference",
+  "kind": "image",
+  "id": 27
+ },
+ {
+  "primary": "Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology\u2019s Conference Room with TASCAM Sonicview 16 (3).png",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 HCMC University / conference",
+  "kind": "image",
+  "id": 28
+ },
+ {
+  "primary": "Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology\u2019s Conference Room with TASCAM Sonicview 16 (4).jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 HCMC University / conference",
+  "kind": "image",
+  "id": 29
+ },
+ {
+  "primary": "Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology\u2019s Conference Room with TASCAM Sonicview 16 (5).jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 HCMC University / conference",
+  "kind": "image",
+  "id": 30
+ },
+ {
+  "primary": "Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology\u2019s Conference Room with TASCAM Sonicview 16.jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 HCMC University / conference",
+  "kind": "image",
+  "id": 31
+ },
+ {
+  "primary": "Use Cases - Sound System for Conference Rooms (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 HCMC University / conference",
+  "kind": "image",
+  "id": 32
+ },
+ {
+  "primary": "Use Cases - Sound System for Conference Rooms.jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 HCMC University / conference",
+  "kind": "image",
+  "id": 33
+ },
+ {
+  "primary": "TASCAM's Sonicview 24XP Helps Steve Remote Thrive at the 2023 Newport Jazz Festival.jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 Newport Jazz / remote truck",
+  "kind": "image",
+  "id": 34
+ },
+ {
+  "primary": "Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 radio broadcast",
+  "kind": "image",
+  "id": 35
+ },
+ {
+  "primary": "Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (2).jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 radio broadcast",
+  "kind": "image",
+  "id": 36
+ },
+ {
+  "primary": "Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (3).jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 radio broadcast",
+  "kind": "image",
+  "id": 37
+ },
+ {
+  "primary": "Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (5).jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 radio broadcast",
+  "kind": "image",
+  "id": 38
+ },
+ {
+  "primary": "Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16.jpg",
+  "exact": [],
+  "near": [],
+  "model": "In-situ \u00b7 radio broadcast",
+  "kind": "image",
+  "id": 39
+ },
+ {
+  "primary": "TASCAM SB-16D (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 40
+ },
+ {
+  "primary": "TASCAM SB-16D (10).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 41
+ },
+ {
+  "primary": "TASCAM SB-16D (11).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 42
+ },
+ {
+  "primary": "TASCAM SB-16D (12).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 43
+ },
+ {
+  "primary": "TASCAM SB-16D (13).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 44
+ },
+ {
+  "primary": "TASCAM SB-16D (14).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 45
+ },
+ {
+  "primary": "TASCAM SB-16D (15).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 46
+ },
+ {
+  "primary": "TASCAM SB-16D (2).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 47
+ },
+ {
+  "primary": "TASCAM SB-16D (3).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 48
+ },
+ {
+  "primary": "TASCAM SB-16D (4).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 49
+ },
+ {
+  "primary": "TASCAM SB-16D (5).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 50
+ },
+ {
+  "primary": "TASCAM SB-16D (6).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 51
+ },
+ {
+  "primary": "TASCAM SB-16D (7).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 52
+ },
+ {
+  "primary": "TASCAM SB-16D (8).jpg",
+  "exact": [],
+  "near": [
+   "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (39).jpg",
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (37).jpg"
+  ],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 53
+ },
+ {
+  "primary": "TASCAM SB-16D (9).jpg",
+  "exact": [],
+  "near": [],
+  "model": "SB-16D",
+  "kind": "image",
+  "id": 54
+ },
+ {
+  "primary": "TASCAM SONICVIEW DIGITAL RECORDING & MIXING CONSOLE OVERVIEW IMAGE (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Series overview",
+  "kind": "image",
+  "id": 55
+ },
+ {
+  "primary": "TASCAM SONICVIEW DIGITAL RECORDING & MIXING CONSOLE OVERVIEW IMAGE.jpg",
+  "exact": [],
+  "near": [],
+  "model": "Series overview",
+  "kind": "image",
+  "id": 56
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP-24XP with IF-ST2110 (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview + IF-ST2110 (system)",
+  "kind": "image",
+  "id": 57
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP-24XP with IF-ST2110 (10).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview + IF-ST2110 (system)",
+  "kind": "image",
+  "id": 58
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP-24XP with IF-ST2110 (11).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview + IF-ST2110 (system)",
+  "kind": "image",
+  "id": 59
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP-24XP with IF-ST2110 (12).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview + IF-ST2110 (system)",
+  "kind": "image",
+  "id": 60
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP-24XP with IF-ST2110 (13).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview + IF-ST2110 (system)",
+  "kind": "image",
+  "id": 61
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP-24XP with IF-ST2110 (14).jpg",
+  "exact": [],
+  "near": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (44).jpg"
+  ],
+  "model": "Sonicview + IF-ST2110 (system)",
+  "kind": "image",
+  "id": 62
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP-24XP with IF-ST2110 (16).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview + IF-ST2110 (system)",
+  "kind": "image",
+  "id": 63
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP-24XP with IF-ST2110 (8).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview + IF-ST2110 (system)",
+  "kind": "image",
+  "id": 64
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP-24XP with IF-ST2110 (9).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview + IF-ST2110 (system)",
+  "kind": "image",
+  "id": 65
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (1).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 66
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (10).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 67
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (11).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 68
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (12).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 69
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (13).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 70
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (14).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 71
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (15).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 72
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (16).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 73
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (17).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 74
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (18).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 75
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (19).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 76
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (2).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 77
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (20).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 78
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (21).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 79
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (22).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 80
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (23).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 81
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (24).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 82
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (25).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 83
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (26).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (24).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 84
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (27).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (25).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 85
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (28).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (26).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 86
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (29).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (27).jpg"
+  ],
+  "near": [
+   "TASCAM Sonicview 16XP-24XP with IF-ST2110 (15).jpg"
+  ],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 87
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (3).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (1).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 88
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (30).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (28).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 89
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (31).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (29).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 90
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (32).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (30).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 91
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (33).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (31).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 92
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (34).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (32).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 93
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (35).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (33).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 94
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (36).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (34).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 95
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (37).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (35).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 96
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (38).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (36).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 97
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (4).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (2).jpg"
+  ],
+  "near": [
+   "Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (4).jpg"
+  ],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 98
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (40).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (38).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 99
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (41).jpg",
+  "exact": [
+   "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (42).jpg",
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (39).jpg",
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (40).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 100
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (43).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (41).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 101
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (44).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (42).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 102
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (45).jpg",
+  "exact": [
+   "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (43).jpg"
+  ],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 103
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (46).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 104
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (5).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 105
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (6).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 106
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (7).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 107
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (8).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 108
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (9).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "image",
+  "id": 109
+ },
+ {
+  "primary": "TASCAM Sonicview 16XP - TASCAM Sonicview 16dp VIDEO.mp4",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 16 (XP/dp)",
+  "kind": "video",
+  "id": 110
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (10).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 111
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (11).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 112
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (12).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 113
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (13).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 114
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (14).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 115
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (15).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 116
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (16).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 117
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (17).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 118
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (18).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 119
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (19).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 120
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (20).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 121
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (21).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 122
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (22).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 123
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (23).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 124
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (3).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 125
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (4).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 126
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (5).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 127
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (6).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 128
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (7).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 129
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (8).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 130
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (9).jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 131
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP - TASCAM Sonicview 24dp.jpg",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "image",
+  "id": 132
+ },
+ {
+  "primary": "TASCAM Sonicview 24XP-TASCAM Sonicview 24dp VIDEO.mp4",
+  "exact": [],
+  "near": [],
+  "model": "Sonicview 24 (XP/dp)",
+  "kind": "video",
+  "id": 133
+ }
+]

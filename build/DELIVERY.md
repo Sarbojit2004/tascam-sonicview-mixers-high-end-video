@@ -4,14 +4,19 @@ Three 178-second portrait reels and three 298-second landscape parts. Each is a 
 video** with its own opening, its own end screen and its own thumbnail — not three chapters of a
 longer piece.
 
-| # | Deliverable | File | Format | Runtime |
-|---|---|---|---|---|
-| 1 | Reel 1 · The Computational Core | `out/sonicview-reel1.mp4` | 1080×1920 · 5,340f | 178.000 s |
-| 2 | Reel 2 · The Network Fabric | `out/sonicview-reel2.mp4` | 1080×1920 · 5,340f | 178.000 s |
-| 3 | Reel 3 · The Control Surface | `out/sonicview-reel3.mp4` | 1080×1920 · 5,340f | 178.000 s |
-| 4 | Part 1 · The Computational Core | `out/sonicview-part1.mp4` | 1920×1080 · 8,940f | 298.000 s |
-| 5 | Part 2 · The Network Fabric | `out/sonicview-part2.mp4` | 1920×1080 · 8,940f | 298.000 s |
-| 6 | Part 3 · The Control Surface | `out/sonicview-part3.mp4` | 1920×1080 · 8,940f | 298.000 s |
+| # | Deliverable | File | Format | Runtime | Size |
+|---|---|---|---|---|---|
+| 1 | Reel 1 · The Computational Core | `out/sonicview-reel1.mp4` | 1080×1920 · 5,340f | 178.000 s | 47.7 MB |
+| 2 | Reel 2 · The Network Fabric | `out/sonicview-reel2.mp4` | 1080×1920 · 5,340f | 178.000 s | 49.7 MB |
+| 3 | Reel 3 · The Control Surface | `out/sonicview-reel3.mp4` | 1080×1920 · 5,340f | 178.000 s | 50.8 MB |
+| 4 | Part 1 · The Computational Core | `out/sonicview-part1.mp4` | 1920×1080 · 8,940f | 298.000 s | 88.1 MB |
+| 5 | Part 2 · The Network Fabric | `out/sonicview-part2.mp4` | 1920×1080 · 8,940f | 298.000 s | 66.2 MB |
+| 6 | Part 3 · The Control Surface | `out/sonicview-part3.mp4` | 1920×1080 · 8,940f | 298.000 s | 76.4 MB |
+
+All six verified against the format contract: exact frame count, container duration within the
+documented AAC-padding allowance, both streams present, and audio carrying signal across all 22
+energy buckets. All six were rendered from one state of the code, so the committed videos and the
+committed source agree.
 
 Alongside each: a **thumbnail** in `thumbnails/`, a **voiceover script** in `vo/`, a **standalone
 music bed** and a **standalone SFX layer** in `out/audio/`, and a **standalone project zip** in
@@ -270,3 +275,28 @@ npx remotion render part2/index.ts Part2 out/sonicview-part2.mp4 --codec=h264 --
 
 `pack_project.py` refuses to pack if any build-critical file is missing, rather than producing an
 archive that looks fine until someone unzips it.
+
+
+---
+
+## Two defects worth recording, because the checks that caught them were nearly not there
+
+**The zero-collision guarantee was false for most of the build.** This document claims the renderer
+and the contact planner cannot disagree, because both read one definition of the scene geometry.
+They did disagree: the copy boxes were hand-picked constants, and a constant is a guess about how
+much room the words need. The landscape `hero` box declared 140 px and rendered roughly 400 px — so
+the copy overflowed the frame, its last data row was cut off mid-line, and the planner, trusting the
+declared 140, placed a contact strip straight through the subhead. It was caught by looking at a
+thumbnail, not by any audit, and it would have shipped in all three parts.
+
+Copy height is now measured from each beat's own content using the same sizes and gaps the renderer
+uses. The audit then immediately caught two consequences — `demo` and `montage` expanding to fill
+the frame left the planner no free slot at all, so it refused rather than colliding — which is the
+system working as intended once the inputs were honest.
+
+**A format contract does not prove a file is correct.** A killed pre-fix render left a
+`sonicview-part2.mp4` behind that finished writing twelve minutes after its parent process was
+killed. It passed every check in `verify_render.mjs` — 1920×1080, exactly 8,940 frames, 298.000 s,
+both streams, audio continuous — while carrying the broken `hero` layout. Well-formed is not the
+same as built from the right code. It was found because it showed up as an untracked file, and it
+was deleted rather than committed.

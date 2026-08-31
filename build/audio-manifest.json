@@ -1,0 +1,118 @@
+{
+ "sfx": {
+  "phase-mark": {
+   "file": "audio/sfx/phase-mark.wav",
+   "seconds": 0.55,
+   "origin": "reused-vocabulary"
+  },
+  "spec-latch": {
+   "file": "audio/sfx/spec-latch.wav",
+   "seconds": 0.22,
+   "origin": "reused-vocabulary"
+  },
+  "fader-throw": {
+   "file": "audio/sfx/fader-throw.wav",
+   "seconds": 0.42,
+   "origin": "reused-vocabulary"
+  },
+  "knob-rotary": {
+   "file": "audio/sfx/knob-rotary.wav",
+   "seconds": 0.09,
+   "origin": "reused-vocabulary"
+  },
+  "data-tick": {
+   "file": "audio/sfx/data-tick.wav",
+   "seconds": 0.06,
+   "origin": "reused-vocabulary"
+  },
+  "sdxc-seat": {
+   "file": "audio/sfx/sdxc-seat.wav",
+   "seconds": 0.3,
+   "origin": "reused-vocabulary"
+  },
+  "ethercon-latch": {
+   "file": "audio/sfx/ethercon-latch.wav",
+   "seconds": 0.4,
+   "origin": "new-for-sonicview"
+  },
+  "touch-tap": {
+   "file": "audio/sfx/touch-tap.wav",
+   "seconds": 0.16,
+   "origin": "new-for-sonicview"
+  },
+  "touch-swipe": {
+   "file": "audio/sfx/touch-swipe.wav",
+   "seconds": 0.34,
+   "origin": "new-for-sonicview"
+  },
+  "fader-snap": {
+   "file": "audio/sfx/fader-snap.wav",
+   "seconds": 0.36,
+   "origin": "new-for-sonicview"
+  },
+  "packet-handoff": {
+   "file": "audio/sfx/packet-handoff.wav",
+   "seconds": 0.62,
+   "origin": "new-for-sonicview"
+  },
+  "card-seat": {
+   "file": "audio/sfx/card-seat.wav",
+   "seconds": 0.44,
+   "origin": "new-for-sonicview"
+  },
+  "dc-lock": {
+   "file": "audio/sfx/dc-lock.wav",
+   "seconds": 0.26,
+   "origin": "new-for-sonicview"
+  }
+ },
+ "beds": {
+  "reel1": {
+   "file": "audio/bed-reel1.wav",
+   "seconds": 178.0,
+   "key_hz": 110.0
+  },
+  "reel2": {
+   "file": "audio/bed-reel2.wav",
+   "seconds": 178.0,
+   "key_hz": 98.0
+  },
+  "reel3": {
+   "file": "audio/bed-reel3.wav",
+   "seconds": 178.0,
+   "key_hz": 123.47
+  },
+  "part1": {
+   "file": "audio/bed-part1.wav",
+   "seconds": 298.0,
+   "key_hz": 110.0
+  },
+  "part2": {
+   "file": "audio/bed-part2.wav",
+   "seconds": 298.0,
+   "key_hz": 98.0
+  },
+  "part3": {
+   "file": "audio/bed-part3.wav",
+   "seconds": 298.0,
+   "key_hz": 123.47
+  }
+ },
+ "reused": [
+  "data-tick",
+  "fader-throw",
+  "knob-rotary",
+  "phase-mark",
+  "sdxc-seat",
+  "spec-latch"
+ ],
+ "new": [
+  "card-seat",
+  "dc-lock",
+  "ethercon-latch",
+  "fader-snap",
+  "packet-handoff",
+  "touch-swipe",
+  "touch-tap"
+ ]
+}

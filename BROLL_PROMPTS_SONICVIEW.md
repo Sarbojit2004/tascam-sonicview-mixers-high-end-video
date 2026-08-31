@@ -645,3 +645,304 @@ When the generated clips come back, each should be checked for:
    footage.
 
 Send them back and I will run those checks and log the results.
+
+---
+---
+
+# Addendum — clips 15 to 20 (six additional)
+
+Added on request when further generation capacity became available. **Total library: 20 clips.**
+
+These six were the next-strongest scenarios in the ranking, held back from the original fourteen
+only by capacity. Each is a genuinely distinct technical claim with its own real anchor, and none
+repeats a camera move or a subject already covered. Two deliberately reuse a photograph already cited
+(`TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (21).jpg` in clip 11, and
+`TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (18).jpg` in clips 02 and 10) but frame a
+**different region of the same panel** — the right-hand key cluster rather than the screens, the card bay rather than the
+XLR bank — so they are new shots, not second passes.
+
+| Clip | Adds | Stage grounding |
+|---|---|---|
+| 15 | Assignable User Keys and Layer Keys with LED state | Stage 1 Control Surface · Stage 4 rank 6 |
+| 16 | 32-track direct-to-SDXC via IF-MTR32 | Stage 1 Recording and Multitrack Capability |
+| 17 | The full IF-Series card family as one protocol layer | Stage 3 identity · Stage 4 rank 2 |
+| 18 | One engine, two chassis footprints (16 vs 24) | Stage 1 Inter-Lineup Relationship |
+| 19 | Real deployment, real engineer, real venue | Stage 7 Phase 5 validation |
+| 20 | The physical act of making the network connection | Stage 4 rank 2 |
+
+Same **hardware fidelity contract** at the top of every prompt and same **negative block** at the
+bottom — both unchanged from the main sheet above.
+
+---
+
+## SV-BR-15 — "Assigned"
+**Model:** Sonicview 24 · **Phase 4** · **Stage 4 rank 6 — User Keys / Layer Keys**
+
+**Real reference image(s):**
+- `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (21).jpg` *(primary — the right-hand control cluster: the USER KEYS block lettered A to F, the numbered USER KEYS column, the LAYER KEYS column, HOME / MENU / TALKBACK, the MONITOR OUT encoder and the meter bridge)*
+- `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (22).jpg` *(secondary — second angle on the same cluster for exact key positions)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second macro shot of the right-hand control cluster of a TASCAM Sonicview 24 console. In
+> frame: a block of six square backlit user keys arranged two rows of three and lettered A to F, a
+> vertical column of numbered backlit keys beside the channel SOLO and SEL buttons, a further
+> vertical column of layer keys below that, three small function buttons above, a rotary monitor
+> encoder, and the segmented LED meter bridge at the top of frame.
+>
+> Action: the keys are illuminated and live. Over the ten seconds, three separate keys change state
+> in sequence — each one switching colour crisply and instantly, with no fade or glow ramp, the way
+> an LED-backlit key actually behaves. Between the changes nothing moves. The meter bridge segments
+> flicker with small realistic audio activity throughout. No hand or finger enters frame.
+>
+> Camera: a slow, shallow arc drifting from lower left to upper right across the cluster, holding a
+> steep three-quarter angle so the keys read as raised physical objects with real depth and cast
+> shadow rather than as a flat graphic. Very gentle simultaneous push-in. Shallow depth of field —
+> the lettered key block is critically sharp for the first half, then focus eases back to bring the
+> numbered column and layer keys into sharpness. Smooth motorised motion, one continuous take.
+>
+> Environment and light: bright, cool and clinical. Soft broad white key from above so the dark
+> panel and its white legends stay legible, a cold cyan rim skimming across the raised key caps to
+> define their edges, pale grey falloff behind. The key illumination is the most saturated colour in
+> frame and should read cleanly against the cool neutral ambient without blooming.
+>
+> Mood: a surface that has been configured by someone who knows exactly what they want where.
+>
+> [NEGATIVE BLOCK]
+
+---
+
+## SV-BR-16 — "Thirty-Two Tracks, No Computer"
+**Model:** IF-MTR32 in Sonicview · **Phase 2/4** · **Stage 1 — Recording and Multitrack Capability**
+
+**Real reference image(s):**
+- `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (40).jpg` *(primary — the IF-MTR32 multitrack recording card: green PCB, black faceplate, SDXC card slot with its PUSH EJECT legend)*
+- `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (18).jpg` *(secondary — the console rear with the IF-MTR32 fitted in its slot, for the installed context and surrounding panel labelling)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second macro shot of an SDXC memory card being inserted into the card slot of a TASCAM
+> IF-MTR32 multitrack recording card installed in the rear panel of a Sonicview console. The
+> faceplate carries the slot, its printed legend and a small indicator, set into the console's black
+> rear panel between the surrounding connector fields.
+>
+> Action: the memory card enters from the right, held level, and slides smoothly into the slot in one
+> continuous unhurried movement, decelerating as it goes home and seating with a small final travel.
+> It comes to rest almost flush, with only its end edge proud of the faceplate. The activity
+> indicator beside the slot begins to blink steadily once the card is seated. No hands visible, or at
+> most the very edge of fingertips at the extreme frame edge, never covering the slot.
+>
+> Camera: a tight macro at a shallow three-quarter angle looking along the faceplate so the card
+> travels away from camera into the slot, with a very slow simultaneous push-in that follows it part
+> of the way. Extremely shallow depth of field, the slot mouth and the card's leading edge holding
+> critical focus while the surrounding panel softens. Perfectly steady motorised motion, no cuts.
+>
+> Environment and light: bright, clinical, high-key. A cold cyan-white key from the upper left rakes
+> across the panel and catches the moulded edge of the memory card and the machined lip of the slot
+> as tight specular highlights; cool white fill from below keeps the printed legend legible. Pale
+> grey falloff behind. Spotless — no dust, no fingerprints.
+>
+> Mood: a self-contained machine. The recording happens here, in this slot, with nothing else
+> attached.
+>
+> [NEGATIVE BLOCK]
+
+---
+
+## SV-BR-17 — "The Protocol Layer"
+**Model:** IF-Series expansion cards (AE16 / AN16-OUT / DA64 / MA64-EX / ST2110) · **Phase 3** · **Stage 3 identity · Stage 4 rank 2**
+
+**Real reference image(s):**
+- `TASCAM IF-AE16 (1).jpg` *(AES/EBU — twin DB25, labelled 1-8 I/O and 9-16 I/O)*
+- `TASCAM IF-AN16 OUT (1).jpg` *(analog out — twin DB25, labelled ANALOG OUT)*
+- `TASCAM IF-DA64 (1).jpg` *(expanded Dante — PRIMARY and SECONDARY etherCON)*
+- `TASCAM IF-MA64 EX (1).jpg` *(MADI — three BNC coaxial connectors plus duplex optical)*
+- `TASCAM Sonicview 16XP-24XP with IF-ST2110 (1).jpg` *(ST 2110 — CONTROL, PORT 1, PORT 2)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second overhead shot of five TASCAM IF-Series expansion card faceplates laid out side by side
+> in a neat row on a bright white surface, each one a black anodised plate with captive thumbscrews
+> and its own distinct connector set: one with two 25-pin D-sub connectors labelled for AES/EBU
+> input and output, one with two 25-pin D-sub connectors labelled for analog output, one with two
+> RJ45 network ports labelled PRIMARY and SECONDARY, one with three silver BNC coaxial connectors
+> alongside a duplex optical connector, and one with three RJ45 ports labelled CONTROL, PORT 1 and
+> PORT 2. Each card must reproduce exactly the connectors and printed labelling shown in its own
+> reference photograph — do not swap connectors between cards or give any card a port it does not
+> have.
+>
+> Camera: a straight-down overhead view, slowly tracking along the row from the first card to the
+> last at constant speed, holding the plane of the faceplates parallel to the sensor so the layout
+> reads as a clean technical comparison. Very slight simultaneous descent so the cards grow a little
+> in frame across the move. Medium-shallow depth of field: the card currently centred is critically
+> sharp, its neighbours slightly soft at the edges of frame. One continuous motorised take.
+>
+> Environment and light: bright, clinical, high-key. White surface, soft broad white key from above,
+> and a cold cyan raking light from the left that runs across the row picking out the machined shells
+> of the D-sub connectors, the chrome of the BNC barrels, the ceramic of the optical connector and
+> the plated contacts inside the RJ45 ports. Crisp, short shadows directly beneath each card. Pale
+> neutral colour throughout.
+>
+> Mood: a set of options laid out for a decision. Five different buildings, five different answers.
+>
+> [NEGATIVE BLOCK]
+
+---
+
+## SV-BR-18 — "One Engine, Two Footprints"
+**Model:** Sonicview 16 and Sonicview 24 together · **Phase 1/4** · **Stage 1 — Inter-Lineup Relationship**
+
+**Real reference image(s):**
+- `TASCAM SB-16D (3).jpg` *(primary — a Sonicview 16 and a Sonicview 24 shown together at an angle, correct relative scale, 2 screens versus 3 screens, 16+1 versus 24+1 faders)*
+- `TASCAM SONICVIEW DIGITAL RECORDING & MIXING CONSOLE OVERVIEW IMAGE (1).jpg` *(secondary — confirms proportions and surface layout of both)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second shot of two TASCAM Sonicview consoles standing side by side on a bright white surface:
+> the smaller Sonicview 16 with two 7-inch colour touchscreens and sixteen channel faders plus a
+> master fader, and the larger Sonicview 24 with three touchscreens and twenty-four channel faders
+> plus a master. Both are the same depth and the same height with the same wedge profile, the same
+> panel finish and the same control layout — only the width and the screen and fader counts differ.
+> That similarity is the point of the shot and must be preserved exactly.
+>
+> Camera: a slow lateral dolly moving from the Sonicview 16 across to the Sonicview 24, travelling
+> parallel to their front edges at just above surface height so the two wedge profiles align in the
+> frame and the difference in width reads clearly against their identical height and depth. Constant
+> speed, one continuous take, no cuts. Both consoles remain complete within frame throughout —
+> neither is ever cropped by an edge. Medium depth of field so both surfaces stay readable.
+>
+> Environment and light: bright, high-key product studio. White seamless with a soft gradient, broad
+> soft white key from above and front, and a cold cyan-white rim light along the top edge of both
+> chassis that travels as the camera moves, separating them from the white ground. Soft reflections
+> beneath both units. The touchscreens on both consoles are powered and showing their characteristic
+> blue and cyan channel graphics.
+>
+> Mood: two sizes of the same idea. A scale decision, not a capability decision.
+>
+> [NEGATIVE BLOCK]
+
+---
+
+## SV-BR-19 — "In Service"
+**Model:** Sonicview 24XP · **Phase 5** · **Stage 7 — technical validation, real deployment**
+*⚠ Two cautions on this one — read the note under the prompt.*
+
+**Real reference image(s):**
+- `TASCAM's Sonicview 24XP Helps Steve Remote Thrive at the 2023 Newport Jazz Festival.jpg` *(primary — a working audio engineer seated at a Sonicview 24 in a wood-panelled remote-production room)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second observational shot of a working audio engineer operating a TASCAM Sonicview 24 console
+> in a remote-production room with warm wood-panelled walls. The engineer is seated at the console,
+> seen from a three-quarter rear angle over his shoulder, working — not looking at or addressing the
+> camera at any point. The console fills the lower half of frame with its three touchscreens lit and
+> its fader bank in front of him.
+>
+> Action: the engineer makes two small, unhurried adjustments — a hand moves to a fader and rides it
+> a short distance, then moves to the touchscreen and makes a single contact. Entirely natural
+> working movement, no performance, no gesturing, no turning toward camera.
+>
+> Camera: a slow push-in from behind the engineer's shoulder, starting wide enough to include the
+> whole console and the room around it and ending closer on the console surface and his hands. Very
+> gentle, quiet gimbal motion — no handheld shake, no whip, no cuts. Focus stays on the console and
+> the hands; the engineer's head and the room behind remain slightly soft throughout.
+>
+> Environment and light: the room is warm and wood-toned, lit softly and evenly, with the console's
+> screens providing the cool blue-cyan accent that draws the eye. Keep the background at a shallow
+> depth of field so wall surfaces, signage and any framed or illuminated graphics behind the
+> engineer are rendered as soft, unreadable shapes — no legible words, marks or symbols anywhere in
+> the background.
+>
+> Mood: unglamorous professional competence. A real room, a real session, a real engineer at work.
+>
+> [NEGATIVE BLOCK]
+
+> **Two cautions specific to this clip.**
+>
+> 1. The reference photograph contains an **illuminated third-party company sign** on the back wall.
+>    That must not be reproduced legibly — hence the explicit instruction to hold the background
+>    soft and unreadable. Reject any returned clip where background signage or lettering can be
+>    made out.
+> 2. The person in the reference is **facing camera**. The prompt deliberately reorients him to a
+>    rear three-quarter working position, both to satisfy the no-person-addressing-camera rule and
+>    because a working shot cuts better than a portrait. Expect this clip to need more regeneration
+>    attempts than the others; it is the only one asking Gemini to change a subject's orientation.
+
+---
+
+## SV-BR-20 — "Seating the Run"
+**Model:** Sonicview 16 / SB-16D · **Phase 3** · **Stage 4 rank 2 — the physical network connection**
+
+**Real reference image(s):**
+- `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (32).jpg` *(primary — the Dante etherCON PRIMARY and SECONDARY ports at extreme close range, with their PUSH release latches and the panel labelling)*
+- `TASCAM SB-16D (6).jpg` *(secondary — the SB-16D rear network and power section, for the stagebox end of the same connection)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second extreme macro shot of a ruggedised locking Ethernet cable connector being inserted
+> into the PRIMARY network port on a TASCAM Sonicview rear panel. The port is a chromed etherCON
+> shell with a sprung PUSH release latch above it, with the SECONDARY port immediately alongside and
+> the panel labelling clearly printed beneath both.
+>
+> Action: the cable connector enters from the right, aligned and level, and pushes home into the port
+> in one smooth continuous movement. As it seats, the sprung latch engages with a small, crisp
+> mechanical travel and the connector stops absolutely dead — a positive, locked termination, not a
+> loose push-fit. The cable then hangs still. The whole action occupies roughly the middle four
+> seconds; the shot opens on the empty port and closes on the seated, locked connector. No hands in
+> frame beyond the very edge, never obscuring the port.
+>
+> Camera: an extreme macro at a shallow angle along the panel so the connector travels away from
+> camera into the port, with a very slight push-in through the move. Razor-thin depth of field held
+> on the port mouth and the latch, so the seating action is the sharpest thing in frame while the
+> cable body and the adjacent SECONDARY port fall soft. Motorised, absolutely steady, one take.
+>
+> Environment and light: bright and clinical rather than dark. A hard cold cyan-white key from the
+> upper left picks out the chrome of the etherCON shell, the knurled grip of the cable connector and
+> the sprung latch as sharp specular highlights that shift as the connector advances; cool white fill
+> from below keeps the black panel texture and printed labelling readable. Pale neutral grey falloff.
+>
+> Mood: the small decisive moment where infrastructure actually becomes infrastructure.
+>
+> [NEGATIVE BLOCK]
+
+---
+
+## Updated reference table — clips 15 to 20
+
+| Clip | Scenario | Model represented | Real source image filename(s) |
+|---|---|---|---|
+| SV-BR-15 | Assigned | Sonicview 24 | `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (21).jpg` · `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (22).jpg` |
+| SV-BR-16 | Thirty-Two Tracks, No Computer | IF-MTR32 in Sonicview | `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (40).jpg` · `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (18).jpg` |
+| SV-BR-17 | The Protocol Layer | IF-Series card family | `TASCAM IF-AE16 (1).jpg` · `TASCAM IF-AN16 OUT (1).jpg` · `TASCAM IF-DA64 (1).jpg` · `TASCAM IF-MA64 EX (1).jpg` · `TASCAM Sonicview 16XP-24XP with IF-ST2110 (1).jpg` |
+| SV-BR-18 | One Engine, Two Footprints | Sonicview 16 + 24 | `TASCAM SB-16D (3).jpg` · `TASCAM SONICVIEW DIGITAL RECORDING & MIXING CONSOLE OVERVIEW IMAGE (1).jpg` |
+| SV-BR-19 | In Service | Sonicview 24XP | `TASCAM's Sonicview 24XP Helps Steve Remote Thrive at the 2023 Newport Jazz Festival.jpg` |
+| SV-BR-20 | Seating the Run | Sonicview 16 / SB-16D | `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (32).jpg` · `TASCAM SB-16D (6).jpg` |
+
+**Library totals after the addendum — 20 clips.**
+Sonicview 24 (XP/dp) 9 · SB-16D 3 · Sonicview 16 (XP/dp) 3 · IF-Series cards 3 · ecosystem 2.
+
+**Stage 4 coverage after the addendum**
+
+| Rank | Feature | Clips |
+|---|---|---|
+| 1 | 54-bit floating-point FPGA engine | 03, 04 |
+| 2 | Native Dante 64×64 & ST 2110 IP topologies | 05, 06, 07, 08, 17, 20 |
+| 3 | Class 1 HDIA preamplifier topology | 02, 03 |
+| 4 | Hardware & software disaster recovery | 14 |
+| 5 | Broadcast automation logic | 09, 10, 13 |
+| 6 | TASCAM VIEW HMI architecture | 11, 12, 15 |
+| — | Recording / multitrack | 16 |
+| — | Lineup scale & ecosystem | 01, 18 |
+| — | Real-world validation | 19 |

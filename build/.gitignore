@@ -8,4 +8,5 @@ public/logo/
 node_modules
 # WAV masters are ~550 MB; the 320k MP3s beside them are the deliverables.
 out/audio/*.wav
+cues-real.json
 cues.json

@@ -9,3 +9,4 @@ node_modules
 out/*.mp4
 out/audio/
 cues.json
+thumbnails/

@@ -11,7 +11,7 @@
  * level looks fine.
  */
 import { execFileSync } from "node:child_process";
-import { existsSync, statSync } from "node:fs";
+import { existsSync, readFileSync, statSync, unlinkSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -63,21 +63,45 @@ for (const key of targets) {
   if (+nb !== c.frames) fail(`${nb} frames, contract ${c.frames}`);
   else ok(`${nb} frames = ${(c.frames / FPS).toFixed(3)} s`);
 
+  // The exact contract is the FRAME COUNT, checked above. Container duration is
+  // allowed a small tolerance because AAC-in-MP4 adds encoder priming and
+  // padding: the audio track rounds up to a whole number of 1024-sample AAC
+  // frames and carries a priming delay, which puts the container ~45-50 ms past
+  // the video. That is normal and not something the render controls.
   const expected = c.frames / FPS;
-  if (Math.abs(+dur - expected) > 1 / FPS) fail(`duration ${(+dur).toFixed(3)} s, expected ${expected.toFixed(3)} s`);
-  else ok(`duration ${(+dur).toFixed(3)} s (within one frame)`);
+  const AAC_PAD = 0.10;
+  if (Math.abs(+dur - expected) > AAC_PAD) {
+    fail(`duration ${(+dur).toFixed(3)} s, expected ${expected.toFixed(3)} s`);
+  } else {
+    ok(`duration ${(+dur).toFixed(3)} s (video exact; +${((+dur - expected) * 1000).toFixed(0)} ms AAC padding)`);
+  }
 
   if (!acodec) fail("no audio stream");
   else ok(`streams: h264 + ${acodec}`);
 
   // Energy contour — the check that catches a silent or interrupted bed.
-  const raw = execFileSync(
-    FFMPEG,
-    ["-v", "error", "-i", file, "-map", "0:a:0", "-ac", "1", "-ar", "8000",
-     "-f", "s16le", "-"],
-    { maxBuffer: 1 << 28 },
+  //
+  // Extracted as WAV rather than raw PCM: the ffmpeg bundled with Remotion's
+  // compositor is a stripped build with no `s16le` muxer, so the obvious
+  // approach fails at run time rather than at review time. `wav` is present.
+  const tmp = join(ROOT, "out", `.verify-${key}.wav`);
+  execFileSync(FFMPEG, [
+    "-y", "-v", "error", "-i", file, "-map", "0:a:0",
+    "-ac", "1", "-ar", "8000", "-f", "wav", tmp,
+  ]);
+  const buf = readFileSync(tmp);
+  unlinkSync(tmp);
+  // Walk the RIFF chunks to the `data` payload rather than assuming a 44-byte
+  // header — ffmpeg emits a LIST/INFO chunk, so a fixed offset lands mid-metadata.
+  let off = 12;
+  while (off + 8 <= buf.length && buf.toString("latin1", off, off + 4) !== "data") {
+    off += 8 + buf.readUInt32LE(off + 4);
+  }
+  const start = off + 8;
+  const bytes = Math.min(buf.readUInt32LE(off + 4), buf.length - start);
+  const samples = new Int16Array(
+    buf.buffer.slice(buf.byteOffset + start, buf.byteOffset + start + (bytes & ~1)),
   );
-  const samples = new Int16Array(raw.buffer, raw.byteOffset, Math.floor(raw.length / 2));
   const per = Math.floor(samples.length / BUCKETS);
   const rms = [];
   for (let b = 0; b < BUCKETS; b++) {
@@ -86,7 +110,8 @@ for (const key of targets) {
     rms.push(Math.sqrt(acc / per) / 32768);
   }
   const quiet = rms.filter((v) => v < 0.0015).length;
-  const contour = rms.map((v) => " ▁▂▃▄▅▆▇█"[Math.min(8, Math.round(v * 40))]).join("");
+  const peak = Math.max(...rms, 1e-6);
+  const contour = rms.map((v) => " ▁▂▃▄▅▆▇█"[Math.max(1, Math.min(8, Math.round((v / peak) * 8)))]).join("");
   if (quiet > 1) fail(`audio silent in ${quiet}/${BUCKETS} buckets  ${contour}`);
   else ok(`audio carries signal throughout  ${contour}`);
 

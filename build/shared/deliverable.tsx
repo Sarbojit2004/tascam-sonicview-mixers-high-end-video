@@ -22,6 +22,7 @@ import { assertRuntime, frames, starts, type Beat } from "./beat.ts";
 import { buildContactPlan, type StripAppearance } from "./contactplan.ts";
 import { withGeometry } from "./layout.ts";
 import { ContactLayer, Page } from "./shell.tsx";
+import { ContactStrip } from "./contact.tsx";
 import { Scene } from "./scenes.tsx";
 import { SFX_FOR, SFX_FOR_DEMO } from "./sfx.ts";
 
@@ -86,7 +87,17 @@ export const Deliverable: React.FC<{ spec: DeliverableSpec }> = ({ spec }) => {
   );
 };
 
-/** A thumbnail: one frame of design, not a frame grab. */
+/**
+ * A thumbnail: one frame of design, not a frame grab.
+ *
+ * Carries NO LOGO — a thumbnail is not an end screen, so the end-screen-only
+ * rule applies to it exactly as it applies to the body.
+ *
+ * It DOES carry one icon-paired contact strip, which the brief allows "if space
+ * allows". Space allows: a single beat's layout leaves the reserved band (or,
+ * on landscape, a free corner) genuinely empty, and a thumbnail that a viewer
+ * pauses on is the one frame where a way to get in touch is most useful.
+ */
 export const Thumbnail: React.FC<{
   spec: DeliverableSpec;
   beatIndex: number;
@@ -100,6 +111,13 @@ export const Thumbnail: React.FC<{
         <Sequence from={-frameInBeat} durationInFrames={frames(b.sec) + frameInBeat} layout="none">
           <Scene beat={b} portrait={spec.portrait} />
         </Sequence>
+        <ContactStrip
+          channel="website"
+          slot={spec.portrait ? "band-bottom-center" : "bl"}
+          frame={40}
+          dur={9999}
+          portrait={spec.portrait}
+        />
       </AbsoluteFill>
     </Page>
   );

@@ -946,3 +946,320 @@ Sonicview 24 (XP/dp) 9 · SB-16D 3 · Sonicview 16 (XP/dp) 3 · IF-Series cards 
 | — | Recording / multitrack | 16 |
 | — | Lineup scale & ecosystem | 01, 18 |
 | — | Real-world validation | 19 |
+
+---
+---
+
+# Addendum 2 — clips 21 to 24 (four additional)
+
+**Total library: 24 clips.**
+
+## Correction to the count reasoning above
+
+The original reasoning said the library holds "only three usable in-situ photographs." **That was
+wrong**, and re-auditing the case-study sets for this addendum found **six**:
+
+| File | What it actually shows |
+|---|---|
+| `Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (2).jpg` | A working radio studio — operator at a Sonicview 16, playout monitors, boom mic |
+| `Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (3).jpg` | Tight on the same installed Sonicview 16 surface in that studio |
+| `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16.jpg` | A Sonicview 16 mounted in an open wheeled flight-case rack |
+| `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (5).jpg` | A real wood-panelled control room with the console on a desk |
+| `TASCAM's Sonicview 24XP Helps Steve Remote Thrive at the 2023 Newport Jazz Festival.jpg` | Engineer at a 24XP in a remote-production room *(used in clip 19)* |
+| `Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16.jpg` | Two operators at the console in the radio studio *(letterboxed source)* |
+
+I had classified the whole radio set as diagrams after seeing only the signal-flow file. Three of
+these six are genuinely strong real-world anchors, and two of them carry clips 21 and 22 below. The
+fourteen-clip figure was not wrong for the reasons given, but that particular reason was.
+
+Also worth recording: `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (1).jpg`,
+`Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (2).jpg` and
+`Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (3).png` are **screen captures of the VIEW
+interface itself** — channel strips, a parametric EQ curve, a dynamics graph, meters — not room
+photography. Clip 23 uses them, which is what Stage 5's "Screen Legibility as Subject" instruction
+actually asks for.
+
+Same **hardware fidelity contract** and **negative block** apply, unchanged.
+
+---
+
+## SV-BR-21 — "On Air"
+**Model:** Sonicview 16 · **Phase 5** · **Stage 2 broadcast buyer · Stage 7 validation**
+*⚠ Heavy legible third-party signage in the reference — see the caution below.*
+
+**Real reference image(s):**
+- `Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (2).jpg` *(primary — the working radio studio: operator seated at a Sonicview 16, playout monitors either side, studio condenser on a boom arm, equipment rack at right)*
+- `Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (3).jpg` *(secondary — tight on the same installed console surface, for exact layout in situ)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second observational shot inside a working radio broadcast studio. A TASCAM Sonicview 16
+> digital mixing console sits angled on a white studio desk, its two touchscreens and channel name
+> displays lit. A presenter-operator in a dark polo shirt and over-ear headphones is seated at the
+> desk, back three-quarters to camera, working the console. A large studio condenser microphone on a
+> boom arm reaches in from the left, and computer monitors running playout software flank the
+> console on both sides. An equipment rack stands to the right.
+>
+> Action: the operator makes one small fader adjustment on the console and then reaches to a
+> touchscreen. Entirely natural working movement — no performance, no turning toward camera, no
+> speech. The console's screens and channel displays stay live throughout with small realistic meter
+> activity.
+>
+> Camera: a slow push-in from behind and slightly above the operator's right shoulder, starting wide
+> enough to hold the whole desk and ending closer on the console surface and the operator's hands.
+> Very gentle, quiet gimbal motion — no handheld shake, no whip, no cuts. Focus stays on the console;
+> the operator's head and the room behind stay soft.
+>
+> Environment and light: a real working room, not a studio set — mixed practical lighting, grey
+> carpet tile, an office chair. The console's own screens and the computer monitors provide the cool
+> blue accent. Keep everything beyond the desk at shallow depth of field so wall banners, posters,
+> rack equipment labels and any station graphics behind the operator render as soft, unreadable
+> colour — no legible words, logos or symbols anywhere in the background.
+>
+> Mood: an ordinary shift in a room that cannot go quiet. Competent, unremarkable, real.
+>
+> [NEGATIVE BLOCK]
+
+> **Caution.** The reference photograph contains extensive legible third-party station branding on
+> wall banners and on the rack equipment. The prompt holds all of it soft and unreadable. Reject any
+> returned clip where background lettering, logos or QR codes can be made out.
+
+---
+
+## SV-BR-22 — "Cased and Rolling"
+**Model:** Sonicview 16 · **Phase 4** · **Stage 2 — deployment reality**
+*⚠ Other manufacturers' rack gear sits below the console in the reference — frame excludes it.*
+
+**Real reference image(s):**
+- `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16.jpg` *(primary — a Sonicview 16 mounted in an open wheeled flight-case rack, lid folded back, in a real venue)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second shot of a TASCAM Sonicview 16 console mounted into the top of a heavy black wheeled
+> flight-case rack, its hinged lid folded back and the case's aluminium extrusion corners, butterfly
+> latches and ball corners clearly visible around it. The console sits proud in the case at its
+> working angle, two touchscreens and channel name displays lit, sixteen faders plus master ready to
+> hand.
+>
+> Framing constraint: hold the shot tight enough that the **console and the upper part of the flight
+> case fill the frame**. Do not include the lower rack bays or any equipment mounted below the
+> console — the frame stops at the console's own case shelf.
+>
+> Camera: a slow crane-down and simultaneous gentle push-in, beginning high and looking down across
+> the open case at the console, ending at a lower, flatter three-quarter angle where the fader bank
+> and the two screens read clearly. One continuous motorised move at constant speed, no cuts.
+> Medium-shallow depth of field: the console surface holds focus, the case latches and lid edge
+> soften at frame edge.
+>
+> Environment and light: a real interior rather than a studio — a pale stone or tiled floor and a
+> warm wood-panelled wall behind, lit by soft even ambient daylight. The console's screens are the
+> cool blue accent against that warmth. A restrained cold highlight along the aluminium case
+> extrusion and the chromed latches gives the metal its edge. Clean, undramatic, believable.
+>
+> Mood: this is how it actually arrives and how it actually works. Rolled in, lid open, running.
+>
+> [NEGATIVE BLOCK]
+
+> **Caution.** The reference shows other manufacturers' rack units mounted below the console. The
+> framing constraint above exists to keep them out of shot. Reject any returned clip in which
+> equipment below the console is visible or any third-party product labelling can be read.
+
+---
+
+## SV-BR-23 — "The Curve"
+**Model:** Sonicview 16 — TASCAM VIEW interface · **Phase 2/4** · **Stage 5 "Screen Legibility as Subject" · Stage 4 rank 6**
+
+**Real reference image(s):**
+- `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (2).jpg` *(primary — the VIEW module screen: a parametric EQ curve on the left display and a dynamics/compressor graph on the right, with the channel encoder row beneath)*
+- `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (3).png` *(secondary — the same interface showing EQ alongside a full meter array)*
+- `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (1).jpg` *(secondary — the multi-channel strip view, for the interface's colour language and typography)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second macro shot of the TASCAM VIEW interface running on the two 7-inch touchscreens of a
+> Sonicview 16, with the row of illuminated rotary encoders and coloured status buttons directly
+> beneath them in frame. The left screen shows a channel's parametric EQ page with its response
+> curve plotted over a dark blue graph field; the right screen shows the dynamics page with its
+> transfer-function graph and threshold markers. Reproduce the interface's real colour language and
+> layout exactly as in the reference — the same blues, cyans, greens and ambers, the same panel
+> proportions, the same on-screen control shapes.
+>
+> Action: the EQ curve is edited live. Over the middle four seconds one band's gain rises and its Q
+> narrows, and the plotted curve redraws smoothly and continuously as it changes, exactly as a real
+> console redraws. On the right screen the dynamics graph's threshold marker steps once. Meters move
+> with small realistic activity throughout. No hand or finger enters frame.
+>
+> Camera: a very slow push-in that starts with both screens and the encoder row in frame and ends
+> tight enough that the EQ curve fills most of the width, with a slight lateral drift left so the
+> emphasis moves onto the curve. Constant speed, motorised, one take. The screens must stay crisp and
+> perfectly legible throughout — no moiré, no scan banding, no rolling shutter, no glare or reflected
+> light sources on the glass, no keystone distortion.
+>
+> Environment and light: bright, cool and clinical. Pale grey and white surround with soft even
+> ambient so the panel around the screens reads as real hardware, while the displays remain the
+> brightest elements without blooming. Cold cyan screen spill across the tops of the encoder caps.
+>
+> Mood: the arithmetic made visible. The place where the operator actually sees what the engine is
+> doing.
+>
+> [NEGATIVE BLOCK]
+
+> **Note.** The negative block's "no on-screen text" rule refers to text **added to the video frame**
+> — captions, titles, watermarks. The console's own interface labelling is part of the hardware and
+> must be reproduced faithfully, not removed.
+
+---
+
+## SV-BR-24 — "The Sixteen"
+**Model:** Sonicview 16 · **Phase 1/2** · **Establishing — the compact chassis in its own right**
+
+**Real reference image(s):**
+- `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (18).jpg` *(primary — a dramatic low three-quarter view of the Sonicview 16 showing the full wedge profile, both touchscreens and the complete fader bank)*
+- `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (22).jpg` *(secondary — a second angle on the same console for surface-layout confirmation)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second hero reveal of a TASCAM Sonicview 16 digital mixing console, complete and alone in
+> frame. Two 7-inch colour touchscreens across the upper surface, a row of rotary encoders and
+> illuminated select and mute buttons beneath them, the blue channel name display strip, and sixteen
+> 100mm motorised channel faders plus a master fader across the lower surface. The wedge-shaped
+> chassis with its metallic side trim and moulded side cheeks reads clearly in profile.
+>
+> Camera: begins low and close at the front edge of the fader bank, looking along the faders so they
+> recede in a strong diagonal. Across the ten seconds the camera executes one continuous slow crane
+> upward and slight arc to the right, rising past the encoder row to finish on a high three-quarter
+> view where the whole console — every fader, both screens, both side cheeks — sits complete within
+> the frame, never cropped by an edge. Constant speed, motorised, no cuts. Focus pulls with the move
+> so the surface stays sharp throughout.
+>
+> Environment and light: bright, high-key product studio. White seamless with a soft gradient
+> falloff, broad soft white key from above and slightly front, and a cold cyan-white rim light
+> travelling along the console's top edge and side trim as the camera rises, separating the dark
+> chassis from the white ground. A soft, believable reflection beneath the unit. The touchscreens are
+> powered and glowing with their characteristic blue and cyan channel graphics.
+>
+> Mood: the compact one, given the same respect as the flagship. Complete, self-contained, capable.
+>
+> [NEGATIVE BLOCK]
+
+---
+
+## Updated reference table — clips 21 to 24
+
+| Clip | Scenario | Model represented | Real source image filename(s) |
+|---|---|---|---|
+| SV-BR-21 | On Air | Sonicview 16 | `Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (2).jpg` · `Updating the Audio System for Next Generation Radio Programs with the TASCAM Sonicview 16 (3).jpg` |
+| SV-BR-22 | Cased and Rolling | Sonicview 16 | `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16.jpg` |
+| SV-BR-23 | The Curve | Sonicview 16 (VIEW UI) | `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (2).jpg` · `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (3).png` · `Compact, Easy-to-Use, High-Quality Audio for Ho Chi Minh City University of Technology’s Conference Room with TASCAM Sonicview 16 (1).jpg` |
+| SV-BR-24 | The Sixteen | Sonicview 16 | `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (18).jpg` · `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (22).jpg` |
+
+**Library totals after addendum 2 — 24 clips.**
+Sonicview 24 (XP/dp) 9 · Sonicview 16 (XP/dp) 7 · SB-16D 3 · IF-Series cards 3 · ecosystem 2.
+
+The 16 was under-represented at 20 clips; these four bring it to near parity with the 24, which is
+right — Stage 1 establishes that the two share an identical engine and differ only in HMI footprint,
+so both deserve real establishing and real in-situ coverage.
+
+---
+
+# Addendum 3 — clip 25, the closer
+
+## SV-BR-25 — "Two Slots, Two Answers"
+**Model:** Sonicview 24 rear panel, both expansion bays populated · **Phase 3** · **Stage 4 rank 2 — the expansion architecture as a whole**
+
+**Real reference image(s):**
+- `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (18).jpg` *(primary — the complete Sonicview 24 rear elevation. SLOT 1, at the right of the bay pair, is already fitted with the IF-MTR32: its faceplate reads `TASCAM IF-MTR32 MULTITRACK RECORDING CARD` with the `SDXC I` slot and `PUSH EJECT` legend. SLOT 2, at the left, is closed with a plain blanking plate. Also carries the Dante `PRIMARY` / `SECONDARY` etherCON pair, WORD THRU/OUT and IN, FOOTSWITCH, USB to PC, ETHERNET, the GPIO D-sub, MONITOR OUT, ST IN 1 / ST IN 2, the sixteen output XLRs and the twenty-four input connectors)*
+- `TASCAM Sonicview 16XP-24XP with IF-ST2110 (1).jpg` *(secondary — the IF-ST2110 faceplate straight-on: black plate, `TASCAM IF-ST2110  ST2110 CARD`, a thin vertical divider, then the `CONTROL`, `PORT 1` and `PORT 2` RJ45 jacks with their green and amber link LEDs, and a captive cross-head thumbscrew at each end)*
+- `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (40).jpg` *(secondary — the IF-MTR32 as a bare card, three-quarter: green PCB, brushed aluminium shield can, edge connector, and the same faceplate treatment, for exact reproduction of the fitted card's face)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second lateral tracking shot along the lower rear panel of a TASCAM Sonicview 24 digital
+> mixing console, in which **both** expansion bays are occupied — each by a different card. SLOT 1
+> carries the IF-MTR32 multitrack recording card, its black faceplate flush with the chassis, its
+> SDXC card slot and eject legend clearly readable. SLOT 2 carries the IF-ST2110 card, its black
+> faceplate equally flush, showing three RJ45 jacks — one set apart behind a thin printed divider,
+> then a pair — with green and amber link LEDs alive in each. Both cards are secured by their black
+> captive cross-head thumbscrews, seated down, faces exactly level with the surrounding rear panel
+> so the three surfaces read as one continuous plane. Above and around them the rest of the rear
+> panel is present and correct: the two Dante etherCON connectors, the BNC word-clock pair, the
+> D-sub GPIO connector, the row of output XLRs, the AC inlet and rocker switch.
+>
+> Action: nothing is installed and nothing moves mechanically. The only motion in the frame is
+> electrical — the link and activity LEDs on the IF-ST2110's three ports blinking in irregular,
+> realistic network traffic patterns, at slightly different rates from one another, and a single
+> small status LED near the IF-MTR32's card slot glowing steadily. No hands, no tools, no cables
+> being connected.
+>
+> Camera: one continuous lateral track, right to left, parallel to the rear panel and close to it,
+> at a shallow three-quarter angle so the panel recedes slightly and the connectors have real depth.
+> It begins on the chassis at the right, travels left across the IF-MTR32's faceplate, continues
+> across the IF-ST2110's three ports, and finishes on the pair of Dante network connectors above
+> them, holding there for the final beat. Constant speed, motorised dolly, one unbroken take, no
+> cuts and no speed change. Shallow depth of field with a focus that rides the track so whichever
+> faceplate is centred stays razor sharp while the panel ahead and behind falls softly out.
+>
+> Environment and light: bright, clean and technical. White bench surface and pale grey seamless
+> behind, broad soft white key from above and in front so the matte black panel keeps detail and the
+> printed legends stay crisp and legible. A cold cyan-white raking light from the left travels along
+> the panel as the camera moves, skimming the connector housings, the thumbscrew heads and the
+> stamped rear grille so the metal separates from the black. No hot specular blowouts on the
+> faceplates, no lens flare, no visible light sources. Dust-free.
+>
+> Mood: the quiet moment after the decision. Two bays, two jobs, one console — the recorder and the
+> broadcast transport running side by side, and nothing about the desk in front changed to allow it.
+>
+> [NEGATIVE BLOCK]
+
+> **Note.** As with SV-BR-23, the negative block's "no on-screen text" and "no logos" rules refer to
+> anything **added to the video frame** — captions, titles, lower-thirds, watermarks, graphic
+> overlays. The console's and the cards' own printed panel markings — `SLOT 1`, `SLOT 2`, the card
+> names, the port labels, the connector legends and the marks screened onto the chassis itself — are
+> part of the hardware. They must be reproduced faithfully and in position, not removed, relocated
+> or restyled.
+
+---
+
+## Why this one, and why it is the right closer
+
+The library already shows a card being installed (SV-BR-06, the IF-ST2110 sliding into an *empty*
+bay) and the card family laid out as a set (SV-BR-17). Neither shows the console **configured** — a
+finished machine with both bays committed to two different jobs at once. That is a distinct
+technical claim, not a restatement: SV-BR-06 is about the act of expanding, SV-BR-25 is about what
+the console *is* once you have. It earns its place under the §3 discipline that a scenario must
+represent a genuinely distinct workflow or claim rather than padding toward a round number.
+
+It is also the only clip in the set anchored to a photograph where **SLOT 1 is already populated**.
+`...24dp (18).jpg` shows the IF-MTR32 fitted and SLOT 2 blanked, which is precisely the half-built
+state this clip completes — so the second card is the only thing the generator is being asked to
+place, and it is placed from a straight-on faceplate reference. Everything else in frame is
+transcribed from a real rear elevation.
+
+Ending the traverse on the Dante PRIMARY / SECONDARY pair is deliberate. It closes the 25-clip arc
+where it opened: SV-BR-01 argues the console is a node on a network rather than a desk in a room.
+The last frame of the last clip is that network's two connectors, with a recorder and an ST 2110
+transport seated beneath them.
+
+---
+
+## Reference table — clip 25
+
+| Clip | Scenario | Model represented | Real source image filename(s) |
+|---|---|---|---|
+| SV-BR-25 | Two Slots, Two Answers | Sonicview 24 + IF-MTR32 + IF-ST2110 | `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (18).jpg` · `TASCAM Sonicview 16XP-24XP with IF-ST2110 (1).jpg` · `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (40).jpg` |
+
+**Library totals after addendum 3 — 25 clips.**
+Sonicview 24 (XP/dp) 10 · Sonicview 16 (XP/dp) 7 · SB-16D 3 · IF-Series cards 3 · ecosystem 2.
+
+Every one of the 25 is 10 seconds, 16:9, anchored to at least one real supplied photograph, and
+carries no scenario that lacks a supporting image.

@@ -1167,3 +1167,99 @@ Sonicview 24 (XP/dp) 9 · Sonicview 16 (XP/dp) 7 · SB-16D 3 · IF-Series cards 
 The 16 was under-represented at 20 clips; these four bring it to near parity with the 24, which is
 right — Stage 1 establishes that the two share an identical engine and differ only in HMI footprint,
 so both deserve real establishing and real in-situ coverage.
+
+---
+
+# Addendum 3 — clip 25, the closer
+
+## SV-BR-25 — "Two Slots, Two Answers"
+**Model:** Sonicview 24 rear panel, both expansion bays populated · **Phase 3** · **Stage 4 rank 2 — the expansion architecture as a whole**
+
+**Real reference image(s):**
+- `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (18).jpg` *(primary — the complete Sonicview 24 rear elevation. SLOT 1, at the right of the bay pair, is already fitted with the IF-MTR32: its faceplate reads `TASCAM IF-MTR32 MULTITRACK RECORDING CARD` with the `SDXC I` slot and `PUSH EJECT` legend. SLOT 2, at the left, is closed with a plain blanking plate. Also carries the Dante `PRIMARY` / `SECONDARY` etherCON pair, WORD THRU/OUT and IN, FOOTSWITCH, USB to PC, ETHERNET, the GPIO D-sub, MONITOR OUT, ST IN 1 / ST IN 2, the sixteen output XLRs and the twenty-four input connectors)*
+- `TASCAM Sonicview 16XP-24XP with IF-ST2110 (1).jpg` *(secondary — the IF-ST2110 faceplate straight-on: black plate, `TASCAM IF-ST2110  ST2110 CARD`, a thin vertical divider, then the `CONTROL`, `PORT 1` and `PORT 2` RJ45 jacks with their green and amber link LEDs, and a captive cross-head thumbscrew at each end)*
+- `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (40).jpg` *(secondary — the IF-MTR32 as a bare card, three-quarter: green PCB, brushed aluminium shield can, edge connector, and the same faceplate treatment, for exact reproduction of the fitted card's face)*
+
+**Prompt:**
+
+> [HARDWARE FIDELITY CONTRACT]
+>
+> A 10-second lateral tracking shot along the lower rear panel of a TASCAM Sonicview 24 digital
+> mixing console, in which **both** expansion bays are occupied — each by a different card. SLOT 1
+> carries the IF-MTR32 multitrack recording card, its black faceplate flush with the chassis, its
+> SDXC card slot and eject legend clearly readable. SLOT 2 carries the IF-ST2110 card, its black
+> faceplate equally flush, showing three RJ45 jacks — one set apart behind a thin printed divider,
+> then a pair — with green and amber link LEDs alive in each. Both cards are secured by their black
+> captive cross-head thumbscrews, seated down, faces exactly level with the surrounding rear panel
+> so the three surfaces read as one continuous plane. Above and around them the rest of the rear
+> panel is present and correct: the two Dante etherCON connectors, the BNC word-clock pair, the
+> D-sub GPIO connector, the row of output XLRs, the AC inlet and rocker switch.
+>
+> Action: nothing is installed and nothing moves mechanically. The only motion in the frame is
+> electrical — the link and activity LEDs on the IF-ST2110's three ports blinking in irregular,
+> realistic network traffic patterns, at slightly different rates from one another, and a single
+> small status LED near the IF-MTR32's card slot glowing steadily. No hands, no tools, no cables
+> being connected.
+>
+> Camera: one continuous lateral track, right to left, parallel to the rear panel and close to it,
+> at a shallow three-quarter angle so the panel recedes slightly and the connectors have real depth.
+> It begins on the chassis at the right, travels left across the IF-MTR32's faceplate, continues
+> across the IF-ST2110's three ports, and finishes on the pair of Dante network connectors above
+> them, holding there for the final beat. Constant speed, motorised dolly, one unbroken take, no
+> cuts and no speed change. Shallow depth of field with a focus that rides the track so whichever
+> faceplate is centred stays razor sharp while the panel ahead and behind falls softly out.
+>
+> Environment and light: bright, clean and technical. White bench surface and pale grey seamless
+> behind, broad soft white key from above and in front so the matte black panel keeps detail and the
+> printed legends stay crisp and legible. A cold cyan-white raking light from the left travels along
+> the panel as the camera moves, skimming the connector housings, the thumbscrew heads and the
+> stamped rear grille so the metal separates from the black. No hot specular blowouts on the
+> faceplates, no lens flare, no visible light sources. Dust-free.
+>
+> Mood: the quiet moment after the decision. Two bays, two jobs, one console — the recorder and the
+> broadcast transport running side by side, and nothing about the desk in front changed to allow it.
+>
+> [NEGATIVE BLOCK]
+
+> **Note.** As with SV-BR-23, the negative block's "no on-screen text" and "no logos" rules refer to
+> anything **added to the video frame** — captions, titles, lower-thirds, watermarks, graphic
+> overlays. The console's and the cards' own printed panel markings — `SLOT 1`, `SLOT 2`, the card
+> names, the port labels, the connector legends and the marks screened onto the chassis itself — are
+> part of the hardware. They must be reproduced faithfully and in position, not removed, relocated
+> or restyled.
+
+---
+
+## Why this one, and why it is the right closer
+
+The library already shows a card being installed (SV-BR-06, the IF-ST2110 sliding into an *empty*
+bay) and the card family laid out as a set (SV-BR-17). Neither shows the console **configured** — a
+finished machine with both bays committed to two different jobs at once. That is a distinct
+technical claim, not a restatement: SV-BR-06 is about the act of expanding, SV-BR-25 is about what
+the console *is* once you have. It earns its place under the §3 discipline that a scenario must
+represent a genuinely distinct workflow or claim rather than padding toward a round number.
+
+It is also the only clip in the set anchored to a photograph where **SLOT 1 is already populated**.
+`...24dp (18).jpg` shows the IF-MTR32 fitted and SLOT 2 blanked, which is precisely the half-built
+state this clip completes — so the second card is the only thing the generator is being asked to
+place, and it is placed from a straight-on faceplate reference. Everything else in frame is
+transcribed from a real rear elevation.
+
+Ending the traverse on the Dante PRIMARY / SECONDARY pair is deliberate. It closes the 25-clip arc
+where it opened: SV-BR-01 argues the console is a node on a network rather than a desk in a room.
+The last frame of the last clip is that network's two connectors, with a recorder and an ST 2110
+transport seated beneath them.
+
+---
+
+## Reference table — clip 25
+
+| Clip | Scenario | Model represented | Real source image filename(s) |
+|---|---|---|---|
+| SV-BR-25 | Two Slots, Two Answers | Sonicview 24 + IF-MTR32 + IF-ST2110 | `TASCAM Sonicview 24XP - TASCAM Sonicview 24dp (18).jpg` · `TASCAM Sonicview 16XP-24XP with IF-ST2110 (1).jpg` · `TASCAM Sonicview 16XP - TASCAM Sonicview 16dp (40).jpg` |
+
+**Library totals after addendum 3 — 25 clips.**
+Sonicview 24 (XP/dp) 10 · Sonicview 16 (XP/dp) 7 · SB-16D 3 · IF-Series cards 3 · ecosystem 2.
+
+Every one of the 25 is 10 seconds, 16:9, anchored to at least one real supplied photograph, and
+carries no scenario that lacks a supporting image.

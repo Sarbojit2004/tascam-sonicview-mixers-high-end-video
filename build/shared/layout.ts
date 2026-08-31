@@ -47,6 +47,78 @@ const h169 = (w: number) => Math.round((w * 9) / 16);
 /** 3.2:1 height — the aspect of both real product videos. */
 const h32 = (w: number) => Math.round(w / 3.2);
 
+/* ── HOW TALL THE COPY ACTUALLY IS ────────────────────────────────────────
+ *
+ * This exists because the first version got the central claim wrong.
+ *
+ * The premise of this file is that the renderer and the contact planner read
+ * ONE definition of the geometry, so they cannot disagree. But the copy boxes
+ * were hand-picked constants, and a hand-picked constant is a guess about how
+ * much room the words need. The landscape `hero` box was declared 140 px tall
+ * and rendered roughly 400 px of label, headline, subhead and data rows — so
+ * the copy overflowed the frame, and the planner, trusting the declared 140,
+ * put a contact strip straight through it. Caught by looking at the Part 1
+ * thumbnail; it would have shipped in three parts.
+ *
+ * So the height is now MEASURED from the beat's own content, with the same
+ * sizes and gaps the renderer uses. Character widths are empirical for Archivo
+ * at these weights — approximate, but approximate in the same direction for
+ * both consumers, which is what matters. Every box is then clamped inside the
+ * frame, so an underestimate cannot push content off the canvas either.
+ */
+const CHAR_W = { headline: 0.60, sub: 0.50, body: 0.56 } as const;
+
+/**
+ * Bottom strip of the landscape frame that full-width layouts must not enter.
+ *
+ * A contact strip is 54 px tall at a 56 px inset, so anything reaching past
+ * y = 1080 - 130 makes every bottom slot collide — and since a full-width plate
+ * also blocks the left, right and top slots, the planner is left with nowhere
+ * to go and refuses outright. Reserving this keeps the bottom row available.
+ */
+const STRIP_GUTTER = 130;
+
+const textH = (text: string, size: number, width: number, lineH: number, charW: number) => {
+  const perLine = Math.max(1, Math.floor(width / (size * charW)));
+  return Math.max(1, Math.ceil(text.length / perLine)) * size * lineH;
+};
+
+/** Height the copy column needs for this beat at this width. */
+function copyH(beat: Beat, width: number, portrait: boolean): number {
+  const H1 = portrait ? 62 : 60;
+  const H2 = portrait ? 30 : 29;
+  const BODY = portrait ? 24 : 23;
+  const gap = portrait ? 20 : 18;
+
+  // `specs` sets its figure with HeroFigure, not Headline — a much larger face
+  // with its own subtext line beneath it.
+  const heroScale =
+    beat.kind === "demo" ? 0.78 : beat.kind === "montage" ? 0.82 : 1;
+
+  let h = 0;
+  let blocks = 0;
+  if (beat.label) { h += 30; blocks++; }
+  if (beat.kind === "specs") {
+    if (beat.hero) h += (portrait ? 108 : 122) * 1.02 + 16 + 22 * 1.3;
+    blocks++;
+  } else if (beat.hero) {
+    h += textH(beat.hero, H1 * heroScale, width, 1.06, CHAR_W.headline);
+    blocks++;
+  }
+  if (beat.sub && beat.kind !== "specs") {
+    h += textH(beat.sub, H2, width, 1.32, CHAR_W.sub);
+    blocks++;
+  }
+  if (beat.body?.length) {
+    h += beat.body.reduce(
+      (a, r) => a + textH(r, BODY, width - 24, 1.42, CHAR_W.body),
+      0,
+    ) + 11 * (beat.body.length - 1);
+    blocks++;
+  }
+  return Math.round(h + gap * Math.max(0, blocks - 1) + 14);
+}
+
 /* ── PORTRAIT ─────────────────────────────────────────────────────────────
  *
  * Content lives strictly inside y 180..1700. The bands above and below are
@@ -78,27 +150,32 @@ function stackP(order: { key: "media" | "copy"; h: number }[], gap: number): Sce
 }
 
 function portraitBoxes(beat: Beat): SceneBoxes {
+  // Same estimator as landscape, so a portrait beat's declared box is also what
+  // its words actually need rather than a guess.
+  const ch = copyH(beat, P.w, true);
+  const fit = (mediaH: number, gap: number) =>
+    Math.min(mediaH, P.h - ch - gap);
   switch (beat.kind) {
     case "cold":
     case "broll":
-      return stackP([{ key: "media", h: h169(P.w) }, { key: "copy", h: 430 }], 64);
+      return stackP([{ key: "media", h: fit(h169(P.w), 64) }, { key: "copy", h: ch }], 64);
     case "realvideo":
-      return stackP([{ key: "media", h: h32(P.w) }, { key: "copy", h: 380 }], 70);
+      return stackP([{ key: "media", h: fit(h32(P.w), 70) }, { key: "copy", h: ch }], 70);
     case "hero":
     case "macro":
-      return stackP([{ key: "media", h: 760 }, { key: "copy", h: 470 }], 62);
+      return stackP([{ key: "media", h: fit(760, 62) }, { key: "copy", h: ch }], 62);
     case "screen":
-      return stackP([{ key: "media", h: 700 }, { key: "copy", h: 460 }], 62);
+      return stackP([{ key: "media", h: fit(700, 62) }, { key: "copy", h: ch }], 62);
     case "montage":
-      return stackP([{ key: "copy", h: 190 }, { key: "media", h: 1080 }], 54);
+      return stackP([{ key: "copy", h: ch }, { key: "media", h: fit(1080, 54) }], 54);
     case "specs":
-      return stackP([{ key: "copy", h: 560 }, { key: "media", h: 700 }], 66);
+      return stackP([{ key: "copy", h: ch }, { key: "media", h: fit(700, 66) }], 66);
     case "demo":
-      return stackP([{ key: "copy", h: 220 }, { key: "media", h: 1000 }], 56);
+      return stackP([{ key: "copy", h: ch }, { key: "media", h: fit(1000, 56) }], 56);
     case "problem":
     case "statement":
     case "bridge":
-      return stackP([{ key: "copy", h: 760 }], 0);
+      return stackP([{ key: "copy", h: ch }], 0);
     case "outro":
     default:
       return { occupies: [{ x: 0, y: 0, w: PORTRAIT.width, h: PORTRAIT.height }] };
@@ -117,8 +194,10 @@ function landscapeBoxes(beat: Beat): SceneBoxes {
     case "cold": {
       const w = 1180;
       const h = h169(w);
-      const media = { x: (LANDSCAPE.width - w) / 2, y: 150, w, h };
-      const copy = { x: L.x + 200, y: media.y + h + 34, w: L.w - 400, h: 120 };
+      const cw = L.w - 400;
+      const ch = copyH(beat, cw, false);
+      const media = { x: (LANDSCAPE.width - w) / 2, y: 128, w, h };
+      const copy = { x: L.x + 200, y: media.y + h + 32, w: cw, h: ch };
       return { media, copy, occupies: [media, copy] };
     }
     case "broll": {
@@ -131,44 +210,86 @@ function landscapeBoxes(beat: Beat): SceneBoxes {
     case "realvideo": {
       const w = 1600;
       const h = h32(w);
-      const media = { x: (LANDSCAPE.width - w) / 2, y: 250, w, h };
-      const copy = { x: L.x + 260, y: media.y + h + 46, w: L.w - 520, h: 130 };
+      const cw = L.w - 520;
+      const ch = copyH(beat, cw, false);
+      const media = { x: (LANDSCAPE.width - w) / 2, y: 236, w, h };
+      const copy = { x: L.x + 260, y: media.y + h + 44, w: cw, h: ch };
       return { media, copy, occupies: [media, copy] };
     }
     case "hero": {
-      const media = { x: 300, y: 120, w: 1320, h: 660 };
-      const copy = { x: L.x + 240, y: media.y + media.h + 30, w: L.w - 480, h: 140 };
+      // Copy first: the picture takes whatever height the words leave.
+      const cw = L.w - 480;
+      const ch = copyH(beat, cw, false);
+      const top = 84;
+      // The whole stack finishes above the reserved gutter, so the bottom slot
+      // row stays available. Without this the plate and the copy between them
+      // span the frame and the planner has nowhere to put a strip.
+      const top_gap = 36;
+      const mh = Math.max(
+        340,
+        Math.min(620, LANDSCAPE.height - STRIP_GUTTER - top - top_gap - ch),
+      );
+      const media = { x: 300, y: top, w: 1320, h: mh };
+      const copy = { x: L.x + 240, y: media.y + mh + top_gap, w: cw, h: ch };
       return { media, copy, occupies: [media, copy] };
     }
     case "macro": {
+      const cw = L.w - 1060;
+      const ch = copyH(beat, cw, false);
       const media = { x: L.x, y: 150, w: 1000, h: 700 };
-      const copy = { x: media.x + media.w + 60, y: 250, w: L.w - 1000 - 60, h: 460 };
+      const copy = {
+        x: media.x + media.w + 60,
+        y: Math.max(L.y + 40, (LANDSCAPE.height - ch) / 2),
+        w: cw,
+        h: ch,
+      };
       return { media, copy, occupies: [media, copy] };
     }
     case "screen": {
-      const media = { x: 520, y: 130, w: 1120, h: 660 };
-      const copy = { x: L.x, y: 300, w: 430, h: 400 };
+      const cw = 448;
+      const ch = copyH(beat, cw, false);
+      const media = { x: 560, y: 130, w: 1104, h: 650 };
+      const copy = {
+        x: L.x,
+        y: Math.max(L.y + 30, (LANDSCAPE.height - ch) / 2),
+        w: cw,
+        h: ch,
+      };
       return { media, copy, occupies: [media, copy] };
     }
     case "montage": {
-      const media = { x: L.x, y: 230, w: L.w, h: 620 };
-      const copy = { x: L.x, y: 90, w: 1100, h: 110 };
+      const cw = 1400;
+      const ch = copyH(beat, cw, false);
+      const copy = { x: L.x, y: 78, w: cw, h: ch };
+      const media = {
+        x: L.x, y: copy.y + ch + 34, w: L.w,
+        h: LANDSCAPE.height - STRIP_GUTTER - (copy.y + ch + 34),
+      };
       return { media, copy, occupies: [media, copy] };
     }
     case "specs": {
-      const copy = { x: L.x, y: 210, w: 860, h: 620 };
+      const cw = 860;
+      const ch = copyH(beat, cw, false);
+      const copy = { x: L.x, y: Math.max(L.y + 30, (LANDSCAPE.height - ch) / 2), w: cw, h: ch };
       const media = { x: 1000, y: 190, w: 864, h: 660 };
       return { media, copy, occupies: [media, copy] };
     }
     case "demo": {
-      const media = { x: 180, y: 180, w: 1560, h: 760 };
-      const copy = { x: L.x, y: 66, w: 1200, h: 96 };
+      const cw = 1400;
+      const ch = copyH(beat, cw, false);
+      const copy = { x: L.x, y: 60, w: cw, h: ch };
+      const media = {
+        x: 180, y: copy.y + ch + 26, w: 1560,
+        h: LANDSCAPE.height - STRIP_GUTTER - (copy.y + ch + 26),
+      };
       return { media, copy, occupies: [media, copy] };
     }
     case "problem":
     case "statement":
     case "bridge": {
-      const copy = { x: 300, y: 380, w: 1320, h: 320 };
+      const cw = 1320;
+      const ch = copyH(beat, cw, false);
+      const copy = { x: 300, y: Math.max(L.y, (LANDSCAPE.height - ch) / 2), w: cw, h: ch };
       return { copy, occupies: [copy] };
     }
     case "outro":

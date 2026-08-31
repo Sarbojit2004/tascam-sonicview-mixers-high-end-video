@@ -151,14 +151,28 @@ export function buildContactPlan(
   };
 
   for (const b of beats) {
-    // The end screen composes its own contact block; a strip on top of it would
-    // be the same information twice.
+    // The end screen composes its own contact block — every channel, at once,
+    // held for its full duration. A strip on top of it would be the same
+    // information twice, so the outro is the one beat with none.
     if (b.kind === "outro") continue;
-    // A cold open gets to land before anything is sold. One beat of clean air
-    // at the top of a deliverable is worth more than one extra impression.
-    if (b.kind === "cold") continue;
 
     const dur = frames(b.sec);
+
+    // A COLD OPEN gets its hook clean, then one strip in its final third.
+    //
+    // The first draft excluded cold beats entirely, on the reasoning that a
+    // hook should land before anything is marketed. Measuring the result showed
+    // that costs an 18.9 s opening gap in every deliverable — which is exactly
+    // the under-marketing §6.2 identifies as the problem being corrected. The
+    // hook still runs clean; it just runs clean for nine seconds instead of
+    // fourteen.
+    if (b.kind === "cold") {
+      const channel = CHANNELS[ch++ % CHANNELS.length];
+      const at = Math.round(dur * 0.62);
+      plan.push({ beat: b.id, at, dur: Math.max(40, dur - at - 8), channel, slot: pick(b, channel) });
+      continue;
+    }
+
     const n = b.sec >= 20 ? Math.max(perBeat, 3) : perBeat;
 
     for (let i = 0; i < n; i++) {

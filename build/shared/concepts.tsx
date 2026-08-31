@@ -24,7 +24,7 @@ import React from "react";
 import { useCurrentFrame } from "remotion";
 
 import { COLORS, hexA } from "./theme.ts";
-import { EASE_OUT, EASE_IN_OUT, linear, ramp, snap, stagger } from "./anim.ts";
+import { EASE_IN_OUT, ramp, snap, stagger } from "./anim.ts";
 import { micro, sanitizeGlyphs, spec } from "./fonts.ts";
 import { platformValue, specValue } from "./spec.ts";
 
@@ -75,7 +75,7 @@ const Path: React.FC<{
   width?: number;
   dashed?: boolean;
 }> = ({ pts, progress, color = COLORS.lineStrong, width = 3, dashed = false }) => {
-  const { segs, total } = useSegments(pts);
+  const { total } = useSegments(pts);
   const d = pts.map((p, i) => `${i ? "L" : "M"}${p.x},${p.y}`).join(" ");
   return (
     <path
@@ -162,7 +162,7 @@ interface DemoProps { w: number; h: number; dur: number }
  * opposite signal, and at the summing junction the interference cancels and the
  * signal survives. That cancellation is the entire -128 dBu story.
  */
-export const HdiaStage: React.FC<DemoProps> = ({ w, h, dur }) => {
+export const HdiaStage: React.FC<DemoProps> = ({ w, h }) => {
   const f = useCurrentFrame();
   const cx = w / 2;
   const yHot = h * 0.34;
@@ -268,7 +268,7 @@ export const HdiaStage: React.FC<DemoProps> = ({ w, h, dur }) => {
  * band above staying visibly open. A version where the sum simply gets big
  * would illustrate nothing; what has to be legible is the gap that remains.
  */
-export const SummingMatrix: React.FC<DemoProps> = ({ w, h, dur }) => {
+export const SummingMatrix: React.FC<DemoProps> = ({ w, h }) => {
   const f = useCurrentFrame();
   const N = 44;
   const left = w * 0.06;
@@ -295,7 +295,6 @@ export const SummingMatrix: React.FC<DemoProps> = ({ w, h, dur }) => {
         const t = ramp(f, stagger(i, 0.7), 16);
         const y = floorY - (i / (N - 1)) * (floorY - ceilingY - 40) - 20;
         const amp = 5 + (i % 7) * 1.6;
-        const pts: Pt[] = [{ x: left, y }, { x: nodeX - 14, y: mid }];
         return (
           <g key={i} opacity={t * tIn * 0.55}>
             <path
@@ -411,7 +410,7 @@ export const SummingMatrix: React.FC<DemoProps> = ({ w, h, dur }) => {
  * path they came down. A stutter at the output would illustrate the opposite of
  * what the specification says.
  */
-export const RedundantFlow: React.FC<DemoProps> = ({ w, h, dur }) => {
+export const RedundantFlow: React.FC<DemoProps> = ({ w, h }) => {
   const f = useCurrentFrame();
   const boxW = Math.min(220, w * 0.19);
   const srcX = w * 0.05;
@@ -461,7 +460,6 @@ export const RedundantFlow: React.FC<DemoProps> = ({ w, h, dur }) => {
       {/* packets on both paths; the primary stops emitting after the cut */}
       {Array.from({ length: 7 }, (_, i) => {
         const u = ((f / 46) + i / 7) % 1;
-        const bornAfterCut = f > cut && u < ((f - cut) / 46) % 1;
         return (
           <g key={i}>
             <Packet pts={primary} u={u} color={COLORS.pathPrimary}
@@ -502,7 +500,7 @@ export const RedundantFlow: React.FC<DemoProps> = ({ w, h, dur }) => {
  * curve in real time. The fader does not move until the trigger flips — that
  * causality is the whole feature.
  */
-export const AfvTally: React.FC<DemoProps> = ({ w, h, dur }) => {
+export const AfvTally: React.FC<DemoProps> = ({ w, h }) => {
   const f = useCurrentFrame();
   const gx = w * 0.30;
   const gw = w * 0.44;

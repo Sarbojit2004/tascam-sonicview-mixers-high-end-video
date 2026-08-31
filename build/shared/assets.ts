@@ -16,7 +16,7 @@
  *   id   6  THE architecture block diagram — analog audio -> AD/DA -> a 64-bit
  *           ARM effect engine beside the FPGA 96 kHz / 54-bit float mixing
  *           engine -> SoC -> Dante, USB audio, word sync, slot cards. Nothing
- *           else in the library explains the core this directly. Anchors Reel 1.
+ *           else in the library explains the core this directly. Anchors Part 1.
  *   ids 1,2,3  Equivalent Input Noise vs frequency plots — the actual
  *           measurement behind the -128 dBu claim, for the HDIA beats.
  *   id  85  MODULE (Audio Follow Video), showing GPIO-IN 1 with a live
@@ -44,7 +44,7 @@ export const ALLOCATION: Record<Deliverable, readonly number[]> = {
 
   /** 17 assets. */
   reel1: [
-    6, //  architecture block diagram — the engine, drawn
+    105, //  one engine, two footprints — the comparison drawing
     1, 2, 3, //  EIN vs frequency plots
     4, //  frequency response plot
     95, //  HDIA CLASS 1 MIC PREAMP mark
@@ -70,7 +70,7 @@ export const ALLOCATION: Record<Deliverable, readonly number[]> = {
     94, //  MODULE (COMP) with its transfer curve
     96, //  multi-channel strip view — the channel count, on screen
     67, 106, //  Sonicview 16 rear panel, two angles
-    105, //  one engine, two footprints — the comparison drawing
+    6, //  THE architecture block diagram — anchors the FPGA chapter
   ],
 
   // ══ GROUP B · THE NETWORK FABRIC ═════════════════════════════════════════

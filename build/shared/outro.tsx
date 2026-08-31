@@ -27,23 +27,14 @@ import React from "react";
 import { useCurrentFrame } from "remotion";
 
 import { BRAND, CTA } from "./brand.ts";
+import { END_SCREEN_REQUIRED, ROWS, WHATSAPP_LINE } from "./endscreen.ts";
 import { BrandMark, OPTICAL_HEIGHT } from "./logo.tsx";
-import { ChannelIcon, type IconKey } from "./icons.tsx";
+import { ChannelIcon } from "./icons.tsx";
 import { COLORS, PORTRAIT, LANDSCAPE, SAFE, SPACE } from "./theme.ts";
 import { EASE_OUT, ramp } from "./anim.ts";
 import { micro, sanitizeGlyphs, spec, subhead } from "./fonts.ts";
 
 interface Props { portrait: boolean }
-
-const ROWS: { icon: IconKey; value: string }[] = [
-  { icon: "website", value: BRAND.website },
-  { icon: "instagram", value: BRAND.instagram },
-  { icon: "facebook", value: BRAND.facebook },
-  { icon: "youtube", value: BRAND.youtube },
-];
-
-/** The three numbers, together, one line, one mark. Exactly as specified. */
-const WHATSAPP_LINE = BRAND.phones.join(", ");
 
 const Rise: React.FC<{ at: number; children: React.ReactNode; dy?: number }> = ({
   at, children, dy = 12,
@@ -204,13 +195,5 @@ export const EndScreen: React.FC<Props> = ({ portrait }) => {
   );
 };
 
-/** Everything the audit must find on an end screen, as literal strings. */
-export const END_SCREEN_REQUIRED = [
-  BRAND.role,
-  BRAND.website,
-  BRAND.instagram,
-  BRAND.facebook,
-  BRAND.youtube,
-  WHATSAPP_LINE,
-  CTA,
-] as const;
+/** Re-exported so importers of the component see the contract it satisfies. */
+export { END_SCREEN_REQUIRED };

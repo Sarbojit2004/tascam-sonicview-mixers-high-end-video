@@ -18,8 +18,6 @@
  * nothing needs to be hidden behind a box.
  */
 import React from "react";
-import { useCurrentFrame } from "remotion";
-
 import { CHANNEL_VALUE, isWide, type ChannelKey } from "./brand.ts";
 import { EASE_OUT, ramp } from "./anim.ts";
 import { ChannelIcon } from "./icons.tsx";

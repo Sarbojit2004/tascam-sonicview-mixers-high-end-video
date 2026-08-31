@@ -203,25 +203,62 @@ export const Mosaic: React.FC<{
   dur: number;
   at?: number;
   gap?: number;
-}> = ({ ids, box, portrait, cols, dur, at = 0, gap = 14 }) => {
+  /**
+   * An optional B-roll clip, rendered as the FIRST cell.
+   *
+   * This exists because the 25 verified clips are the production's only
+   * representational footage, and a first pass placed only 11 of them: the
+   * clips could go in `broll` beats, and a montage beat could hold stills, and
+   * nothing could hold both. Giving one cell of the grid to moving footage
+   * fixes that without inventing beats — and a mosaic where a single cell moves
+   * while the rest hold still reads better than either alone, because the eye
+   * lands on the motion and then reads outward.
+   */
+  clip?: number;
+}> = ({ ids, box, portrait, cols, dur, at = 0, gap = 14, clip: clipN }) => {
   const f = useCurrentFrame() - at;
-  const rows = Math.ceil(ids.length / cols);
+  const cells = (clipN ? 1 : 0) + ids.length;
+  const rows = Math.ceil(cells / cols);
   const cw = (box.w - gap * (cols - 1)) / cols;
   const ch = (box.h - gap * (rows - 1)) / rows;
+  const cell = (i: number) => ({
+    left: (i % cols) * (cw + gap),
+    top: Math.floor(i / cols) * (ch + gap),
+  });
+  const out = 1 - ramp(f, dur - 12, 12, EASE_OUT);
+
   return (
     <div style={{ position: "absolute", left: box.x, top: box.y, width: box.w, height: box.h }}>
-      {ids.map((id, i) => {
-        const r = Math.floor(i / cols);
-        const c = i % cols;
+      {clipN ? (
+        <div
+          style={{
+            position: "absolute",
+            ...cell(0),
+            width: cw,
+            height: ch,
+            opacity: Math.min(ramp(f, 0, 18, EASE_OUT), out),
+            borderRadius: RADII.sm,
+            overflow: "hidden",
+            background: COLORS.paperWell,
+            boxShadow: `0 8px 22px ${COLORS.shadow}`,
+          }}
+        >
+          <OffthreadVideo
+            src={staticFile(clipPath(clipN))}
+            muted
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+          />
+        </div>
+      ) : null}
+      {ids.map((id, k) => {
+        const i = k + (clipN ? 1 : 0);
         const t = ramp(f, i * 3, 18, EASE_OUT);
-        const out = 1 - ramp(f, dur - 12, 12, EASE_OUT);
         return (
           <div
             key={id}
             style={{
               position: "absolute",
-              left: c * (cw + gap),
-              top: r * (ch + gap),
+              ...cell(i),
               width: cw,
               height: ch,
               opacity: Math.min(t, out),

@@ -1,0 +1,11 @@
+# Derived media — rebuilt by scripts/prep_brand.py + scripts/prep_media.py from
+# the source files in the repository root. ~160 MB, past what belongs in git.
+public/img/
+public/clips/
+public/audio/
+public/icon/
+public/logo/
+node_modules
+# WAV masters are ~550 MB; the 320k MP3s beside them are the deliverables.
+out/audio/*.wav
+cues.json

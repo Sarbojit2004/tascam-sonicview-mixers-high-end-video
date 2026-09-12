@@ -79,7 +79,11 @@ for sl in sorted(SPEC):
     p = os.path.join(SLIDES, name(sl))
     if not os.path.exists(p):
         continue
-    slide = np.asarray(Image.open(p).convert('RGB')).astype(np.float32)
+    # the control frame: identical in every respect but with the forward text
+    # layer hidden, so this still measures the photograph rather than the design
+    ctrl = os.path.join(SP, 'control', name(sl))
+    slide = np.asarray(Image.open(ctrl if os.path.exists(ctrl) else p)
+                       .convert('RGB')).astype(np.float32)
     out = []
 
     # --- lower band: object-fit cover into a fixed 672 x 340 slot.
@@ -175,3 +179,52 @@ for sl in sorted(fits):
     print(f'   {sl}  line {f["size"]:5.1f}px / {f["lineW"]}pt   hero {f["hero"][1]}x{f["hero"][2]}'
           f'   register {f["cols"]}col x{f["regRows"]} -> {rb:3}   caption -> {cb:3}'
           f'   {"OK" if ok else "*** OVERRUN ***"}')
+
+
+print()
+print('=' * 78)
+print('5b. FORWARD TEXT LAYER   (final frame vs the same frame with it hidden)')
+print('   the overlay must touch ONLY pixels inside the product silhouette --')
+print('   any glyph ink on bare paper has to come from the untouched base layer')
+worst_out = 0
+for sl in sorted(SPEC):
+    fin = os.path.join(SLIDES, name(sl)); ctl = os.path.join(SP, 'control', name(sl))
+    if not (os.path.exists(fin) and os.path.exists(ctl)):
+        continue
+    a = np.asarray(Image.open(fin).convert('RGB')).astype(np.int16)
+    b = np.asarray(Image.open(ctl).convert('RGB')).astype(np.int16)
+    diff = np.abs(a - b).max(2) > 6
+
+    # the hero's own alpha, placed exactly as the page places it
+    f = fits[sl]
+    hx, hw, hh = f['hero']; hy = f['heroY']
+    src = Image.open(os.path.join(BUILD, f'hero_{sl}.png'))
+    hwD, hhD = round(hw*S), round(hh*S)
+    rs = src.resize((hwD, hhD), Image.LANCZOS)
+    alpha = (np.asarray(rs.split()[3]) > 8) if rs.mode == 'RGBA' else np.ones((hhD, hwD), bool)
+    foot = np.zeros(diff.shape, bool)
+    y0, x0 = round(hy*S), round(hx*S)
+    y1, x1 = min(y0+hhD, foot.shape[0]), min(x0+hwD, foot.shape[1])
+    foot[y0:y1, x0:x1] = alpha[:y1-y0, :x1-x0]
+
+    # The mattes carry a 0.7px Gaussian feather, and Chromium's mask resampling
+    # does not land identically on PIL's reconstruction of it, so a handful of
+    # boundary pixels take a faint partial overlay. Allow exactly one pixel of
+    # edge tolerance and count anything further out as a genuine leak.
+    def dilate(m, n=1):
+        for _ in range(n):
+            o = m.copy()
+            o[1:, :] |= m[:-1, :]; o[:-1, :] |= m[1:, :]
+            o[:, 1:] |= m[:, :-1]; o[:, :-1] |= m[:, 1:]
+            m = o
+        return m
+    edge = dilate(foot, 1)
+    outside = int((diff & ~edge).sum())
+    fringe = int((diff & edge & ~foot).sum())
+    inside = int((diff & foot).sum())
+    worst_out = max(worst_out, outside)
+    pct = 100.0 * inside / max(1, int(foot.sum()))
+    print(f'   {sl}  changed inside silhouette {inside:8,} px ({pct:5.1f}% of it)   '
+          f'1px fringe {fringe:4,}   beyond {outside:5,} px   '
+          f'{"OK" if outside == 0 else "*** LEAK ***"}')
+print(f'   -> pixels altered outside any product silhouette, whole set: {worst_out}')

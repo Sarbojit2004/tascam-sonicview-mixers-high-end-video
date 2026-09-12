@@ -26,6 +26,36 @@ so a desk is not cropped through both ends), a caption turned on its side into a
 figure caption beneath the photograph, and a register tall enough for twenty
 plates.
 
+## The forward text layer
+
+Where the photograph covers the display line, the buried part of the type is
+brought forward over it at 36% rather than being lost. This is per-pixel, not
+per-letter: a glyph half behind the chassis keeps its exposed half at full
+strength and only its buried half comes forward, and the transition happens
+exactly on the product's outline.
+
+It works by drawing the headline twice. The base layer stays behind the
+photograph at full opacity — that is what renders every uncovered part
+unchanged. A second copy sits above the photograph, masked by the hero's own
+alpha, at 36%. Where the product does not cover the line the mask is empty, so
+nothing paints there and the base layer shows through untouched.
+
+36% was chosen by rendering 0.28 / 0.36 / 0.44 / 0.52 and comparing: above it
+the chassis washes red and the connector legends go; below it the type is a
+ghost.
+
+Two things worth knowing if you touch this:
+
+- A CSS `mask-image` is fetched as a **cross-origin** resource and Chromium
+  blocks `file://` for those, even though an `<img>` from the same path loads
+  fine. Without `--allow-file-access-from-files` on the browser launch the mask
+  silently resolves to nothing and the layer never paints, with no error.
+- The overlay tints the product inside the letterforms by design, so the colour
+  check would report it as a failure. The renderer therefore also writes a
+  `control/` frame per slide with the layer hidden, and the colour check
+  measures that — leaving the photograph pipeline honestly verified while the
+  overlay is audited separately for containment.
+
 ## Rules the build holds to
 
 - Every product photograph and both logos appear in their **original colour**,
@@ -43,7 +73,12 @@ image coverage, per-channel colour drift of each photograph against its source,
 and a regex scan of the generated markup. Latest run — 10/10 exact at
 2160 × 2160; 129 placements, 129 distinct, none unplaced; worst per-channel
 drift **0.52 of 255**, identical across R, G and B (resampling, not a colour
-change); no prohibited content.
+change); no prohibited content; and **zero pixels altered outside any product
+silhouette** by the forward text layer. The 344 and 49 boundary pixels on slides
+07 and 08 all fall within one pixel of the outline — the mattes carry a 0.7px
+feather and Chromium's mask resampling does not land identically on PIL's
+reconstruction of it — so the check allows exactly one pixel of edge tolerance
+and counts anything further out as a genuine leak.
 
 Note the colour check must mask the paper caption chip and red geometry that sit
 deliberately *on* the band. At 672px wide the chip alone is 2.5% of the band's

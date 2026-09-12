@@ -33,6 +33,11 @@ from spec import SPEC
 from PIL import Image
 
 OUTDIR = os.path.join(SP, 'slides'); os.makedirs(OUTDIR, exist_ok=True)
+# A control frame per slide with the forward text layer hidden. It is what lets
+# the verification pass still prove the photograph itself is unaltered: the
+# overlay tints the product on purpose, so comparing the final frame with the
+# source would report a failure that is actually the approved design.
+CTRL = os.path.join(SP, 'control'); os.makedirs(CTRL, exist_ok=True)
 PAGES = os.path.join(SP, 'pages'); os.makedirs(PAGES, exist_ok=True)
 CHROME = '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'
 
@@ -82,6 +87,13 @@ body{background:var(--paper);color:var(--ink);
 .hl span{display:inline-block}
 .hero{position:absolute;z-index:14}
 .hero img{display:block;width:100%;height:auto}
+/* 02b the same display line again, in front of the photograph and masked to the
+   product's own silhouette, so ONLY the part of a glyph that would otherwise be
+   hidden is brought forward. Everything outside the silhouette renders from the
+   base layer below, untouched. */
+.over{position:absolute;left:0;top:0;width:100%;z-index:15;opacity:.36;
+  pointer-events:none;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;mask-mode:alpha}
 
 /* 06 the lower photograph, bleeding off the left edge of the square */
 .band{position:absolute;left:0;z-index:12;overflow:hidden}
@@ -160,6 +172,7 @@ body{background:var(--paper);color:var(--ink);
   <div class="head">
     <div class="hl l1"><span id="l1">$HEADWORD</span></div>
     <div class="hero" id="hero"><img src="../../sv/build/hero_$SL.png" alt=""></div>
+    <div class="hl l1 over" id="over" aria-hidden="true"><span id="l1o">$HEADWORD</span></div>
   </div>
 
   <div class="band" id="band"><img src="../../sv/build/band_$SL.png" alt=""></div>
@@ -297,11 +310,29 @@ async function layout(){
   const lo = a.left + 0.40 * a.width, hi = z.right - 0.40 * z.width;
   let hx = (r1.left + r1.width / 2) - hw / 2;
   if (hi - lo >= hw) hx = Math.min(Math.max(hx, lo), hi - hw);
-  hero.style.left = (hx - hb.left) + 'px';
+  const hxr = hx - hb.left, hyr0 = r1.top + (r1.height - hh) / 2;
+  hero.style.left = hxr + 'px';
   hero.style.width = hw + 'px';
-  let hy = r1.top + (r1.height - hh) / 2;
-  hy = Math.min(Math.max(hy, 100), ZONE_TOP - 12 - hh);
-  hero.style.top = (hy - hb.top) + 'px';
+  let hy = Math.min(Math.max(hyr0, 100), ZONE_TOP - 12 - hh);
+  const hyr = hy - hb.top;
+  hero.style.top = hyr + 'px';
+
+  // The forward copy: identical metrics, then masked by the hero's own alpha so
+  // it exists only where the photograph actually covers the letters. A glyph
+  // half behind the chassis gets its buried half brought forward and the rest
+  // left alone; a glyph clear of the photograph is untouched, because the mask
+  // is empty there and nothing paints.
+  const ov = document.getElementById('over'), l1o = document.getElementById('l1o');
+  ov.style.fontSize = size + 'px';
+  if (track > 0.4) {
+    l1o.style.letterSpacing = `calc(-0.008em + $${track}px)`;
+    l1o.style.marginRight = (-track)+'px';
+  }
+  const mi = `url('../../sv/build/hero_$SL.png')`;
+  const msz = `$${hw}px $${hh}px`, mps = `$${hxr}px $${hyr}px`;
+  ov.style.webkitMaskImage = mi; ov.style.maskImage = mi;
+  ov.style.webkitMaskSize = msz; ov.style.maskSize = msz;
+  ov.style.webkitMaskPosition = mps; ov.style.maskPosition = mps;
 
   const headBottom = r1.bottom;
 
@@ -404,9 +435,14 @@ def main(only=None):
     if os.path.exists(fitpath):
         fits = json.load(open(fitpath))
     with sync_playwright() as pw:
+        # --allow-file-access-from-files: a CSS mask-image is fetched as a
+        # cross-origin resource, and Chromium blocks file:// for those even
+        # though an <img> from the same path loads fine. Without it the mask
+        # silently resolves to nothing and the forward text layer never paints.
         b = pw.chromium.launch(executable_path=CHROME,
                                args=['--no-sandbox', '--disable-dev-shm-usage',
-                                     '--force-color-profile=srgb'])
+                                     '--force-color-profile=srgb',
+                                     '--allow-file-access-from-files'])
         for sl in targets:
             s = SPEC[sl]
             page = build_html(sl, s)
@@ -417,7 +453,12 @@ def main(only=None):
             pg.wait_for_function("document.documentElement.dataset.ready==='1'", timeout=40000)
             pg.wait_for_timeout(300)
             fit = pg.evaluate("document.documentElement.dataset.fit")
-            out = os.path.join(OUTDIR, s['name'].replace('_', '_sq_', 1) + '.png')
+            stem = s['name'].replace('_', '_sq_', 1) + '.png'
+            # control first, in the same page context -- no reload needed
+            pg.evaluate("document.getElementById('over').style.display='none'")
+            pg.screenshot(path=os.path.join(CTRL, stem), scale='device')
+            pg.evaluate("document.getElementById('over').style.display=''")
+            out = os.path.join(OUTDIR, stem)
             pg.screenshot(path=out, scale='device')
             pg.close()
             im = Image.open(out)

@@ -7,8 +7,13 @@ colour is verified as well as the band's, cut-out heroes being compared only
 where their own alpha is fully opaque.
 """
 import json, os, sys, re
-SP = os.path.dirname(os.path.abspath(__file__))
-SV = os.path.join(os.path.dirname(SP), 'sv')
+
+# Mirrors build_sq.py: SERIES selects sv (Sonicview) or ms (Model).
+SERIES = os.environ.get('SERIES', 'sv')
+assert SERIES in ('sv', 'ms'), SERIES
+_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SP = os.path.join(_ROOT, SERIES + 'q')
+SV = os.path.join(_ROOT, SERIES)
 sys.path.insert(0, SV)
 import numpy as np
 from PIL import Image
@@ -38,6 +43,7 @@ def cover(src, w, h):
 
 
 print('=' * 78)
+print(f'SERIES: {SERIES}')
 print('1. DIMENSIONS   (2160 x 2160 exact, not a minimum)')
 bad = 0
 for sl in sorted(SPEC):
@@ -63,12 +69,14 @@ c = Counter(used)
 logos = {'TASCAM BRAND LOGO.png', 'SHIVANSH ELECTRONICS BRAND LOGO.png', 'DANTE LOGO.jpg',
          'FACEBOOK ICON.png', 'INSTAGRAM ICON.webp', 'YOUTUBE ICON.png',
          'WEBSITE ICON.png', 'WHATSAPP ICON.png'}
-missing = [m for m in sorted(ALL - set(c) - {'FPGA-05'}) if m not in logos]
+HELD = {'sv': {'FPGA-05'}, 'ms': set()}[SERIES]
+missing = [m for m in sorted(ALL - set(c) - HELD) if m not in logos]
 print(f'   placements   {len(used)}')
 print(f'   distinct     {len(c)}')
 print(f'   duplicates   {[k for k, n in c.items() if n > 1] or "none"}')
 print(f'   unplaced     {missing or "none"}')
-print( '   held back    FPGA-05 (Dante DDM READY badge, ruling 01)')
+print(f'   held back    {", ".join(sorted(HELD)) or "nothing"}'
+      + (' (Dante DDM READY badge, ruling 01)' if HELD else ''))
 
 print()
 print('=' * 78)
@@ -130,6 +138,17 @@ for sl in sorted(SPEC):
         ss = src.resize((hwD, hhD), Image.LANCZOS)
         m = (np.asarray(ss.split()[3]) > 250) if ss.mode == 'RGBA' else np.ones((hhD, hwD), bool)
         ss = np.asarray(ss.convert('RGB')).astype(np.float32)
+        # The red diagonal and the solid block are drawn over the photograph on
+        # purpose, and a tall hero reaches down into both. Left in, they read as
+        # a +4.35 red lift in the hero's bottom third while the top two thirds
+        # sit at the resampling floor -- so mask them, exactly as the band check
+        # does, or this measures the rule rather than the photograph.
+        yy, xx = np.mgrid[0:hhD, 0:hwD]
+        px, py = hx + xx / S, hy + yy / S
+        ly = f['diag'][0] + (f['diag'][1] - f['diag'][0]) * (1092 - px) / 1104
+        m &= np.abs(py - ly) > 9
+        bx, by, bw, bh = f['blk']
+        m &= ~((px >= bx - 2) & (px <= bx + bw + 2) & (py >= by - 2) & (py <= by + bh + 2))
         if m.sum() > 5000 and rr.shape[:2] == m.shape:
             d = [rr[..., i][m].mean() - ss[..., i][m].mean() for i in range(3)]
             sa = float((rr.max(2)-rr.min(2))[m].mean()); sb = float((ss.max(2)-ss.min(2))[m].mean())

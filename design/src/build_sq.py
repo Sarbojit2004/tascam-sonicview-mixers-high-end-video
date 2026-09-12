@@ -26,9 +26,18 @@ All eight mechanics survive; image assets are shared with the 9:16 build -- same
 mattes, same trims, same colour handling -- so nothing is re-derived here.
 """
 import json, os, sys, string, time
-SP = os.path.dirname(os.path.abspath(__file__))
-SV = os.path.join(os.path.dirname(SP), 'sv')
-sys.path.insert(0, SV)
+
+# One renderer, two series. `SERIES` selects which spec and which prepared
+# assets to draw from -- sv (Sonicview) or ms (Model). Everything else, the
+# layout engine, the forward text layer and the verification hooks, is shared,
+# so a fix lands on both sets rather than drifting between two copies.
+SERIES = os.environ.get('SERIES', 'sv')
+assert SERIES in ('sv', 'ms'), SERIES
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SRC = os.path.join(ROOT, SERIES)            # spec + prepared assets
+SP = os.path.join(ROOT, SERIES + 'q')       # this format's output
+os.makedirs(SP, exist_ok=True)
+sys.path.insert(0, SRC)
 from spec import SPEC
 from PIL import Image
 
@@ -260,7 +269,14 @@ async function layout(){
   if (natural < TARGET) {
     // n characters give n-1 gaps once the trailing space is pulled back off
     const n = Math.max(2, l1.textContent.length);
-    track = (TARGET - natural) / (n - 1);
+    // Cap the tracking at an optical maximum and let a short word end short.
+    // The vertical budget already pins the size at 300, so a seven-letter word
+    // like SURFACE cannot reach the measure by growing -- it can only be pulled
+    // apart, and at 27px of spacing it stopped reading as a word at all. Ending
+    // at ~85% of the measure is a ragged display line; 27px of tracking is a
+    // row of letters. (This binds only on the Model set; the Sonicview words
+    // are long enough that their tracking never exceeds 2px.)
+    track = Math.min(0.03 * size, (TARGET - natural) / (n - 1));
   }
   probe.remove();
 
@@ -422,6 +438,7 @@ def build_html(sl, s):
         MARK=json.dumps(list(s['mark'])) if 'mark' in s else 'null',
         FOUND=found,
     )
+    html = html.replace('../../sv/', f'../../{SERIES}/')
     p = os.path.join(PAGES, f'sq{sl}.html')
     open(p, 'w').write(html)
     return p

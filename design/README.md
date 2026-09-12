@@ -92,11 +92,15 @@ wide and the same elements vanished in the average.
 2160 px with no upscaling. No third-party design tool is involved.
 
 ```
-python3 prep_all.py      # mattes, trims and textures -> build/
-python3 build_all.py     # the 9:16 set
-python3 build_sq.py      # the square set
-python3 verify_sq.py     # the measurement pass
+python3 prep_all.py                 # mattes, trims and textures -> build/
+python3 build_all.py                # the 9:16 set
+SERIES=sv python3 build_sq.py       # the square set
+SERIES=sv python3 verify_sq.py      # the measurement pass
 ```
+
+`build_sq.py` and `verify_sq.py` are shared with the Model series and select
+between them with `SERIES=sv|ms`, so a fix lands on both rather than drifting
+between two copies.
 
 `prep_all.py` expects this repository's frames at the path in its `ROOT`
 constant, and the scripts resolve fonts and prepared assets relative to their

@@ -1,3 +1,19 @@
+# TASCAM Sonicview — Square 4K Reel (60 s, two music cuts)
+
+**New:** [`reel-square-4k/`](reel-square-4k/README.md) — a 60-second, 3840 × 3840 beat-locked reel
+covering all 129 distinct repository images, cut twice: to AC/DC's *Thunderstruck* and to Lost
+Sky's *Where We Started* (NCS). Ten-second outro in the Audient Horizon presentation language with
+the transparent TASCAM and Shivansh Electronics marks. Finished files:
+
+| File | What |
+|---|---|
+| `reel-square-4k/out/sonicview-square-4k-thunderstruck.mp4` | 3840 × 3840, Thunderstruck cut |
+| `reel-square-4k/out/sonicview-square-4k-lostsky.mp4` | 3840 × 3840, Where We Started cut |
+| `reel-square-4k/out/*-1080.mp4` | 1080 × 1080 upload copies |
+| `reel-square-4k/thumbnails/` | square 4K thumbnails (+ 1080 JPG) |
+
+---
+
 # TASCAM Sonicview — Three 88-Second Vertical Reels
 
 Source assets and the Remotion production for a three-part reel series on the **TASCAM Sonicview

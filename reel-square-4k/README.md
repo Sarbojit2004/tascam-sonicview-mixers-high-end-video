@@ -10,7 +10,8 @@ flash, product swap and outro reveal lands on *that* song's own beat grid.
 | **Where We Started** | Lost Sky — *Where We Started (feat. Jex)* [NCS] | 60.03 s | 1,801 @ 30 fps | `out/sonicview-square-4k-lostsky.mp4` |
 
 Both are **3840 × 3840** (square 4K). Each also ships as a `-1080.mp4` upload copy and with a
-square 4K thumbnail in `thumbnails/`.
+**9:16 portrait 4K thumbnail** (2160 × 3840, plus a 1080 × 1920 copy) in `thumbnails/`
+(`CoverThunderstruck` / `CoverLostSky` compositions).
 
 ---
 

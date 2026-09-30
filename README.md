@@ -10,7 +10,7 @@ the transparent TASCAM and Shivansh Electronics marks. Finished files:
 | `reel-square-4k/out/sonicview-square-4k-thunderstruck.mp4` | 3840 × 3840, Thunderstruck cut |
 | `reel-square-4k/out/sonicview-square-4k-lostsky.mp4` | 3840 × 3840, Where We Started cut |
 | `reel-square-4k/out/*-1080.mp4` | 1080 × 1080 upload copies |
-| `reel-square-4k/thumbnails/` | square 4K thumbnails (+ 1080 JPG) |
+| `reel-square-4k/thumbnails/` | 9:16 portrait thumbnails, 2160 × 3840 (+ 1080 × 1920 JPG) |
 
 ---
 

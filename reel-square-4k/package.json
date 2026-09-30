@@ -1,0 +1,31 @@
+{
+  "name": "sonicview-square-4k-reel",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TASCAM Sonicview — 60 s square 4K reel (3840x3840), two music versions, Shivansh Electronics. Remotion.",
+  "scripts": {
+    "studio": "remotion studio",
+    "typecheck": "tsc --noEmit",
+    "prep:images": "python3 scripts/prep_images.py",
+    "prep:music": "python3 scripts/music.py",
+    "audit": "node scripts/audit.mjs",
+    "render:thunder": "sh scripts/render.sh ReelThunderstruck sonicview-square-4k-thunderstruck thunderstruck",
+    "render:lostsky": "sh scripts/render.sh ReelLostSky sonicview-square-4k-lostsky lostsky",
+    "thumbs": "node scripts/thumbs.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/unbounded": "^5.2.5",
+    "@fontsource/poppins": "^5.2.5",
+    "@remotion/bundler": "4.0.497",
+    "@remotion/cli": "4.0.497",
+    "@remotion/renderer": "4.0.497",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.497"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "typescript": "5.6.3"
+  }
+}

@@ -1,0 +1,13 @@
+node_modules/
+build/
+logs/
+# derived media — rebuilt by scripts/prep_images.py, make_variants.py and music.py
+public/img/
+public/img-m/
+public/cut/
+public/cut-m/
+public/blur/
+public/ko/
+public/audio/
+scripts/cache/*_full.wav
+scripts/__pycache__/

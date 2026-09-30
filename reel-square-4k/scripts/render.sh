@@ -3,7 +3,7 @@
 #   sh scripts/render.sh ReelThunderstruck sonicview-square-4k-thunderstruck thunderstruck
 #
 # 1. Remotion renders the picture at --scale=2 (1920 design space -> 3840 px)
-#    to a near-lossless CRF 12 master in build/ (not committed).
+#    to a high-quality CRF 16 master in build/ (not committed).
 # 2. ffmpeg muxes the exact music edit (public/audio/<v>.wav) and encodes:
 #      out/<name>.mp4        3840 x 3840, H.264 High, 2-pass ~11.5 Mb/s, AAC 320k
 #                            (kept under GitHub's 100 MB file limit)
@@ -16,21 +16,24 @@ CONC=${CONC:-3}
 mkdir -p build out
 if [ ! -f "build/$NAME-master.mp4" ] || [ -n "$FORCE" ]; then
   npx remotion render src/index.ts "$ID" "build/$NAME-master.mp4" \
-    --scale=2 --codec=h264 --crf=12 --pixel-format=yuv420p --muted \
+    --scale=2 --codec=h264 --crf=16 --muted \
     --concurrency="$CONC" $EXTRA
 fi
 AUDIO=public/audio/$V.wav
+# Remotion writes full-range BT.601; deliver limited-range BT.709, tagged.
+COL="scale=in_range=full:out_range=limited:in_color_matrix=bt601:out_color_matrix=bt709"
+TAGS="-colorspace bt709 -color_primaries bt709 -color_trc bt709 -color_range tv"
 cd build
-ffmpeg -y -v error -i "$NAME-master.mp4" -c:v libx264 -preset slow -b:v 11500k -maxrate 20M -bufsize 30M \
+ffmpeg -y -v error -i "$NAME-master.mp4" -vf "$COL,format=yuv420p" -c:v libx264 -preset slow -b:v 11500k -maxrate 20M -bufsize 30M \
   -profile:v high -pix_fmt yuv420p -x264-params "aq-mode=3" -pass 1 -passlogfile "$NAME" -an -f mp4 /dev/null
 cd ..
 ffmpeg -y -v error -i "build/$NAME-master.mp4" -i "$AUDIO" -map 0:v:0 -map 1:a:0 \
-  -c:v libx264 -preset slow -b:v 11500k -maxrate 20M -bufsize 30M -profile:v high -pix_fmt yuv420p \
+  -vf "$COL,format=yuv420p" $TAGS -c:v libx264 -preset slow -b:v 11500k -maxrate 20M -bufsize 30M -profile:v high -pix_fmt yuv420p \
   -x264-params "aq-mode=3" -pass 2 -passlogfile "build/$NAME" \
   -c:a aac -b:a 320k -ar 48000 -shortest -movflags +faststart \
   -metadata title="TASCAM Sonicview — Shivansh Electronics" "out/$NAME.mp4"
 ffmpeg -y -v error -i "build/$NAME-master.mp4" -i "$AUDIO" -map 0:v:0 -map 1:a:0 \
-  -vf "scale=1080:1080:flags=lanczos" -c:v libx264 -preset slow -crf 16 -maxrate 14M -bufsize 20M \
+  -vf "$COL:w=1080:h=1080:flags=lanczos,format=yuv420p" $TAGS -c:v libx264 -preset slow -crf 16 -maxrate 14M -bufsize 20M \
   -profile:v high -pix_fmt yuv420p -c:a aac -b:a 320k -ar 48000 -shortest -movflags +faststart \
   -metadata title="TASCAM Sonicview — Shivansh Electronics" "out/$NAME-1080.mp4"
 ls -la "out/$NAME.mp4" "out/$NAME-1080.mp4"

@@ -185,7 +185,7 @@ export const Finale: React.FC = () => {
               <div style={{fontFamily: FONT.display, fontWeight: 600, fontSize: 92, letterSpacing: '0.32em', color: '#fff', paddingLeft: '0.32em'}}>SONICVIEW</div>
             </MaskRise>
             <MaskRise p={clamp((f - boom - 8) / 8)} style={{marginTop: 24}}>
-              <Eyebrow size={34} track={0.3} color={t.b}>
+              <Eyebrow size={34} track={0.3} color={t.b} style={{textTransform: 'none'}}>
                 16XP · 16dp · 24XP · 24dp
               </Eyebrow>
             </MaskRise>

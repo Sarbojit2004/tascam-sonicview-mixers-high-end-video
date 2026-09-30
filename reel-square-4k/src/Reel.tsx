@@ -4,7 +4,7 @@ import {SceneProvider, VersionProvider, useV} from './lib/ctx';
 import {IMPACT_BARS, SceneId, TimedScene, timeline} from './lib/plan';
 import {VersionId} from './lib/music';
 import {clamp, easeOutExpo, lerp} from './lib/anim';
-import {Camera, Flashes, Grain, Hud, Lightning, Shockwaves, Streaks, Vignette} from './fx/fx';
+import {Camera, Flashes, Hud, Lightning, Shockwaves, Streaks, Vignette} from './fx/fx';
 import {Hook, S16, S24} from './scenes/A';
 import {Engine, View, Wall} from './scenes/B';
 import {Cards, Dante, Flow} from './scenes/C';
@@ -97,7 +97,6 @@ const Inner: React.FC = () => {
       <Flashes hits={hits} />
       <HudLayer tl={tl} />
       <Vignette />
-      <Grain o={0.06} />
       <Audio src={staticFile(`audio/${v}.wav`)} />
     </AbsoluteFill>
   );

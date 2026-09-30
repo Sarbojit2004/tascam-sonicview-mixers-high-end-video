@@ -5,6 +5,7 @@ import {clamp, easeInCubic, easeOutCubic, easeOutExpo, easeInOutSine, lerp, nois
 import {envSmooth, pulse} from '../lib/music';
 import {FONT, rgba} from '../lib/theme';
 import {Chip, Eyebrow, GlassCard, Hero, Logo, MaskRise, Slam} from '../ui/kit';
+import {cutAspect} from '../lib/assets';
 import {Backdrop} from '../fx/fx';
 
 const S = 1920;
@@ -48,7 +49,7 @@ export const Hook: React.FC = () => {
     <AbsoluteFill style={{transform: `scale(${1 + suck * 0.08})`}}>
       <Backdrop dim={0.55} grid={0.35} />
       <AbsoluteFill style={{transform: `scale(${push})`, transformOrigin: '50% 72%'}}>
-        <Hero id={105} x={S / 2} y={1600} w={1720} glow={0.4 + reveal} reflect={0.2} />
+        <Hero id={105} x={S / 2} y={1720} w={1640} glow={0.4 + reveal} reflect={0.2} />
       </AbsoluteFill>
       {/* darkness with a moving hole of light */}
       <AbsoluteFill
@@ -133,7 +134,7 @@ const HeroSequence: React.FC<{
 }> = ({word, title, kicker, steps, heroHoldBeats, specs, finale, quad = []}) => {
   const f = useCurrentFrame();
   const {m, t} = useV();
-  const {dur, beats, bars} = useScene();
+  const {dur, beats, bars, eighths} = useScene();
   const quadStart = finale ? bars[bars.length - 2] ?? dur : dur;
   const avail = beats.filter((b) => b >= (beats[heroHoldBeats] ?? 0) && b < quadStart);
   const starts = [0, ...spread(avail, steps.length - 1)];
@@ -177,7 +178,7 @@ const HeroSequence: React.FC<{
           id={cur.id}
           x={S / 2 + (1 - easeOutExpo(inP)) * 260 * side}
           y={1540}
-          w={i === 0 ? lerp(2100, 1560, easeOutExpo(clamp(f / 10))) : 1500}
+          w={Math.min(i === 0 ? lerp(2100, 1560, easeOutExpo(clamp(f / 10))) : 1500, 1000 * cutAspect(cur.id))}
           rot={(1 - easeOutCubic(inP)) * 16 * side + noise1(f / 50, i) * 1.5}
           opacity={clamp(since / 2 + 0.2)}
           glow={0.5 + low * 0.6}
@@ -185,7 +186,7 @@ const HeroSequence: React.FC<{
       )}
       {inQuad &&
         quad.map((id, k) => {
-          const qs = beats.filter((b) => b >= quadStart)[k] ?? quadStart + k * 6;
+          const qs = eighths.filter((b) => b >= quadStart)[k] ?? quadStart + k * 4;
           const qp = clamp((f - qs) / 6);
           const col = k % 2;
           const row = Math.floor(k / 2);
@@ -304,15 +305,18 @@ export const S24: React.FC = () => {
           const es = eighths.filter((e) => e >= gStarts[g.i]);
           const s = es[k] ?? gStarts[g.i] + k * 4;
           const p = clamp((f - s) / 7);
-          const w = 560;
-          const x = 120 + k * (w + 40);
+          const box = [
+            {x: 120, y: 540, w: 1090, h: 1080},
+            {x: 1240, y: 540, w: 560, h: 525},
+            {x: 1240, y: 1095, w: 560, h: 525},
+          ][k];
           return (
             <GlassCard
               key={`${g.i}-${k}`}
               id={id}
               mode="cut"
-              size="m"
-              b={{x, y: 560, w, h: 1040}}
+              size={k === 0 ? 'l' : 'm'}
+              b={box}
               r={36}
               pad={0.05}
               kb={clamp((f - s) / 50)}

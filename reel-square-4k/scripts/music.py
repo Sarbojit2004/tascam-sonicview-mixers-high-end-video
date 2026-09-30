@@ -44,6 +44,7 @@ SONGS = {
         'title': 'AC/DC — Thunderstruck',
         'segments': [(24.06, 74.48), (280.23, 290.64)],
         'fade_out': 0.34,          # the final stab at 289.45 rings out by ~290.6
+        'lift_db': 3.5,            # the quiet riff opening leaves the edit at -15.4 LUFS
         'sections': [              # reel bars (from 0) where the music changes
             {'bar': 0, 'name': 'riff'},
             {'bar': 3, 'name': 'drums'},
@@ -190,6 +191,14 @@ def build(song_id, cfg):
     import wave
     with wave.open(wav_path, 'wb') as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
+
+    # Optional loudness lift through a transparent peak limiter (-1 dBFS ceiling).
+    if cfg.get('lift_db'):
+        tmp = wav_path + '.lift.wav'
+        subprocess.run([FFMPEG, '-v', 'error', '-y', '-i', wav_path, '-af',
+                        f"volume={cfg['lift_db']}dB,alimiter=limit=0.891:attack=3:release=60:level=disabled",
+                        '-c:a', 'pcm_s16le', tmp], check=True)
+        os.replace(tmp, wav_path)
 
     # ---- map beats into reel time
     def to_reel(t):

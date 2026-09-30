@@ -1,6 +1,6 @@
 import React from 'react';
 import {Img} from 'remotion';
-import {CUT, CUT_M, IMG, IMG_M, LOGO, LOGO_ASPECT, aspect, cutAspect, hasCut} from '../lib/assets';
+import {CUT, CUT_M, IMG, IMG_M, LOGO, LOGO_ASPECT, aspect, cutAspect, hasCut, info} from '../lib/assets';
 import {FONT, rgba} from '../lib/theme';
 import {useV} from '../lib/ctx';
 import {clamp, easeOutCubic, easeOutExpo, lerp} from '../lib/anim';
@@ -41,7 +41,8 @@ export const GlassCard: React.FC<{
   children?: React.ReactNode;
 }> = ({id, b, r = 28, mode = 'auto', size = 'm', kb = 0, pad = 0.09, glow = 0, style, children}) => {
   const {t} = useV();
-  const m = mode === 'auto' ? (hasCut(id) ? 'cut' : 'cover') : mode;
+  // white-sweep shots that could not be keyed sit on a light 'paper' card instead
+  const m = mode === 'auto' ? (hasCut(id) ? 'cut' : info(id).white > 0.3 ? 'paper' : 'cover') : mode;
   const src = m === 'cut' ? (size === 'l' ? CUT(id) : CUT_M(id)) : size === 'l' ? IMG(id) : IMG_M(id);
   const inner = (() => {
     if (m === 'cut') {

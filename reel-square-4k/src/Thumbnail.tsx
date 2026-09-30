@@ -38,7 +38,7 @@ const Inner: React.FC = () => {
         <Ribbons o={0.9} />
       )}
       {/* hero */}
-      <Hero id={109} x={S / 2} y={1600} w={1880} glow={1.3} reflect={0.26} />
+      <Hero id={109} x={S / 2} y={1655} w={1700} glow={1.3} reflect={0.26} />
       <AbsoluteFill style={{background: `linear-gradient(180deg, ${t.bg} 0%, rgba(0,0,0,0.55) 26%, rgba(0,0,0,0) 44%)`}} />
 
       {/* masthead */}

@@ -115,7 +115,7 @@ export const Dante: React.FC = () => {
           <div style={{fontFamily: FONT.display, fontWeight: 700, fontSize: 84, color: '#fff', lineHeight: 1.1}}>Dante 64 × 64</div>
         </MaskRise>
       </div>
-      <div style={{position: 'absolute', left: 120, top: 1740}}>
+      <div style={{position: 'absolute', left: 120, top: 1690}}>
         {f < (bars[1] ?? dur / 2) ? (
           <MaskRise p={clamp((f - (beats[2] ?? 10)) / 7)}>
             <Chip size={28}>SB-16D STAGEBOX · 16 IN / 16 OUT</Chip>
@@ -196,7 +196,7 @@ export const Cards: React.FC = () => {
           <div style={{fontFamily: FONT.display, fontWeight: 700, fontSize: 84, color: '#fff', lineHeight: 1.1}}>Two slots. Every protocol.</div>
         </MaskRise>
       </div>
-      <div style={{position: 'absolute', left: 120, top: 1740}}>
+      <div style={{position: 'absolute', left: 120, top: 1690}}>
         {c.i >= 0 && (
           <MaskRise key={c.i} p={clamp(c.since / 6)}>
             <Chip size={30}>{PROTOCOLS[c.i]}</Chip>

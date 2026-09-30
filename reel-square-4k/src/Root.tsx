@@ -3,9 +3,6 @@ import {Composition, Still} from 'remotion';
 import {Reel} from './Reel';
 import {Thumbnail} from './Thumbnail';
 import {MUSIC} from './lib/music';
-import {loadFonts} from './fonts';
-
-loadFonts();
 
 /**
  * Design space is 1920 x 1920; every render passes --scale=2, so the output is

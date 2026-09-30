@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Sequence, staticFile, useCurrentFrame} from 'remotion';
+import {AbsoluteFill, Audio, Sequence, getRemotionEnvironment, staticFile, useCurrentFrame} from 'remotion';
 import {SceneProvider, VersionProvider, useV} from './lib/ctx';
 import {IMPACT_BARS, SceneId, TimedScene, timeline} from './lib/plan';
 import {VersionId} from './lib/music';
@@ -9,6 +9,7 @@ import {Hook, S16, S24} from './scenes/A';
 import {Engine, View, Wall} from './scenes/B';
 import {Cards, Dante, Flow} from './scenes/C';
 import {Field, Finale, Outro} from './scenes/D';
+import {useFonts} from './fonts';
 
 const SCENE: Record<SceneId, React.FC> = {
   hook: Hook,
@@ -47,6 +48,7 @@ const HudLayer: React.FC<{tl: TimedScene[]}> = ({tl}) => {
 };
 
 const Inner: React.FC = () => {
+  useFonts();
   const {m, v, t} = useV();
   const tl = timeline(m);
   const impacts = IMPACT_BARS[v].map((b) => m.downbeats[b].f);
@@ -97,7 +99,9 @@ const Inner: React.FC = () => {
       <Flashes hits={hits} />
       <HudLayer tl={tl} />
       <Vignette />
-      <Audio src={staticFile(`audio/${v}.wav`)} />
+      {/* Preview only: renders are muted and the exact edit is muxed by scripts/render.sh.
+          A mounted <Audio> would hold a streaming connection open in every render tab. */}
+      {!getRemotionEnvironment().isRendering && <Audio src={staticFile(`audio/${v}.wav`)} />}
     </AbsoluteFill>
   );
 };

@@ -6,10 +6,12 @@ import {COPY, FONT, rgba} from './lib/theme';
 import {Chip, Hero, Logo, Pill, logoH} from './ui/kit';
 import {Grain, Lightning, Ribbons, Vignette} from './fx/fx';
 import {ICON} from './lib/assets';
+import {useFonts} from './fonts';
 
 const S = 1920;
 
 const Inner: React.FC = () => {
+  useFonts();
   const {t, v} = useV();
   const tw = 470;
   return (

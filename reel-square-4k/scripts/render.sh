@@ -14,10 +14,26 @@ NAME=$2
 V=$3
 CONC=${CONC:-3}
 mkdir -p build out
+# The master is rendered in 300-frame segments so an interrupted render
+# resumes where it stopped; segments are joined losslessly (stream copy).
+FRAMES=$(node -e "console.log(require('./src/music/$V.json').frames)")
+SEG=300
 if [ ! -f "build/$NAME-master.mp4" ] || [ -n "$FORCE" ]; then
-  npx remotion render src/index.ts "$ID" "build/$NAME-master.mp4" \
-    --scale=2 --codec=h264 --crf=16 --muted \
-    --concurrency="$CONC" $EXTRA
+  mkdir -p "build/seg-$NAME"
+  : > "build/seg-$NAME/list.txt"
+  a=0
+  while [ $a -lt $FRAMES ]; do
+    b=$((a + SEG - 1)); [ $b -ge $FRAMES ] && b=$((FRAMES - 1))
+    f="build/seg-$NAME/$(printf %05d $a).mp4"
+    if [ ! -f "$f" ]; then
+      npx remotion render src/index.ts "$ID" "$f.part.mp4" --frames=$a-$b \
+        --scale=2 --codec=h264 --crf=16 --muted --concurrency="$CONC" $EXTRA
+      mv "$f.part.mp4" "$f"
+    fi
+    echo "file '$(basename "$f")'" >> "build/seg-$NAME/list.txt"
+    a=$((b + 1))
+  done
+  ffmpeg -y -v error -f concat -safe 0 -i "build/seg-$NAME/list.txt" -c copy "build/$NAME-master.mp4"
 fi
 AUDIO=public/audio/$V.wav
 # Remotion writes full-range BT.601; deliver limited-range BT.709, tagged.

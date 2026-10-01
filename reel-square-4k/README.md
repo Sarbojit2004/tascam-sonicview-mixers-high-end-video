@@ -10,9 +10,23 @@ flash, product swap and outro reveal lands on *that* song's own beat grid.
 | **Where We Started** | Lost Sky — *Where We Started (feat. Jex)* [NCS] | 60.03 s | 1,801 @ 30 fps | `out/sonicview-square-4k-lostsky.mp4` |
 
 Both are **3840 × 3840** (square 4K). Each also ships as a `-1080.mp4` upload copy and with a
-square 4K thumbnail in `thumbnails/`.
+**9:16 portrait 4K thumbnail** (2160 × 3840, plus a 1080 × 1920 copy) in `thumbnails/`
+(`CoverThunderstruck` / `CoverLostSky` compositions).
 
 ---
+
+## Delivered files (verified by `scripts/verify.py`)
+
+| File | Size | Frames | Length |
+|---|---|---|---|
+| `out/sonicview-square-4k-thunderstruck.mp4` — 3840×3840 | 90.3 MB | 1,827 | 60.900 s |
+| `out/sonicview-square-4k-thunderstruck-1080.mp4` | 50.4 MB | 1,827 | 60.900 s |
+| `out/sonicview-square-4k-lostsky.mp4` — 3840×3840 | 88.9 MB | 1,801 | 60.030 s |
+| `out/sonicview-square-4k-lostsky-1080.mp4` | 48.1 MB | 1,801 | 60.030 s |
+| `thumbnails/sonicview-*-thumbnail-9x16-4k.jpg` | 2160×3840 | — | — |
+
+H.264 High, BT.709, AAC 320 kb/s. The 4K files are H.264 level 6 (3840×3840 exceeds
+level 5.2), which some phones cannot preview; use the `-1080` copy for uploading from a phone.
 
 ## The music edits
 

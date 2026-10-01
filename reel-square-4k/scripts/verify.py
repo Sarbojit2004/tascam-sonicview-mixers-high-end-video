@@ -21,14 +21,14 @@ def probe(path):
     dur = re.search(r'Duration: (\d+):(\d+):([\d.]+)', err)
     d = int(dur[1]) * 3600 + int(dur[2]) * 60 + float(dur[3])
     v = re.search(r'Video: (\w+).*?, (\d+)x(\d+)', err)
-    a = re.search(r'Audio: (\w+), (\d+) Hz', err)
+    a = re.search(r'Audio: (\w+)', err)
     return err, d, v, a
 
 
 def frames(path):
-    out = subprocess.run([FF, '-hide_banner', '-i', path, '-map', '0:v:0', '-c', 'copy', '-f', 'null', '-'],
+    out = subprocess.run([FF, '-hide_banner', '-stats', '-i', path, '-map', '0:v:0', '-f', 'null', '-'],
                          capture_output=True, text=True).stderr
-    m = re.findall(r'frame=\s*(\d+)', out)
+    m = re.findall(r'frame=\s*(\d+)', out.replace('\r', '\n'))
     return int(m[-1]) if m else -1
 
 
